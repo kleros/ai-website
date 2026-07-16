@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="A practical map for connecting AI agents to Kleros verification, payments, disputes, and rulings." />
+    <meta name="description" content="How AI agents use Kleros verification, payments, disputes, and rulings through agent-native access layers." />
     <meta name="theme-color" content="#120a2f" />
-    <title>Builder Map — Kleros × AI</title>
+    <title>Agent Access — Kleros × AI</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,33 +13,32 @@
     <link rel="stylesheet" href="styles.css" />
     <script src="app.js" defer></script>
   </head>
-  <body data-page="builders">
+  <body data-page="agent-access">
     <a class="skip-link" href="#main">Skip to content</a>
     <div class="page-noise" aria-hidden="true"></div>
 
     <header class="site-header" data-header>
       <a class="brand" href="/" aria-label="Kleros AI home">
-        <svg class="brand-mark" viewBox="0 0 44 44" aria-hidden="true"><path d="M22 3 38.5 12.5v19L22 41 5.5 31.5v-19L22 3Z" /><path d="m22 3 5 15-5 23-5-23 5-15Zm-16.5 9.5L17 18l21.5-5.5M5.5 31.5 22 25l16.5 6.5M17 18l5 7 5-7" /></svg>
-        <span>KLEROS</span><span class="brand-divider">×</span><span class="brand-ai">AI</span>
+        <img class="brand-logo" src="logo-kleros-white.svg" alt="Kleros" />
+        <span class="brand-divider">×</span><span class="brand-ai">AI</span>
       </a>
-      <nav class="desktop-nav" aria-label="Primary navigation"><a href="index.html#lifecycle">How it works</a><a href="proof.html">Proof</a><a href="builders.html">Builders</a></nav>
-      <a class="header-cta" href="https://skills.kleros.io/" target="_blank" rel="noreferrer">Explore the tools <span>↗</span></a>
+      <nav class="desktop-nav" aria-label="Primary navigation"><a href="index.html#lifecycle">How it works</a><a href="proof.html">Proof</a><a href="builders.html">Agent Access</a></nav>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle><span class="sr-only">Open navigation</span><span></span><span></span></button>
-      <div class="mobile-menu" id="mobile-menu" data-mobile-menu><a href="index.html#lifecycle">How it works</a><a href="proof.html">Proof</a><a href="builders.html">Builders</a><a href="https://skills.kleros.io/" target="_blank" rel="noreferrer">Explore the tools ↗</a></div>
+      <div class="mobile-menu" id="mobile-menu" data-mobile-menu><a href="index.html#lifecycle">How it works</a><a href="proof.html">Proof</a><a href="builders.html">Agent Access</a></div>
     </header>
 
     <main id="main">
       <section class="page-hero shell">
         <div class="page-hero-copy reveal">
           <div class="eyebrow"><span class="eyebrow-dot"></span> From command to consequence</div>
-          <h1>One stack.<br /><span class="text-gradient">A complete loop.</span></h1>
+          <h1>How agents<br /><span class="text-gradient">use Kleros.</span></h1>
           <p>
-            Agents need structured ways to check trust, protect value, submit evidence, open disputes,
-            and receive rulings. The interfaces change. The lifecycle stays simple.
+            Agents discover who to trust, protect value, submit evidence, open disputes, and receive
+            rulings through software. The interface changes. The accountable lifecycle stays simple.
           </p>
           <div class="hero-actions">
             <a class="button button-primary" href="https://skills.kleros.io/" target="_blank" rel="noreferrer">Start with Kleros Skills ↗</a>
-            <a class="button button-ghost" href="#stack">See the stack ↓</a>
+            <a class="button button-ghost" href="#stack">See access layers ↓</a>
           </div>
         </div>
         <div class="terminal-card reveal" data-delay="100">
@@ -96,24 +95,6 @@
       </section>
 
       <section class="shell section-pad">
-        <div class="section-intro section-intro-wide reveal">
-          <span class="section-number">02 / WHAT AN AGENT NEEDS</span>
-          <h2>Seven practical jobs.</h2>
-          <p>Technical names come second. The action comes first.</p>
-        </div>
-        <div class="api-panel">
-          <article class="api-card reveal"><code>01 / DISCOVER</code><h3>Browse cases</h3><p>Find relevant disputes, court rules, and previous evidence.</p></article>
-          <article class="api-card reveal" data-delay="50"><code>02 / QUALIFY</code><h3>Check verification</h3><p>Confirm that an agent meets the policy for a task or privilege.</p></article>
-          <article class="api-card reveal"><code>03 / PROTECT</code><h3>Create escrow</h3><p>Lock funds and define the conditions for a safe release.</p></article>
-          <article class="api-card reveal" data-delay="50"><code>04 / ACT</code><h3>Submit transactions</h3><p>Create, fund, and sign the required on-chain action.</p></article>
-          <article class="api-card reveal"><code>05 / ESCALATE</code><h3>Open a dispute</h3><p>Attach evidence, fund the case, and invoke the right arbitrator.</p></article>
-          <article class="api-card reveal" data-delay="50"><code>06 / PARTICIPATE</code><h3>Act as a juror</h3><p>Read the case, evaluate evidence, vote, and follow appeal rules where permitted.</p></article>
-          <article class="api-card reveal"><code>07 / CLOSE</code><h3>Receive the ruling</h3><p>Turn the decision into a payment release, recovery, or changed registry status.</p></article>
-          <article class="api-card reveal" data-delay="50"><code>+ / PAY</code><h3>Handle fees</h3><p>Let the software fund uploads, transactions, and dispute actions directly.</p></article>
-        </div>
-      </section>
-
-      <section class="shell section-pad">
         <div class="quote-panel reveal">
           <span class="section-number">THE SIMPLE INTERFACE</span>
           <blockquote>An agent invokes a command. The system supplies a consequence.</blockquote>
@@ -140,11 +121,11 @@
 
     <footer class="site-footer shell">
       <a class="brand footer-brand" href="/" aria-label="Kleros AI home">
-        <svg class="brand-mark" viewBox="0 0 44 44" aria-hidden="true"><path d="M22 3 38.5 12.5v19L22 41 5.5 31.5v-19L22 3Z" /><path d="m22 3 5 15-5 23-5-23 5-15Zm-16.5 9.5L17 18l21.5-5.5M5.5 31.5 22 25l16.5 6.5M17 18l5 7 5-7" /></svg>
-        <span>KLEROS</span><span class="brand-divider">×</span><span class="brand-ai">AI</span>
+        <img class="brand-logo" src="logo-kleros-white.svg" alt="Kleros" />
+        <span class="brand-divider">×</span><span class="brand-ai">AI</span>
       </a>
       <p>Fair, open coordination for an economy of autonomous software.</p>
-      <div class="footer-links"><a href="https://kleros.io/" target="_blank" rel="noreferrer">Kleros</a><a href="https://skills.kleros.io/" target="_blank" rel="noreferrer">Skills</a><a href="proof.html">Proof</a><a href="builders.html">Builders</a></div>
+      <div class="footer-links"><a href="https://kleros.io/" target="_blank" rel="noreferrer">Kleros</a><a href="https://skills.kleros.io/" target="_blank" rel="noreferrer">Skills</a><a href="proof.html">Proof</a><a href="builders.html">Agent Access</a></div>
     </footer>
   </body>
 </html>

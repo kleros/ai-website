@@ -6,7 +6,7 @@ A static, Vercel-ready minisite explaining the Kleros trust stack for AI agents.
 
 - `index.html` — the complete lifecycle: verify, transact, resolve, connect
 - `proof.html` — live tools, prototypes, courts, and research
-- `builders.html` — practical access layers and agent capabilities
+- `builders.html` — Agent Access: how agents use Kleros through practical access layers
 
 ## Run locally
 

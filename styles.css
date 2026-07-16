@@ -175,16 +175,7 @@ svg {
   letter-spacing: 0.22em;
 }
 
-.brand-mark {
-  width: 34px;
-  height: 34px;
-  overflow: visible;
-  fill: none;
-  stroke: currentColor;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 1.35;
-}
+.brand-logo { width: 116px; height: auto; }
 
 .brand-divider {
   margin-inline: 2px -4px;
@@ -212,24 +203,6 @@ svg {
 .desktop-nav a:hover,
 .footer-links a:hover {
   color: white;
-}
-
-.header-cta {
-  display: inline-flex;
-  align-items: center;
-  justify-self: end;
-  gap: 10px;
-  padding: 11px 16px;
-  border: 1px solid var(--line-strong);
-  border-radius: 10px;
-  font-size: 12px;
-  font-weight: 700;
-  transition: 180ms ease;
-}
-
-.header-cta:hover {
-  border-color: var(--purple-bright);
-  background: rgba(134, 91, 255, 0.12);
 }
 
 .menu-toggle,
@@ -923,6 +896,27 @@ svg {
   line-height: 1.7;
 }
 
+.discovery-path {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 24px;
+  color: #aaa3b6;
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+}
+
+.discovery-path span {
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.discovery-path b { margin-right: 4px; color: var(--cyan); font-weight: 400; }
+.discovery-path i { color: var(--muted-2); font-style: normal; }
+
 .feature-list {
   margin: 30px 0;
   padding: 0;
@@ -1317,6 +1311,8 @@ svg {
 .evidence-row { display: grid; grid-template-columns: .55fr 1fr .35fr; gap: 45px; align-items: start; padding: 70px 0; border-bottom: 1px solid var(--line); }
 .evidence-row h2 { margin: 16px 0 0; font-size: clamp(30px,3.4vw,48px); font-weight: 500; letter-spacing: -.05em; line-height: 1.1; }
 .evidence-row-copy > p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.75; }
+.evidence-row-copy > p + p { margin-top: 16px; }
+.evidence-row-copy > .evidence-lead { color: var(--ink); font-size: 18px; font-weight: 600; line-height: 1.5; }
 .evidence-points { display: grid; gap: 9px; margin-top: 25px; }
 .evidence-points span { padding: 10px 12px; border: 1px solid var(--line); border-radius: 8px; color: #9891a1; font-family: var(--mono); font-size: 9px; }
 .evidence-row-action { justify-self: end; }
@@ -1336,12 +1332,6 @@ svg {
 .stack-card p { margin: 10px 0 0; color: #8d8697; font-size: 12px; }
 .stack-card ul { display: flex; flex-wrap: wrap; gap: 6px; margin: 22px 0 0; padding: 0; list-style: none; }
 .stack-card li { padding: 6px 8px; border: 1px solid var(--line); border-radius: 5px; color: #817a8c; font-family: var(--mono); font-size: 8px; }
-
-.api-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; margin-top: 52px; }
-.api-card { min-height: 260px; padding: 25px; border: 1px solid var(--line); border-radius: 15px; background: rgba(255,255,255,.025); }
-.api-card code { color: var(--cyan); font-family: var(--mono); font-size: 10px; }
-.api-card h3 { margin: 30px 0 0; }
-.api-card p { color: #8e8798; font-size: 11px; }
 
 @media (max-width: 1040px) {
   :root { --shell: min(100% - 40px, 900px); }
@@ -1363,8 +1353,8 @@ svg {
   .section-pad { padding-block: 88px; }
   .site-header { grid-template-columns: 1fr auto; width: calc(100vw - 20px); height: 60px; margin-top: 10px; padding: 0 14px; }
   .brand { font-size: 11px; }
-  .brand-mark { width: 29px; height: 29px; }
-  .desktop-nav, .header-cta { display: none; }
+  .brand-logo { width: 106px; }
+  .desktop-nav { display: none; }
   .menu-toggle { display: flex; width: 38px; height: 38px; padding: 0; flex-direction: column; align-items: center; justify-content: center; gap: 6px; border: 1px solid var(--line); border-radius: 9px; background: rgba(255,255,255,.03); }
   .menu-toggle span:not(.sr-only) { width: 16px; height: 1px; background: white; transition: 180ms ease; }
   .menu-toggle[aria-expanded="true"] span:nth-of-type(1) { transform: translateY(3.5px) rotate(45deg); }
@@ -1432,7 +1422,8 @@ svg {
   .quote-panel { padding: 45px 25px; }
   .builder-map { grid-template-columns: 1fr; gap: 45px; }
   .sticky-copy { position: static; }
-  .api-panel { grid-template-columns: 1fr; }
+  .discovery-path { gap: 6px; }
+  .discovery-path span { padding: 7px 8px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
