@@ -1303,8 +1303,7 @@ svg {
 .page-hero h1 { font-size: clamp(58px,7vw,104px); }
 .page-hero-copy > p { max-width: 660px; margin: 28px 0 0; color: var(--muted); font-size: 19px; line-height: 1.65; }
 .page-hero-side { padding: 26px; border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.025); }
-.page-hero-side .big-stat { display: block; color: var(--purple-bright); font-size: 82px; font-weight: 500; letter-spacing: -.08em; line-height: 1; }
-.page-hero-side p { margin: 15px 0 0; color: #9e97a8; font-size: 13px; }
+.page-hero-side p { margin: 0; color: #9e97a8; font-size: 13px; }
 
 .status-key { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 28px; }
 .evidence-section { border-top: 1px solid var(--line); }
@@ -1416,7 +1415,6 @@ svg {
   .footer-links { flex-wrap: wrap; }
   .page-hero { padding-top: 145px; padding-bottom: 70px; gap: 45px; }
   .page-hero h1 { font-size: 58px; }
-  .page-hero-side .big-stat { font-size: 65px; }
   .evidence-row { grid-template-columns: 1fr; gap: 22px; padding: 55px 0; }
   .evidence-row-action { justify-self: start; }
   .quote-panel { padding: 45px 25px; }
