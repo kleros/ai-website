@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Kleros provides verification, protected payments, dispute resolution, and direct software access for AI agents."
+    />
+    <meta name="theme-color" content="#120a2f" />
+    <meta property="og:title" content="Kleros × AI — Trust at machine speed" />
+    <meta
+      property="og:description"
+      content="Verify agents. Protect payments. Resolve failures. Connect through software."
+    />
+    <meta property="og:type" content="website" />
+    <title>Kleros × AI — Trust at machine speed</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body data-page="home">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="page-noise" aria-hidden="true"></div>
+
+    <header class="site-header" data-header>
+      <a class="brand" href="/" aria-label="Kleros AI home">
+        <svg class="brand-mark" viewBox="0 0 44 44" aria-hidden="true">
+          <path d="M22 3 38.5 12.5v19L22 41 5.5 31.5v-19L22 3Z" />
+          <path d="m22 3 5 15-5 23-5-23 5-15Zm-16.5 9.5L17 18l21.5-5.5M5.5 31.5 22 25l16.5 6.5M17 18l5 7 5-7" />
+        </svg>
+        <span>KLEROS</span>
+        <span class="brand-divider">×</span>
+        <span class="brand-ai">AI</span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="#lifecycle">How it works</a>
+        <a href="proof.html">Proof</a>
+        <a href="builders.html">Builders</a>
+      </nav>
+
+      <a class="header-cta" href="https://skills.kleros.io/" target="_blank" rel="noreferrer">
+        Explore the tools <span aria-hidden="true">↗</span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle>
+        <span class="sr-only">Open navigation</span>
+        <span></span><span></span>
+      </button>
+
+      <div class="mobile-menu" id="mobile-menu" data-mobile-menu>
+        <a href="#lifecycle">How it works</a>
+        <a href="proof.html">Proof</a>
+        <a href="builders.html">Builders</a>
+        <a href="https://skills.kleros.io/" target="_blank" rel="noreferrer">Explore the tools ↗</a>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero shell">
+        <div class="hero-copy reveal">
+          <div class="eyebrow"><span class="eyebrow-dot"></span> Working systems. One clear vision.</div>
+          <h1>
+            Trust that moves at
+            <span class="text-gradient">machine speed.</span>
+          </h1>
+          <p class="hero-lead">
+            AI agents can buy, sell, and decide in seconds. Kleros gives them trusted identities,
+            protected payments, and a credible path when things go wrong.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#lifecycle">See the full loop <span aria-hidden="true">↓</span></a>
+            <a class="button button-ghost" href="proof.html">Explore live proofs</a>
+          </div>
+          <div class="hero-proofline" aria-label="Core capabilities">
+            <span><i></i> Verify before</span>
+            <span><i></i> Protect during</span>
+            <span><i></i> Resolve after</span>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal" data-delay="100">
+          <div class="orbit orbit-one" aria-hidden="true"></div>
+          <div class="orbit orbit-two" aria-hidden="true"></div>
+          <div class="agent-console" data-agent-console>
+            <div class="console-head">
+              <div>
+                <span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span>
+              </div>
+              <span>AGENT TRANSACTION / 0042</span>
+              <span class="console-live"><i></i> LIVE LOOP</span>
+            </div>
+            <div class="console-scenario">
+              <div class="agent-glyph" aria-hidden="true">
+                <span></span><span></span>
+              </div>
+              <div>
+                <small>ACTIVE SCENARIO</small>
+                <strong>Buy a verified market report</strong>
+              </div>
+              <div class="scenario-value">2.40 <small>USDC</small></div>
+            </div>
+            <ol class="console-flow" aria-label="Agent transaction lifecycle">
+              <li class="is-complete" data-console-step="0">
+                <span class="flow-index">01</span>
+                <div><strong>Agent verified</strong><small>Policy + collateral checked</small></div>
+                <span class="flow-state">PASS</span>
+              </li>
+              <li class="is-complete" data-console-step="1">
+                <span class="flow-index">02</span>
+                <div><strong>Payment protected</strong><small>Funds locked until delivery</small></div>
+                <span class="flow-state">LOCKED</span>
+              </li>
+              <li class="is-alert" data-console-step="2">
+                <span class="flow-index">03</span>
+                <div><strong>Output failed</strong><small>Requested data was not delivered</small></div>
+                <span class="flow-state">FAIL</span>
+              </li>
+              <li data-console-step="3">
+                <span class="flow-index">04</span>
+                <div><strong>Dispute routed</strong><small>Right process for value + complexity</small></div>
+                <span class="flow-state">READY</span>
+              </li>
+            </ol>
+            <button class="console-run" type="button" data-run-scenario>
+              <span class="run-icon" aria-hidden="true">▶</span>
+              <span data-run-label>Run the resolution</span>
+            </button>
+          </div>
+          <div class="floating-proof proof-a"><span>LIVE</span> Verified agent registry</div>
+          <div class="floating-proof proof-b"><span>LIVE</span> Automated court</div>
+        </div>
+      </section>
+
+      <section class="signal-band" aria-label="Kleros agent lifecycle">
+        <div class="signal-track">
+          <span>VERIFY</span><i>✦</i><span>TRANSACT</span><i>✦</i><span>RESOLVE</span><i>✦</i><span>CONNECT</span><i>✦</i>
+          <span>VERIFY</span><i>✦</i><span>TRANSACT</span><i>✦</i><span>RESOLVE</span><i>✦</i><span>CONNECT</span><i>✦</i>
+        </div>
+      </section>
+
+      <section class="problem shell section-pad">
+        <div class="section-intro reveal">
+          <span class="section-number">00 / THE SHIFT</span>
+          <h2>More agents means more of everything.</h2>
+          <p>
+            More actions. More payments. More services. More failure. Automation removes friction from
+            commerce, but it does not remove the need for trust.
+          </p>
+        </div>
+
+        <div class="multiplier reveal" data-delay="100">
+          <div class="multiplier-node node-human">
+            <span class="node-icon">1</span>
+            <strong>Human intent</strong>
+            <small>One goal</small>
+          </div>
+          <div class="multiplier-arrow" aria-hidden="true">→</div>
+          <div class="multiplier-node node-agent">
+            <span class="node-icon">∞</span>
+            <strong>Agent actions</strong>
+            <small>Continuous execution</small>
+          </div>
+          <div class="multiplier-arrow" aria-hidden="true">→</div>
+          <div class="multiplier-outcomes">
+            <span>Payments</span><span>Services</span><span>Failures</span><span>Disputes</span>
+          </div>
+        </div>
+
+        <div class="plain-truth reveal">
+          <span>THE PLAIN TRUTH</span>
+          <p>
+            Agents will not need less governance because they are automated.
+            <strong>They will need governance that operates at their speed.</strong>
+          </p>
+        </div>
+      </section>
+
+      <section class="lifecycle" id="lifecycle">
+        <div class="shell section-pad">
+          <div class="section-intro section-intro-wide reveal">
+            <span class="section-number">01 / ONE COMPLETE LOOP</span>
+            <h2>Before. During. After.</h2>
+            <p>Four layers turn one fragile agent transaction into an accountable one.</p>
+          </div>
+
+          <nav class="lifecycle-nav reveal" aria-label="Lifecycle sections">
+            <a href="#verify" class="is-active"><span>01</span> Verify</a>
+            <a href="#transact"><span>02</span> Transact</a>
+            <a href="#resolve"><span>03</span> Resolve</a>
+            <a href="#connect"><span>04</span> Connect</a>
+          </nav>
+
+          <article class="chapter chapter-verify" id="verify" data-lifecycle-section="verify">
+            <div class="chapter-copy reveal">
+              <span class="chapter-kicker"><i></i> BEFORE AN AGENT ACTS</span>
+              <h3>Trust should unlock real permission.</h3>
+              <p>
+                A badge is not enough. Verification can decide which agent gets a card, an API key,
+                private data, or a sensitive task. Collateral gives bad behavior a cost.
+              </p>
+              <ul class="feature-list">
+                <li><span>01</span> Prove expertise, identity, language, or jurisdiction.</li>
+                <li><span>02</span> Post collateral against false claims.</li>
+                <li><span>03</span> Grant access only while the agent complies.</li>
+              </ul>
+              <a class="text-link" href="https://kscore.vercel.app/verified" target="_blank" rel="noreferrer">
+                Open the verified-agent registry <span>↗</span>
+              </a>
+            </div>
+
+            <div class="interactive-card trust-builder reveal" data-delay="100">
+              <div class="card-topline">
+                <span>TRUST POLICY BUILDER</span>
+                <span class="evidence evidence-public">PUBLIC TESTNET</span>
+              </div>
+              <p class="card-prompt">Who may purchase healthcare data?</p>
+              <div class="policy-options" data-policy-options>
+                <button class="policy-chip is-selected" type="button" data-policy="Expertise">
+                  <span>✓</span> Healthcare expertise
+                </button>
+                <button class="policy-chip is-selected" type="button" data-policy="Jurisdiction">
+                  <span>✓</span> EU jurisdiction
+                </button>
+                <button class="policy-chip" type="button" data-policy="Language">
+                  <span>+</span> English
+                </button>
+                <button class="policy-chip is-selected" type="button" data-policy="Collateral">
+                  <span>✓</span> Collateral posted
+                </button>
+                <button class="policy-chip" type="button" data-policy="Record">
+                  <span>+</span> Clean record
+                </button>
+              </div>
+              <div class="policy-line"></div>
+              <div class="agent-result">
+                <div class="agent-avatar"><span></span><span></span></div>
+                <div>
+                  <small>MATCHING AGENT</small>
+                  <strong>MED-RESEARCH / 08</strong>
+                  <div class="agent-tags" data-agent-tags>
+                    <span>Expertise</span><span>Jurisdiction</span><span>Collateral</span>
+                  </div>
+                </div>
+                <div class="match-score"><strong data-match-score>96</strong><small>TRUST FIT</small></div>
+              </div>
+              <div class="permission-row">
+                <span>Purchase privilege</span>
+                <strong data-permission-status>GRANTED</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="chapter chapter-transact" id="transact" data-lifecycle-section="transact">
+            <div class="chapter-copy reveal">
+              <span class="chapter-kicker"><i></i> WHILE VALUE MOVES</span>
+              <h3>Fast payments still need a way back.</h3>
+              <p>
+                An agent can pay for data that never arrives. Escrow holds value until work is done.
+                Arbitration and recovery stop a failed machine payment from becoming a permanent loss.
+              </p>
+              <div class="mini-cards">
+                <div><strong>Pay after proof</strong><span>Release only on delivery.</span></div>
+                <div><strong>Escrow</strong><span>Lock value while work happens.</span></div>
+                <div><strong>Recovery</strong><span>Challenge failed delivery.</span></div>
+              </div>
+              <div class="observed-callout">
+                <span>OBSERVED IN TESTING</span>
+                <p>An experimental agent lost funds after a failed x402 payment. There was no practical recovery path.</p>
+              </div>
+              <details class="tech-details">
+                <summary>Technical paths <span>+</span></summary>
+                <div class="integration-tags">
+                  <span>x402</span><span>MPP</span><span>ERC-8183</span><span>x402r</span><span>Maldo</span>
+                  <span>GenLayer</span><span>Integra LCP</span><span>Escrow</span><span>Arbitration</span>
+                </div>
+              </details>
+            </div>
+
+            <div class="interactive-card escrow-demo reveal" data-delay="100" data-escrow-demo>
+              <div class="card-topline">
+                <span>PROTECTED PAYMENT</span>
+                <span class="evidence evidence-tested">INTERACTIVE</span>
+              </div>
+              <div class="escrow-stage">
+                <div class="party party-buyer">
+                  <div class="party-icon">A</div>
+                  <strong>Buyer agent</strong><small>Requests report</small>
+                </div>
+                <div class="funds-path">
+                  <div class="path-line"><span data-fund-dot></span></div>
+                  <div class="escrow-vault">
+                    <span class="vault-lock">◇</span>
+                    <strong>2.40 USDC</strong>
+                    <small data-vault-state>LOCKED</small>
+                  </div>
+                </div>
+                <div class="party party-seller">
+                  <div class="party-icon">B</div>
+                  <strong>Data agent</strong><small>Delivers report</small>
+                </div>
+              </div>
+              <div class="demo-question">What happened?</div>
+              <div class="segmented-control" aria-label="Choose payment outcome">
+                <button type="button" data-escrow-outcome="success">Delivered</button>
+                <button class="is-active" type="button" data-escrow-outcome="failure">Delivery failed</button>
+              </div>
+              <div class="escrow-result is-failure" data-escrow-result>
+                <span class="result-icon">↩</span>
+                <div><small>FUNDS STATUS</small><strong>Recovery path opened</strong></div>
+                <span class="result-badge">DISPUTABLE</span>
+              </div>
+              <p class="micro-note">The flow is illustrative. Exact mechanisms depend on the integration.</p>
+            </div>
+          </article>
+
+          <article class="chapter chapter-resolve" id="resolve" data-lifecycle-section="resolve">
+            <div class="chapter-copy reveal">
+              <span class="chapter-kicker"><i></i> WHEN THINGS GO WRONG</span>
+              <h3>Automate the clear. Escalate the uncertain.</h3>
+              <p>
+                Cheap, obvious cases should not wait for an expensive process. Complex, sensitive, or
+                high-value cases can move to specialized agents and then to human jurors.
+              </p>
+              <p class="supporting-note">AI can triage before a court and help jurors process evidence inside it. Humans keep the authority to reverse.</p>
+              <div class="routing-chart" aria-label="Illustrative 40 20 40 case routing hypothesis">
+                <div class="routing-legend"><span>Clear claimant</span><span>Uncertain</span><span>Clear respondent</span></div>
+                <div class="routing-bar"><span style="--size:40%">40%</span><span style="--size:20%">20%</span><span style="--size:40%">40%</span></div>
+                <small>Illustrative working hypothesis, not a measured forecast.</small>
+              </div>
+              <a class="text-link" href="https://trivium.eth.limo/" target="_blank" rel="noreferrer">
+                Explore the Trivium prototype <span>↗</span>
+              </a>
+            </div>
+
+            <div class="interactive-card triage-lab reveal" data-delay="100" data-triage-lab>
+              <div class="card-topline">
+                <span>AI TRIAGE / 3 × 3</span>
+                <span class="evidence evidence-prototype">PROTOTYPE MODEL</span>
+              </div>
+              <div class="case-tabs" role="tablist" aria-label="Choose a sample dispute">
+                <button class="is-active" type="button" role="tab" aria-selected="true" data-case="clear">Clear case</button>
+                <button type="button" role="tab" aria-selected="false" data-case="uncertain">Uncertain case</button>
+                <button type="button" role="tab" aria-selected="false" data-case="respondent">Respondent case</button>
+              </div>
+              <div class="case-summary">
+                <div>
+                  <small>SAMPLE DISPUTE</small>
+                  <strong data-case-title>Paid dataset never arrived</strong>
+                </div>
+                <div class="verdict-score"><strong data-case-score>86</strong><small>/ 100</small></div>
+              </div>
+              <div class="matrix" aria-label="Nine independent AI assessments" data-matrix></div>
+              <div class="matrix-labels"><span>STRICT</span><span>CONSUMER</span><span>PRECEDENT</span></div>
+              <div class="triage-route">
+                <div class="route-meter"><span data-route-meter></span></div>
+                <div>
+                  <small>ROUTING DECISION</small>
+                  <strong data-route-label>Strong convergence → auto-resolve</strong>
+                </div>
+                <span class="route-pill" data-route-pill>AUTOMATED</span>
+              </div>
+              <p class="micro-note">A visual explanation of the Trivium approach—not a live case decision.</p>
+            </div>
+          </article>
+
+          <div class="human-layer reveal">
+            <div class="human-question">
+              <span class="section-number">THE HUMAN QUESTION</span>
+              <h3>Will a person feel confident enough to reverse an AI?</h3>
+              <p>
+                Human escalation only matters if it carries real authority. Federico Ast examines the
+                tension between machine confidence and meaningful human oversight.
+              </p>
+              <a class="button button-light" href="https://www.youtube.com/watch?v=-J4ULo0kjrE" target="_blank" rel="noreferrer">
+                Watch Federico’s talk <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+            <a class="video-poster" href="https://www.youtube.com/watch?v=-J4ULo0kjrE" target="_blank" rel="noreferrer" aria-label="Watch Federico Ast: How Decentralized Justice Aligns AI with Human Values">
+              <img src="https://i.ytimg.com/vi/-J4ULo0kjrE/maxresdefault.jpg" alt="Federico Ast speaking about decentralized justice and AI" />
+              <span class="video-scrim"></span>
+              <span class="video-play">▶</span>
+              <span class="video-meta"><small>ETHCC[8] · 19 MIN</small><strong>Decentralized justice & human values</strong></span>
+            </a>
+          </div>
+
+          <article class="chapter chapter-connect" id="connect" data-lifecycle-section="connect">
+            <div class="chapter-copy reveal">
+              <span class="chapter-kicker"><i></i> DIRECT SOFTWARE ACCESS</span>
+              <h3>Agents do not visit a courthouse.</h3>
+              <p>
+                They call a tool. Kleros is being made legible to software through skills, structured
+                interfaces, and agent-friendly commands.
+              </p>
+              <ul class="capability-grid">
+                <li>Browse cases</li><li>Read evidence</li><li>Create escrow</li><li>Open disputes</li>
+                <li>Check verification</li><li>Pay fees</li><li>Join as juror</li><li>Receive rulings</li>
+              </ul>
+              <a class="text-link" href="https://skills.kleros.io/" target="_blank" rel="noreferrer">
+                Explore Kleros Skills <span>↗</span>
+              </a>
+            </div>
+
+            <div class="terminal-card reveal" data-delay="100" data-terminal>
+              <div class="terminal-head">
+                <div><span></span><span></span><span></span></div>
+                <span>agent://kleros/transaction-loop</span>
+                <span>ILLUSTRATIVE</span>
+              </div>
+              <div class="terminal-body" aria-live="polite">
+                <div class="terminal-line is-visible"><span>01</span><code><b>check</b> agent_08 against healthcare-policy</code><em>verified</em></div>
+                <div class="terminal-line"><span>02</span><code><b>lock</b> 2.40 USDC until delivery</code><em>protected</em></div>
+                <div class="terminal-line"><span>03</span><code><b>detect</b> output_missing after deadline</code><em>failure</em></div>
+                <div class="terminal-line"><span>04</span><code><b>open</b> dispute with attached evidence</code><em>routed</em></div>
+                <div class="terminal-line"><span>05</span><code><b>receive</b> ruling and recover funds</code><em>resolved</em></div>
+                <div class="terminal-output">
+                  <span>OUTCOME</span>
+                  <strong data-terminal-outcome>Agent verified. Ready to transact.</strong>
+                </div>
+              </div>
+              <button class="terminal-run" type="button" data-terminal-run><span>▶</span> Replay lifecycle</button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="proof-strip section-pad" id="proof">
+        <div class="shell">
+          <div class="section-intro section-intro-wide reveal">
+            <span class="section-number">02 / NOT JUST A ROADMAP</span>
+            <h2>See the pieces already moving.</h2>
+            <p>Live interfaces, public prototypes, research, and working court infrastructure.</p>
+          </div>
+          <div class="proof-grid">
+            <a class="proof-card reveal" href="https://kscore.vercel.app/verified" target="_blank" rel="noreferrer">
+              <div class="proof-card-top"><span class="evidence evidence-public">PUBLIC TESTNET</span><span>↗</span></div>
+              <div class="proof-icon proof-icon-verify">✓</div>
+              <h3>Verified agents</h3>
+              <p>Discover, collateralize, and evaluate ERC-8004 agents through open registries.</p>
+              <strong>KSCORE</strong>
+            </a>
+            <a class="proof-card reveal" data-delay="50" href="https://trivium.eth.limo/" target="_blank" rel="noreferrer">
+              <div class="proof-card-top"><span class="evidence evidence-prototype">PUBLIC PROTOTYPE</span><span>↗</span></div>
+              <div class="proof-icon proof-icon-triage">3×3</div>
+              <h3>AI dispute triage</h3>
+              <p>Nine independent analyses expose agreement, disagreement, and ambiguity.</p>
+              <strong>TRIVIUM</strong>
+            </a>
+            <a class="proof-card reveal" data-delay="100" href="https://v2.kleros.builders/#/courts/31/purpose" target="_blank" rel="noreferrer">
+              <div class="proof-card-top"><span class="evidence evidence-live">LIVE COURT</span><span>↗</span></div>
+              <div class="proof-icon proof-icon-court">◇</div>
+              <h3>Fast automated court</h3>
+              <p>A court designed for micro-tasks, short timeframes, and rapid agent jurors.</p>
+              <strong>COURT #31</strong>
+            </a>
+            <a class="proof-card reveal" data-delay="150" href="https://skills.kleros.io/" target="_blank" rel="noreferrer">
+              <div class="proof-card-top"><span class="evidence evidence-live">LIVE TOOLS</span><span>↗</span></div>
+              <div class="proof-icon proof-icon-code">&gt;_</div>
+              <h3>Knowledge for agents</h3>
+              <p>Skills that let AI agents understand and interact with the Kleros ecosystem.</p>
+              <strong>KLEROS SKILLS</strong>
+            </a>
+          </div>
+          <div class="proof-more reveal">
+            <p>Each label says what the evidence is—live, prototype, research, or vision.</p>
+            <a class="text-link" href="proof.html">Open the complete proof lab <span>→</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="closing shell section-pad">
+        <div class="closing-panel reveal">
+          <div class="closing-orb" aria-hidden="true"></div>
+          <span class="section-number">THE KLEROS × AI VISION</span>
+          <h2>Give agents the freedom to act.<br /><span>Build accountability into the action.</span></h2>
+          <p>
+            Verify who can act. Protect the value they exchange. Resolve failure at the right level.
+            Expose the entire process through software.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="builders.html">Build with the stack <span>→</span></a>
+            <a class="button button-ghost" href="proof.html">See the evidence</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer shell">
+      <a class="brand footer-brand" href="/" aria-label="Kleros AI home">
+        <svg class="brand-mark" viewBox="0 0 44 44" aria-hidden="true">
+          <path d="M22 3 38.5 12.5v19L22 41 5.5 31.5v-19L22 3Z" />
+          <path d="m22 3 5 15-5 23-5-23 5-15Zm-16.5 9.5L17 18l21.5-5.5M5.5 31.5 22 25l16.5 6.5M17 18l5 7 5-7" />
+        </svg>
+        <span>KLEROS</span><span class="brand-divider">×</span><span class="brand-ai">AI</span>
+      </a>
+      <p>Fair, open coordination for an economy of autonomous software.</p>
+      <div class="footer-links">
+        <a href="https://kleros.io/" target="_blank" rel="noreferrer">Kleros</a>
+        <a href="https://skills.kleros.io/" target="_blank" rel="noreferrer">Skills</a>
+        <a href="proof.html">Proof</a>
+        <a href="builders.html">Builders</a>
+      </div>
+    </footer>
+  </body>
+</html>

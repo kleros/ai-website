@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Explore the live tools, prototypes, courts, and research behind the Kleros AI vision." />
+    <meta name="theme-color" content="#120a2f" />
+    <title>Proof Lab — Kleros × AI</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body data-page="proof">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="page-noise" aria-hidden="true"></div>
+
+    <header class="site-header" data-header>
+      <a class="brand" href="/" aria-label="Kleros AI home">
+        <svg class="brand-mark" viewBox="0 0 44 44" aria-hidden="true">
+          <path d="M22 3 38.5 12.5v19L22 41 5.5 31.5v-19L22 3Z" />
+          <path d="m22 3 5 15-5 23-5-23 5-15Zm-16.5 9.5L17 18l21.5-5.5M5.5 31.5 22 25l16.5 6.5M17 18l5 7 5-7" />
+        </svg>
+        <span>KLEROS</span><span class="brand-divider">×</span><span class="brand-ai">AI</span>
+      </a>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="index.html#lifecycle">How it works</a><a href="proof.html">Proof</a><a href="builders.html">Builders</a>
+      </nav>
+      <a class="header-cta" href="https://skills.kleros.io/" target="_blank" rel="noreferrer">Explore the tools <span>↗</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" data-menu-toggle>
+        <span class="sr-only">Open navigation</span><span></span><span></span>
+      </button>
+      <div class="mobile-menu" id="mobile-menu" data-mobile-menu>
+        <a href="index.html#lifecycle">How it works</a><a href="proof.html">Proof</a><a href="builders.html">Builders</a>
+        <a href="https://skills.kleros.io/" target="_blank" rel="noreferrer">Explore the tools ↗</a>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="page-hero shell">
+        <div class="page-hero-copy reveal">
+          <div class="eyebrow"><span class="eyebrow-dot"></span> Evidence before adjectives</div>
+          <h1>The proof<br /><span class="text-gradient">is public.</span></h1>
+          <p>
+            This vision is assembled from live infrastructure, public prototypes, working tools, and
+            research. Every example is labeled so you can see what exists now and what comes next.
+          </p>
+          <div class="status-key" aria-label="Evidence labels">
+            <span class="evidence evidence-live">LIVE</span>
+            <span class="evidence evidence-public">PUBLIC TESTNET</span>
+            <span class="evidence evidence-prototype">PROTOTYPE</span>
+            <span class="evidence evidence-research">RESEARCH</span>
+            <span class="evidence evidence-vision">VISION</span>
+          </div>
+        </div>
+        <div class="page-hero-side reveal" data-delay="100">
+          <span class="big-stat">4</span>
+          <p>Direct examples you can open now: verification, AI triage, a fast court, and agent-native skills.</p>
+        </div>
+      </section>
+
+      <section class="evidence-section">
+        <div class="shell">
+          <article class="evidence-row reveal">
+            <div>
+              <span class="evidence evidence-public">PUBLIC TESTNET</span>
+              <h2>Verification with consequences.</h2>
+            </div>
+            <div class="evidence-row-copy">
+              <p>
+                KSCORE is open registry infrastructure for discovering, collateralizing, and evaluating
+                ERC-8004 agents. Verification is not just a reputation number: active collateral and public
+                policy status create a basis for real permissions.
+              </p>
+              <div class="evidence-points">
+                <span>Browse verified agents and their status</span>
+                <span>Stake collateral behind an agent</span>
+                <span>Challenge rule-breaking and claim a bounty</span>
+              </div>
+            </div>
+            <div class="evidence-row-action">
+              <a class="button button-ghost" href="https://kscore.vercel.app/verified" target="_blank" rel="noreferrer">Open KSCORE ↗</a>
+            </div>
+          </article>
+
+          <article class="evidence-row reveal">
+            <div>
+              <span class="evidence evidence-prototype">PUBLIC PROTOTYPE</span>
+              <h2>Nine views. One routing decision.</h2>
+            </div>
+            <div class="evidence-row-copy">
+              <p>
+                Trivium sends one dispute through three models and three analytical personas. Strong agreement
+                identifies a clear case. Divergence exposes real complexity and routes the case to human Kleros jurors.
+              </p>
+              <div class="evidence-points">
+                <span>3 models × 3 legal perspectives</span>
+                <span>Visible scores, reasoning, and model spread</span>
+                <span>Human escalation when the matrix disagrees</span>
+              </div>
+            </div>
+            <div class="evidence-row-action">
+              <a class="button button-ghost" href="https://trivium.eth.limo/" target="_blank" rel="noreferrer">Open Trivium ↗</a>
+            </div>
+          </article>
+
+          <article class="evidence-row reveal">
+            <div>
+              <span class="evidence evidence-live">LIVE COURT</span>
+              <h2>A court built for fast micro-tasks.</h2>
+            </div>
+            <div class="evidence-row-copy">
+              <p>
+                Kleros Court #31 is designed for micro-tasks and near-instant resolution. Its public purpose
+                explicitly covers content moderation, gaming disputes, automated curation, and other cases
+                suited to rapid agent jurors.
+              </p>
+              <div class="evidence-points">
+                <span>Short resolution time for small, clear tasks</span>
+                <span>Public parameters, activity, cases, and jurors</span>
+                <span>Machine-compatible recourse already on-chain</span>
+              </div>
+            </div>
+            <div class="evidence-row-action">
+              <a class="button button-ghost" href="https://v2.kleros.builders/#/courts/31/purpose" target="_blank" rel="noreferrer">Open Court #31 ↗</a>
+            </div>
+          </article>
+
+          <article class="evidence-row reveal">
+            <div>
+              <span class="evidence evidence-live">LIVE TOOLS</span>
+              <h2>Kleros knowledge agents can use.</h2>
+            </div>
+            <div class="evidence-row-copy">
+              <p>
+                Kleros Skills packages protocol knowledge in a form an agent can read on demand. Public skills
+                already cover IPFS uploads and Curate. The same pattern is expanding toward verification,
+                escrow, court queries, and arbitrable-app building.
+              </p>
+              <div class="evidence-points">
+                <span>Self-contained knowledge at predictable paths</span>
+                <span>Works with Codex, Claude, ChatGPT, Cursor, and more</span>
+                <span>Agent access without manual interface navigation</span>
+              </div>
+            </div>
+            <div class="evidence-row-action">
+              <a class="button button-ghost" href="https://skills.kleros.io/" target="_blank" rel="noreferrer">Open Skills ↗</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="shell section-pad">
+        <div class="quote-panel reveal">
+          <span class="section-number">THE OPEN QUESTION</span>
+          <blockquote>“Will a human feel confident enough to reverse the decision of an AI?”</blockquote>
+          <p>
+            Machine confidence can quietly become authority. Federico Ast’s EthCC talk explores how
+            decentralized justice can keep human values and genuine appeal inside AI decision systems.
+          </p>
+          <a class="button button-light" href="https://www.youtube.com/watch?v=-J4ULo0kjrE" target="_blank" rel="noreferrer">Watch the 19-minute talk ↗</a>
+        </div>
+      </section>
+
+      <section class="closing shell section-pad">
+        <div class="closing-panel reveal">
+          <div class="closing-orb" aria-hidden="true"></div>
+          <span class="section-number">NEXT</span>
+          <h2>See how the pieces<br /><span>connect for builders.</span></h2>
+          <p>Move from the public examples to one practical agent integration map.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="builders.html">Open the builder map →</a>
+            <a class="button button-ghost" href="index.html">Back to the vision</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer shell">
+      <a class="brand footer-brand" href="/" aria-label="Kleros AI home">
+        <svg class="brand-mark" viewBox="0 0 44 44" aria-hidden="true"><path d="M22 3 38.5 12.5v19L22 41 5.5 31.5v-19L22 3Z" /><path d="m22 3 5 15-5 23-5-23 5-15Zm-16.5 9.5L17 18l21.5-5.5M5.5 31.5 22 25l16.5 6.5M17 18l5 7 5-7" /></svg>
+        <span>KLEROS</span><span class="brand-divider">×</span><span class="brand-ai">AI</span>
+      </a>
+      <p>Fair, open coordination for an economy of autonomous software.</p>
+      <div class="footer-links"><a href="https://kleros.io/" target="_blank" rel="noreferrer">Kleros</a><a href="https://skills.kleros.io/" target="_blank" rel="noreferrer">Skills</a><a href="proof.html">Proof</a><a href="builders.html">Builders</a></div>
+    </footer>
+  </body>
+</html>
