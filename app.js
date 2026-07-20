@@ -226,7 +226,6 @@ const renderCase = (key) => {
 caseButtons.forEach((button) => button.addEventListener("click", () => renderCase(button.dataset.case)));
 if (triageLab) renderCase("clear");
 
-const terminal = document.querySelector("[data-terminal]");
 const terminalRun = document.querySelector("[data-terminal-run]");
 const terminalLines = [...document.querySelectorAll(".terminal-line")];
 const terminalOutcome = document.querySelector("[data-terminal-outcome]");
@@ -251,39 +250,6 @@ const runTerminal = async () => {
 };
 
 terminalRun?.addEventListener("click", runTerminal);
-
-const demoGates = [...document.querySelectorAll("[data-interaction-gate]")];
-
-demoGates.forEach((gate) => {
-  const host = gate.closest("[data-demo]");
-  const unlockButton = gate.querySelector("[data-unlock-demo]");
-  if (!host || !unlockButton) return;
-
-  const demoControls = [...host.querySelectorAll("button:not([data-unlock-demo])")];
-  demoControls.forEach((control) => {
-    control.disabled = true;
-  });
-
-  unlockButton.addEventListener("click", () => {
-    host.classList.add("is-unlocked");
-    gate.setAttribute("aria-hidden", "true");
-    demoControls.forEach((control) => {
-      control.disabled = false;
-    });
-
-    if (host.dataset.demo === "scenario") {
-      runScenarioButton?.click();
-      return;
-    }
-
-    if (host.dataset.demo === "terminal") {
-      runTerminal();
-      return;
-    }
-
-    window.setTimeout(() => demoControls[0]?.focus(), reduceMotion ? 0 : 420);
-  });
-});
 
 const contactForm = document.querySelector("[data-contact-form]");
 const contactSubmit = document.querySelector("[data-contact-submit]");

@@ -960,113 +960,6 @@ svg {
   box-shadow: 0 36px 80px rgba(0, 0, 0, 0.28), inset 0 1px rgba(255, 255, 255, 0.05);
 }
 
-.interactive-card.demo-gated,
-.terminal-card.demo-gated {
-  position: relative;
-}
-
-.interaction-gate {
-  position: absolute;
-  inset: 0;
-  z-index: 20;
-  display: grid;
-  padding: 24px;
-  place-items: center;
-  background:
-    radial-gradient(circle at 50% 42%, rgba(99, 57, 217, 0.2), transparent 42%),
-    rgba(5, 3, 13, 0.86);
-  backdrop-filter: blur(7px) saturate(0.55);
-  transition: opacity 380ms ease, visibility 380ms ease;
-}
-
-.interaction-gate::before {
-  position: absolute;
-  inset: 13px;
-  content: "";
-  border: 1px solid rgba(189, 169, 255, 0.12);
-  border-radius: 14px;
-  pointer-events: none;
-}
-
-.is-unlocked > .interaction-gate {
-  visibility: hidden;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.gate-card {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  max-width: 370px;
-  flex-direction: column;
-  text-align: center;
-}
-
-.gate-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  color: var(--purple-bright);
-  font-family: var(--mono);
-  font-size: 8px;
-  letter-spacing: 0.1em;
-}
-
-.gate-label i {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--cyan);
-  box-shadow: 0 0 16px var(--cyan);
-  animation: gate-ping 1.8s ease-in-out infinite;
-}
-
-.gate-card strong {
-  margin-top: 16px;
-  font-size: clamp(21px, 2.4vw, 30px);
-  font-weight: 500;
-  letter-spacing: -0.045em;
-  line-height: 1.12;
-}
-
-.gate-card small {
-  max-width: 330px;
-  margin-top: 11px;
-  color: #9d96aa;
-  font-size: 11px;
-  line-height: 1.6;
-}
-
-.gate-card button {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  min-height: 45px;
-  margin-top: 22px;
-  padding: 0 18px;
-  border: 1px solid rgba(189, 169, 255, 0.35);
-  border-radius: 10px;
-  background: linear-gradient(135deg, rgba(125, 78, 255, 0.95), rgba(93, 47, 225, 0.95));
-  box-shadow: 0 15px 34px rgba(93, 47, 225, 0.28);
-  color: white;
-  font-size: 11px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
-}
-
-.gate-card button:hover {
-  transform: translateY(-2px);
-  border-color: rgba(255, 255, 255, 0.55);
-  box-shadow: 0 18px 42px rgba(93, 47, 225, 0.38);
-}
-
-@keyframes gate-ping {
-  50% { transform: scale(1.55); opacity: 0.45; }
-}
-
 .card-topline {
   display: flex;
   align-items: center;
@@ -1077,6 +970,38 @@ svg {
   color: #8c8498;
   font-size: 8px;
 }
+
+.interaction-note {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 38px;
+  padding: 0 20px;
+  border-bottom: 1px solid rgba(114, 229, 255, 0.1);
+  background: rgba(114, 229, 255, 0.035);
+  font-family: var(--mono);
+  font-size: 8px;
+}
+
+.interaction-note span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--cyan);
+  letter-spacing: 0.07em;
+}
+
+.interaction-note i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 12px var(--cyan);
+  animation: pulse 2.4s ease-in-out infinite;
+}
+
+.interaction-note em { color: #7f788b; font-style: normal; }
 
 .evidence {
   display: inline-flex;
@@ -1576,10 +1501,6 @@ svg {
   .hero-lead { font-size: 16px; }
   .hero-visual { min-height: 580px; margin-top: 60px; }
   .agent-console { top: 25px; left: 0; width: 100%; }
-  .interaction-gate { padding: 18px; }
-  .interaction-gate::before { inset: 9px; }
-  .gate-card strong { font-size: 24px; }
-  .gate-card small { font-size: 10px; }
   .floating-proof, .orbit { display: none; }
   .signal-track { animation-duration: 22s; }
   .multiplier { grid-template-columns: 1fr; }
@@ -1593,6 +1514,7 @@ svg {
   .chapter { display: block; padding-block: 85px; }
   .chapter-copy h3 { font-size: 43px; }
   .interactive-card, .terminal-card { margin-top: 48px; }
+  .interaction-note { align-items: flex-start; padding-block: 10px; flex-direction: column; gap: 3px; }
   .mini-cards { grid-template-columns: 1fr; }
   .mini-cards div { min-height: auto; }
   .escrow-stage { grid-template-columns: 1fr; gap: 18px; padding-top: 30px; }

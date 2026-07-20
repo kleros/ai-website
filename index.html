@@ -38,7 +38,7 @@
 
       <nav class="desktop-nav" aria-label="Primary navigation">
         <a href="#lifecycle">How it works</a>
-        <a href="proof.html">Proof</a>
+        <a href="proof.html">Solutions</a>
         <a href="builders.html">Agent Access</a>
       </nav>
 
@@ -49,7 +49,7 @@
 
       <div class="mobile-menu" id="mobile-menu" data-mobile-menu>
         <a href="#lifecycle">How it works</a>
-        <a href="proof.html">Proof</a>
+        <a href="proof.html">Solutions</a>
         <a href="builders.html">Agent Access</a>
       </div>
     </header>
@@ -79,15 +79,7 @@
         <div class="hero-visual reveal" data-delay="100">
           <div class="orbit orbit-one" aria-hidden="true"></div>
           <div class="orbit orbit-two" aria-hidden="true"></div>
-          <div class="agent-console demo-gated" data-agent-console data-demo="scenario">
-            <div class="interaction-gate" data-interaction-gate>
-              <div class="gate-card">
-                <span class="gate-label"><i></i> INTERACTIVE DEMO</span>
-                <strong>Run an agent transaction</strong>
-                <small>See verification, payment protection, failure, and recovery happen in sequence.</small>
-                <button type="button" data-unlock-demo>Click to start <span aria-hidden="true">→</span></button>
-              </div>
-            </div>
+          <div class="agent-console" data-agent-console>
             <div class="console-head">
               <div>
                 <span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span>
@@ -129,7 +121,7 @@
             </ol>
             <button class="console-run" type="button" data-run-scenario>
               <span class="run-icon" aria-hidden="true">▶</span>
-              <span data-run-label>Run the resolution</span>
+              <span data-run-label>Click to run the resolution</span>
             </button>
           </div>
           <div class="floating-proof proof-a"><span>LIVE</span> Verified agent registry</div>
@@ -218,19 +210,12 @@
               </a>
             </div>
 
-            <div class="interactive-card trust-builder demo-gated reveal" data-delay="100" data-demo="policy">
-              <div class="interaction-gate" data-interaction-gate>
-                <div class="gate-card">
-                  <span class="gate-label"><i></i> YOUR TURN</span>
-                  <strong>Set an agent trust policy</strong>
-                  <small>Choose which verified claims should unlock access.</small>
-                  <button type="button" data-unlock-demo>Click to try it <span aria-hidden="true">→</span></button>
-                </div>
-              </div>
+            <div class="interactive-card trust-builder reveal" data-delay="100">
               <div class="card-topline">
                 <span>TRUST POLICY BUILDER</span>
                 <span class="evidence evidence-public">PUBLIC TESTNET</span>
               </div>
+              <div class="interaction-note"><span><i></i> INTERACTIVE</span><em>Click any rule to update access</em></div>
               <p class="card-prompt">Who may purchase healthcare data?</p>
               <div class="policy-options" data-policy-options>
                 <button class="policy-chip is-selected" type="button" data-policy="Expertise">
@@ -294,19 +279,12 @@
               </details>
             </div>
 
-            <div class="interactive-card escrow-demo demo-gated reveal" data-delay="100" data-escrow-demo data-demo="escrow">
-              <div class="interaction-gate" data-interaction-gate>
-                <div class="gate-card">
-                  <span class="gate-label"><i></i> YOUR TURN</span>
-                  <strong>Test a protected payment</strong>
-                  <small>Choose whether delivery succeeds or fails and watch the funds move.</small>
-                  <button type="button" data-unlock-demo>Click to try it <span aria-hidden="true">→</span></button>
-                </div>
-              </div>
+            <div class="interactive-card escrow-demo reveal" data-delay="100" data-escrow-demo>
               <div class="card-topline">
                 <span>PROTECTED PAYMENT</span>
                 <span class="evidence evidence-tested">INTERACTIVE</span>
               </div>
+              <div class="interaction-note"><span><i></i> TRY IT</span><em>Choose the outcome below</em></div>
               <div class="escrow-stage">
                 <div class="party party-buyer">
                   <div class="party-icon">A</div>
@@ -358,19 +336,12 @@
               </a>
             </div>
 
-            <div class="interactive-card triage-lab demo-gated reveal" data-delay="100" data-triage-lab data-demo="triage">
-              <div class="interaction-gate" data-interaction-gate>
-                <div class="gate-card">
-                  <span class="gate-label"><i></i> YOUR TURN</span>
-                  <strong>Compare AI rulings</strong>
-                  <small>Switch cases to see when agreement is strong—and when humans should step in.</small>
-                  <button type="button" data-unlock-demo>Click to try it <span aria-hidden="true">→</span></button>
-                </div>
-              </div>
+            <div class="interactive-card triage-lab reveal" data-delay="100" data-triage-lab>
               <div class="card-topline">
                 <span>AI TRIAGE / 3 × 3</span>
                 <span class="evidence evidence-prototype">PROTOTYPE MODEL</span>
               </div>
+              <div class="interaction-note"><span><i></i> TRY IT</span><em>Choose a case to compare the rulings</em></div>
               <div class="case-tabs" role="tablist" aria-label="Choose a sample dispute">
                 <button class="is-active" type="button" role="tab" aria-selected="true" data-case="clear">Clear case</button>
                 <button type="button" role="tab" aria-selected="false" data-case="uncertain">Uncertain case</button>
@@ -434,19 +405,11 @@
               </a>
             </div>
 
-            <div class="terminal-card demo-gated reveal" data-delay="100" data-terminal data-demo="terminal">
-              <div class="interaction-gate" data-interaction-gate>
-                <div class="gate-card">
-                  <span class="gate-label"><i></i> INTERACTIVE DEMO</span>
-                  <strong>Run the agent flow</strong>
-                  <small>Watch one command move from verification to a usable ruling.</small>
-                  <button type="button" data-unlock-demo>Click to start <span aria-hidden="true">→</span></button>
-                </div>
-              </div>
+            <div class="terminal-card reveal" data-delay="100" data-terminal>
               <div class="terminal-head">
                 <div><span></span><span></span><span></span></div>
                 <span>agent://kleros/transaction-loop</span>
-                <span>ILLUSTRATIVE</span>
+                <span>INTERACTIVE</span>
               </div>
               <div class="terminal-body" aria-live="polite">
                 <div class="terminal-line is-visible"><span>01</span><code><b>check</b> agent_08 against healthcare-policy</code><em>verified</em></div>
@@ -459,7 +422,7 @@
                   <strong data-terminal-outcome>Agent verified. Ready to transact.</strong>
                 </div>
               </div>
-              <button class="terminal-run" type="button" data-terminal-run><span>▶</span> Replay lifecycle</button>
+              <button class="terminal-run" type="button" data-terminal-run><span>▶</span> Click to run lifecycle</button>
             </div>
           </article>
         </div>
@@ -597,7 +560,7 @@
       <div class="footer-links">
         <a href="https://kleros.io/" target="_blank" rel="noreferrer">Kleros</a>
         <a href="https://skills.kleros.io/" target="_blank" rel="noreferrer">Skills</a>
-        <a href="proof.html">Proof</a>
+        <a href="proof.html">Solutions</a>
         <a href="builders.html">Agent Access</a>
       </div>
     </footer>
