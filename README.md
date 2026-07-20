@@ -5,6 +5,8 @@ A static, Vercel-ready minisite explaining the Kleros trust stack for AI agents.
 ## Pages
 
 - `index.html` — the complete lifecycle: verify, transact, resolve, connect
+- `products.html` — Products A: dark product landing page for agent checkout, verification, and support
+- `products-b.html` — Products B: lean corporate alternative using the same product narrative
 - `proof.html` — live tools, prototypes, courts, and research
 - `builders.html` — Agent Access: how agents use Kleros through practical access layers
 

@@ -251,9 +251,127 @@ const runTerminal = async () => {
 
 terminalRun?.addEventListener("click", runTerminal);
 
+document.querySelectorAll("[data-checkout-cli]").forEach((terminal) => {
+  const replay = () => {
+    terminal.classList.remove("is-running");
+    void terminal.offsetWidth;
+    terminal.classList.add("is-running");
+  };
+
+  terminal.querySelector("[data-cli-replay]")?.addEventListener("click", replay);
+
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    terminal.classList.add("is-running");
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      if (!entries.some((entry) => entry.isIntersecting)) return;
+      replay();
+      observer.disconnect();
+    },
+    { threshold: 0.35 },
+  );
+  observer.observe(terminal);
+});
+
+document.querySelectorAll("[data-checkout-demo]").forEach((demo) => {
+  const buttons = [...demo.querySelectorAll("[data-checkout-state]")];
+  const result = demo.querySelector("[data-checkout-result]");
+
+  const setCheckoutState = (state) => {
+    const delivered = state === "delivered";
+    buttons.forEach((button) => {
+      const active = button.dataset.checkoutState === state;
+      button.classList.toggle("is-active", active);
+      button.setAttribute("aria-pressed", String(active));
+    });
+    result?.classList.toggle("is-problem", !delivered);
+    if (result) {
+      result.querySelector("span").textContent = delivered ? "✓" : "↗";
+      result.querySelector("strong").textContent = delivered ? "Payment settles automatically" : "Support path opens automatically";
+    }
+  };
+
+  buttons.forEach((button) => button.addEventListener("click", () => setCheckoutState(button.dataset.checkoutState)));
+  setCheckoutState("delivered");
+});
+
+document.querySelectorAll("[data-verify-demo]").forEach((demo) => {
+  const rules = [...demo.querySelectorAll("[data-verify-rule]")];
+  const score = demo.querySelector("[data-verify-score]");
+  const result = demo.querySelector("[data-verify-result]");
+
+  const updateVerification = () => {
+    const activeRules = rules.filter((rule) => rule.classList.contains("is-active")).length;
+    const scores = [0, 62, 81, 99];
+    if (score) score.textContent = `${scores[activeRules]}%`;
+    const granted = activeRules === rules.length;
+    result?.classList.toggle("is-review", !granted);
+    if (result) result.querySelector("strong").textContent = granted ? "ACCESS GRANTED" : "NEEDS REVIEW";
+    rules.forEach((rule) => rule.setAttribute("aria-pressed", String(rule.classList.contains("is-active"))));
+  };
+
+  rules.forEach((rule) => {
+    rule.addEventListener("click", () => {
+      rule.classList.toggle("is-active");
+      updateVerification();
+    });
+  });
+  updateVerification();
+});
+
+const reviewRoutes = [
+  { tier: "LIGHTWEIGHT", reviewer: "Fast agent review" },
+  { tier: "ADVANCED", reviewer: "Advanced agent panel" },
+  { tier: "HUMAN", reviewer: "Human jurors" },
+];
+
+document.querySelectorAll("[data-route-demo]").forEach((demo) => {
+  const input = demo.querySelector("[data-route-input]");
+  const tier = demo.querySelector("[data-route-tier]");
+  const result = demo.querySelector("[data-route-result]");
+  const updateRoute = () => {
+    const route = reviewRoutes[Number(input?.value || 0)];
+    if (tier) tier.textContent = route.tier;
+    if (result) result.textContent = route.reviewer;
+  };
+  input?.addEventListener("input", updateRoute);
+  updateRoute();
+});
+
+document.querySelectorAll("[data-adoption-switcher]").forEach((switcher) => {
+  const tabs = [...switcher.querySelectorAll("[data-adoption-tab]")];
+  const panels = [...switcher.querySelectorAll("[data-adoption-panel]")];
+
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", () => {
+      const selected = tab.dataset.adoptionTab;
+      tabs.forEach((candidate) => {
+        const active = candidate === tab;
+        candidate.classList.toggle("is-active", active);
+        candidate.setAttribute("aria-selected", String(active));
+        candidate.tabIndex = active ? 0 : -1;
+      });
+      panels.forEach((panel) => { panel.hidden = panel.dataset.adoptionPanel !== selected; });
+    });
+  });
+});
+
+const productSelect = document.querySelector("[data-product-select]");
+document.querySelectorAll("[data-product-interest]").forEach((link) => {
+  link.addEventListener("click", () => {
+    if (!productSelect) return;
+    productSelect.value = link.dataset.productInterest;
+    productSelect.classList.remove("is-invalid");
+  });
+});
+
 const contactForm = document.querySelector("[data-contact-form]");
 const contactSubmit = document.querySelector("[data-contact-submit]");
 const contactSubmitLabel = document.querySelector("[data-contact-submit-label]");
+const contactSubmitDefaultLabel = contactSubmitLabel?.textContent || "Send to Kleros";
 const contactStatus = document.querySelector("[data-contact-status]");
 
 const setContactStatus = (message, type = "") => {
@@ -303,6 +421,6 @@ contactForm?.addEventListener("submit", async (event) => {
     setContactStatus(error.message || "Message could not be sent. Email fortunato@kleros.io directly.", "error");
   } finally {
     contactSubmit.disabled = false;
-    contactSubmitLabel.textContent = "Send to Kleros";
+    contactSubmitLabel.textContent = contactSubmitDefaultLabel;
   }
 });
