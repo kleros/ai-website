@@ -252,14 +252,91 @@ const runTerminal = async () => {
 
 terminalRun?.addEventListener("click", runTerminal);
 
-if (terminal && "IntersectionObserver" in window && !reduceMotion) {
-  const terminalObserver = new IntersectionObserver(
-    (entries, observer) => {
-      if (!entries[0].isIntersecting) return;
+const demoGates = [...document.querySelectorAll("[data-interaction-gate]")];
+
+demoGates.forEach((gate) => {
+  const host = gate.closest("[data-demo]");
+  const unlockButton = gate.querySelector("[data-unlock-demo]");
+  if (!host || !unlockButton) return;
+
+  const demoControls = [...host.querySelectorAll("button:not([data-unlock-demo])")];
+  demoControls.forEach((control) => {
+    control.disabled = true;
+  });
+
+  unlockButton.addEventListener("click", () => {
+    host.classList.add("is-unlocked");
+    gate.setAttribute("aria-hidden", "true");
+    demoControls.forEach((control) => {
+      control.disabled = false;
+    });
+
+    if (host.dataset.demo === "scenario") {
+      runScenarioButton?.click();
+      return;
+    }
+
+    if (host.dataset.demo === "terminal") {
       runTerminal();
-      observer.disconnect();
-    },
-    { threshold: 0.45 },
-  );
-  terminalObserver.observe(terminal);
-}
+      return;
+    }
+
+    window.setTimeout(() => demoControls[0]?.focus(), reduceMotion ? 0 : 420);
+  });
+});
+
+const contactForm = document.querySelector("[data-contact-form]");
+const contactSubmit = document.querySelector("[data-contact-submit]");
+const contactSubmitLabel = document.querySelector("[data-contact-submit-label]");
+const contactStatus = document.querySelector("[data-contact-status]");
+
+const setContactStatus = (message, type = "") => {
+  if (!contactStatus) return;
+  contactStatus.textContent = message;
+  contactStatus.classList.toggle("is-success", type === "success");
+  contactStatus.classList.toggle("is-error", type === "error");
+};
+
+contactForm?.querySelectorAll("input, select, textarea").forEach((field) => {
+  const clearInvalid = () => field.classList.remove("is-invalid");
+  field.addEventListener("input", clearInvalid);
+  field.addEventListener("change", clearInvalid);
+});
+
+contactForm?.addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  const fields = [...contactForm.querySelectorAll("input, select, textarea")];
+  const invalidFields = fields.filter((field) => !field.checkValidity());
+  fields.forEach((field) => field.classList.toggle("is-invalid", invalidFields.includes(field)));
+
+  if (invalidFields.length) {
+    setContactStatus("Please complete the highlighted fields.", "error");
+    invalidFields[0].focus();
+    return;
+  }
+
+  contactSubmit.disabled = true;
+  contactSubmitLabel.textContent = "Sending…";
+  setContactStatus("Sending securely…");
+
+  try {
+    const payload = Object.fromEntries(new FormData(contactForm).entries());
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
+    const result = await response.json().catch(() => ({}));
+
+    if (!response.ok) throw new Error(result.error || "Message could not be sent.");
+
+    contactForm.reset();
+    setContactStatus("Message sent. Fortunato will receive it directly.", "success");
+  } catch (error) {
+    setContactStatus(error.message || "Message could not be sent. Email fortunato@kleros.io directly.", "error");
+  } finally {
+    contactSubmit.disabled = false;
+    contactSubmitLabel.textContent = "Send to Kleros";
+  }
+});

@@ -8,13 +8,13 @@
       content="Kleros provides verification, protected payments, dispute resolution, and direct software access for AI agents."
     />
     <meta name="theme-color" content="#120a2f" />
-    <meta property="og:title" content="Kleros × AI — Trust at machine speed" />
+    <meta property="og:title" content="Kleros × AI — Trust at Machine Speed" />
     <meta
       property="og:description"
       content="Verify agents. Protect payments. Resolve failures. Connect through software."
     />
     <meta property="og:type" content="website" />
-    <title>Kleros × AI — Trust at machine speed</title>
+    <title>Kleros × AI — Trust at Machine Speed</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -57,18 +57,17 @@
     <main id="main">
       <section class="hero shell">
         <div class="hero-copy reveal">
-          <div class="eyebrow"><span class="eyebrow-dot"></span> Working systems. One clear vision.</div>
           <h1>
-            Trust that moves at
-            <span class="text-gradient">machine speed.</span>
+            Trust at
+            <span class="text-gradient">Machine Speed.</span>
           </h1>
           <p class="hero-lead">
-            AI agents can buy, sell, and decide in seconds. Kleros gives them trusted identities,
-            protected payments, and a credible path when things go wrong.
+            AI agents can buy, sell, and decide in seconds. Kleros verifies who they are, protects
+            what they pay, and resolves it when something breaks.
           </p>
           <div class="hero-actions">
             <a class="button button-primary" href="#lifecycle">See the full loop <span aria-hidden="true">↓</span></a>
-            <a class="button button-ghost" href="proof.html">Explore live proofs</a>
+            <a class="button button-ghost" href="#contact">Contact</a>
           </div>
           <div class="hero-proofline" aria-label="Core capabilities">
             <span><i></i> Verify before</span>
@@ -80,7 +79,15 @@
         <div class="hero-visual reveal" data-delay="100">
           <div class="orbit orbit-one" aria-hidden="true"></div>
           <div class="orbit orbit-two" aria-hidden="true"></div>
-          <div class="agent-console" data-agent-console>
+          <div class="agent-console demo-gated" data-agent-console data-demo="scenario">
+            <div class="interaction-gate" data-interaction-gate>
+              <div class="gate-card">
+                <span class="gate-label"><i></i> INTERACTIVE DEMO</span>
+                <strong>Run an agent transaction</strong>
+                <small>See verification, payment protection, failure, and recovery happen in sequence.</small>
+                <button type="button" data-unlock-demo>Click to start <span aria-hidden="true">→</span></button>
+              </div>
+            </div>
             <div class="console-head">
               <div>
                 <span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span>
@@ -211,7 +218,15 @@
               </a>
             </div>
 
-            <div class="interactive-card trust-builder reveal" data-delay="100">
+            <div class="interactive-card trust-builder demo-gated reveal" data-delay="100" data-demo="policy">
+              <div class="interaction-gate" data-interaction-gate>
+                <div class="gate-card">
+                  <span class="gate-label"><i></i> YOUR TURN</span>
+                  <strong>Set an agent trust policy</strong>
+                  <small>Choose which verified claims should unlock access.</small>
+                  <button type="button" data-unlock-demo>Click to try it <span aria-hidden="true">→</span></button>
+                </div>
+              </div>
               <div class="card-topline">
                 <span>TRUST POLICY BUILDER</span>
                 <span class="evidence evidence-public">PUBLIC TESTNET</span>
@@ -279,7 +294,15 @@
               </details>
             </div>
 
-            <div class="interactive-card escrow-demo reveal" data-delay="100" data-escrow-demo>
+            <div class="interactive-card escrow-demo demo-gated reveal" data-delay="100" data-escrow-demo data-demo="escrow">
+              <div class="interaction-gate" data-interaction-gate>
+                <div class="gate-card">
+                  <span class="gate-label"><i></i> YOUR TURN</span>
+                  <strong>Test a protected payment</strong>
+                  <small>Choose whether delivery succeeds or fails and watch the funds move.</small>
+                  <button type="button" data-unlock-demo>Click to try it <span aria-hidden="true">→</span></button>
+                </div>
+              </div>
               <div class="card-topline">
                 <span>PROTECTED PAYMENT</span>
                 <span class="evidence evidence-tested">INTERACTIVE</span>
@@ -335,7 +358,15 @@
               </a>
             </div>
 
-            <div class="interactive-card triage-lab reveal" data-delay="100" data-triage-lab>
+            <div class="interactive-card triage-lab demo-gated reveal" data-delay="100" data-triage-lab data-demo="triage">
+              <div class="interaction-gate" data-interaction-gate>
+                <div class="gate-card">
+                  <span class="gate-label"><i></i> YOUR TURN</span>
+                  <strong>Compare AI rulings</strong>
+                  <small>Switch cases to see when agreement is strong—and when humans should step in.</small>
+                  <button type="button" data-unlock-demo>Click to try it <span aria-hidden="true">→</span></button>
+                </div>
+              </div>
               <div class="card-topline">
                 <span>AI TRIAGE / 3 × 3</span>
                 <span class="evidence evidence-prototype">PROTOTYPE MODEL</span>
@@ -403,7 +434,15 @@
               </a>
             </div>
 
-            <div class="terminal-card reveal" data-delay="100" data-terminal>
+            <div class="terminal-card demo-gated reveal" data-delay="100" data-terminal data-demo="terminal">
+              <div class="interaction-gate" data-interaction-gate>
+                <div class="gate-card">
+                  <span class="gate-label"><i></i> INTERACTIVE DEMO</span>
+                  <strong>Run the agent flow</strong>
+                  <small>Watch one command move from verification to a usable ruling.</small>
+                  <button type="button" data-unlock-demo>Click to start <span aria-hidden="true">→</span></button>
+                </div>
+              </div>
               <div class="terminal-head">
                 <div><span></span><span></span><span></span></div>
                 <span>agent://kleros/transaction-loop</span>
@@ -467,6 +506,68 @@
             <p>Each label says what the evidence is—live, prototype, research, or vision.</p>
             <a class="text-link" href="proof.html">Open the complete proof lab <span>→</span></a>
           </div>
+        </div>
+      </section>
+
+      <section class="contact shell section-pad" id="contact">
+        <div class="contact-panel reveal">
+          <div class="contact-copy">
+            <span class="section-number">START A CONVERSATION</span>
+            <h2>Where does your agent<br /><span>need trust?</span></h2>
+            <p>
+              Tell us where agents act, pay, or fail. We’ll map the shortest path to verification,
+              protected payments, or dispute resolution.
+            </p>
+            <div class="contact-destination">
+              <small>YOUR MESSAGE GOES DIRECTLY TO</small>
+              <a href="mailto:fortunato@kleros.io">fortunato@kleros.io</a>
+            </div>
+          </div>
+
+          <form class="contact-form" data-contact-form novalidate>
+            <div class="form-row">
+              <label>
+                <span>Name</span>
+                <input type="text" name="name" autocomplete="name" maxlength="80" required placeholder="Your name" />
+              </label>
+              <label>
+                <span>Work email</span>
+                <input type="email" name="email" autocomplete="email" maxlength="160" required placeholder="you@company.com" />
+              </label>
+            </div>
+            <div class="form-row">
+              <label>
+                <span>Company or project <em>Optional</em></span>
+                <input type="text" name="organization" autocomplete="organization" maxlength="120" placeholder="Project name" />
+              </label>
+              <label>
+                <span>I’m interested in</span>
+                <select name="interest" required>
+                  <option value="" selected disabled>Choose a topic</option>
+                  <option>Agent verification &amp; discovery</option>
+                  <option>Payments &amp; escrow</option>
+                  <option>Dispute resolution</option>
+                  <option>Agent tools &amp; integrations</option>
+                  <option>Partnership or other</option>
+                </select>
+              </label>
+            </div>
+            <label>
+              <span>What are you building?</span>
+              <textarea name="message" rows="5" minlength="20" maxlength="3000" required placeholder="A few lines about the agent, transaction, or failure mode you want to make accountable."></textarea>
+            </label>
+            <label class="form-honeypot" aria-hidden="true">
+              <span>Website</span>
+              <input type="text" name="website" tabindex="-1" autocomplete="off" />
+            </label>
+            <div class="form-submit-row">
+              <button class="button button-primary contact-submit" type="submit" data-contact-submit>
+                <span data-contact-submit-label>Send to Kleros</span><span aria-hidden="true">→</span>
+              </button>
+              <p class="form-status" data-contact-status aria-live="polite"></p>
+            </div>
+            <p class="form-note">No mailing list. No automated sales sequence. Just a direct conversation.</p>
+          </form>
         </div>
       </section>
 
