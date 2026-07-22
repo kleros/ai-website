@@ -612,3 +612,64 @@ button { cursor: pointer; }
   .b2-hero-code p { opacity: 1; transform: none; animation: none; }
   .b2-code-cursor { animation: none; }
 }
+
+/* Products B: cleaner hierarchy, tighter rhythm, and explicit actions */
+.b2-hero-layout { padding-block: 92px 72px; }
+.b2-hero h1 { margin-top: 0; }
+.b2-section { padding-block: 88px; }
+.b2-overview .b2-section-title h2,
+.b2-modular .b2-section-title h2 { margin-top: 0; }
+.b2-solution-cards { margin-top: 40px; }
+.b2-product { padding-block: 82px; }
+.b2-suite-chart { margin-top: 38px; }
+
+.products-b-page .b2-product-cta {
+  display: inline-flex;
+  width: fit-content;
+  max-width: none;
+  min-height: 48px;
+  margin-top: 20px;
+  padding: 0 18px;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  border: 1px solid var(--b2-lime);
+  background: var(--b2-lime);
+  color: var(--b2-navy);
+  transition: transform 160ms ease, background 160ms ease, color 160ms ease;
+}
+
+.products-b-page .b2-product-cta:hover {
+  transform: translateY(-2px);
+  border-color: var(--b2-lime);
+  background: transparent;
+  color: var(--b2-lime);
+}
+
+.b2-suite-chart > a {
+  display: inline-flex;
+  width: max-content;
+  min-height: 48px;
+  padding: 0 18px;
+  justify-content: center;
+  border: 1px solid var(--b2-lime);
+  background: var(--b2-lime);
+  color: var(--b2-navy);
+  transition: transform 160ms ease, background 160ms ease, color 160ms ease;
+}
+
+.b2-suite-chart > a:hover {
+  transform: translateY(-2px);
+  background: transparent;
+  color: var(--b2-lime);
+}
+
+@media (max-width: 700px) {
+  .b2-hero-layout { padding-block: 64px 58px; }
+  .b2-section { padding-block: 68px; }
+  .b2-solution-cards { margin-top: 32px; }
+  .b2-product { padding-block: 68px; }
+  .b2-suite-chart { margin-top: 32px; }
+  .products-b-page .b2-product-cta,
+  .b2-suite-chart > a { width: 100%; }
+}
