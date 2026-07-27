@@ -3541,3 +3541,290 @@ svg {
   .suite-chart { margin-top: 32px; }
   .suite-chart > a { width: 100%; }
 }
+
+/* Shared trust strip */
+.trusted-strip {
+  border-block: 1px solid var(--line);
+  background: rgba(9, 6, 20, .72);
+}
+
+.trusted-strip-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+  min-height: 238px;
+  padding-block: 34px;
+}
+
+.trusted-strip h2 {
+  margin: 0;
+  color: #d9d3e2;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -.01em;
+  text-align: center;
+}
+
+.trusted-logos {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.trusted-logo-row {
+  display: flex;
+  gap: clamp(34px, 5vw, 76px);
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.trusted-logo {
+  display: block;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.trusted-logo-eu { width: 299px; }
+.trusted-logo-thomson { width: 372px; }
+.trusted-logo-bpifrance { width: 164px; }
+.trusted-logo-oxford { width: 213px; }
+.trusted-logo-stanford {
+  width: 226px;
+  padding: 7px 10px;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.verified-data-strip {
+  border-block: 1px solid var(--line);
+  background:
+    radial-gradient(circle at 50% 0%, rgba(107, 68, 255, .16), transparent 48%),
+    rgba(9, 6, 20, .82);
+}
+
+.verified-data-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 38px;
+  padding-block: clamp(64px, 7vw, 94px);
+}
+
+.verified-data-inner h2 {
+  max-width: 820px;
+  margin: 0;
+  color: var(--white);
+  font-size: clamp(26px, 3vw, 42px);
+  font-weight: 500;
+  line-height: 1.16;
+  letter-spacing: -.035em;
+  text-align: center;
+}
+
+.verified-data-logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 32px clamp(34px, 4.5vw, 68px);
+  width: 100%;
+}
+
+.verified-data-logos img {
+  display: block;
+  width: auto;
+  height: 28px;
+  object-fit: contain;
+  opacity: .78;
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.verified-data-logos img:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.verified-data-logos .verified-data-logo-smaller { height: 24px; }
+.verified-data-logos .verified-data-logo-bigger { height: 34px; }
+
+/* Main minisite: clearer hierarchy and less text-heavy visuals */
+body:is([data-page="home"], [data-page="proof"], [data-page="agent-access"]) .chapter-copy h3,
+body:is([data-page="home"], [data-page="proof"], [data-page="agent-access"]) .human-layer h3,
+body:is([data-page="home"], [data-page="proof"], [data-page="agent-access"]) .sticky-copy h2 {
+  margin-top: 0;
+}
+
+body[data-page="home"] .plain-truth {
+  grid-template-columns: 1fr;
+  padding-block: 34px;
+}
+
+body[data-page="home"] .plain-truth p {
+  max-width: 980px;
+}
+
+body[data-page="home"] .console-head {
+  justify-content: flex-start;
+}
+
+body[data-page="home"] .console-flow li {
+  min-height: 58px;
+  justify-content: space-between;
+}
+
+body[data-page="home"] .console-flow li::before { display: none; }
+body[data-page="home"] .console-flow strong { font-size: 14px; }
+body[data-page="home"] .flow-state { font-size: 10px; }
+
+body[data-page="home"] .card-topline,
+body[data-page="agent-access"] .stack-card-top {
+  justify-content: flex-end;
+}
+
+body:is([data-page="home"], [data-page="proof"], [data-page="agent-access"]) .evidence {
+  min-height: 26px;
+  padding-inline: 9px;
+  font-size: 10px;
+  letter-spacing: .07em;
+}
+
+body:is([data-page="home"], [data-page="proof"], [data-page="agent-access"]) .feature-list li {
+  grid-template-columns: 1fr;
+  font-size: 15px;
+}
+
+body:is([data-page="home"], [data-page="proof"], [data-page="agent-access"]) .feature-list li span,
+body:is([data-page="home"], [data-page="proof"], [data-page="agent-access"]) .discovery-path {
+  font-size: 11px;
+}
+
+body:is([data-page="home"], [data-page="proof"], [data-page="agent-access"]) .text-link {
+  font-size: 14px;
+}
+
+body[data-page="home"] .card-prompt { font-size: 14px; }
+body[data-page="home"] .policy-chip { font-size: 12px; }
+body[data-page="home"] .agent-tags span { font-size: 10px; }
+body[data-page="home"] .permission-row { font-size: 12px; }
+body[data-page="home"] .mini-cards strong { font-size: 13px; }
+body[data-page="home"] .mini-cards span { font-size: 12px; }
+body[data-page="home"] .tech-details summary { font-size: 12px; }
+body[data-page="home"] .integration-tags span { font-size: 11px; }
+body[data-page="home"] .observed-callout p { margin-top: 0; font-size: 13px; }
+body[data-page="home"] .supporting-note { font-size: 14px !important; }
+body[data-page="home"] .party strong { font-size: 13px; }
+body[data-page="home"] .escrow-vault strong { font-size: 12px; }
+body[data-page="home"] .escrow-vault small { font-size: 10px; }
+body[data-page="home"] .demo-question { font-size: 11px; }
+body[data-page="home"] .segmented-control button { font-size: 12px; }
+body[data-page="home"] .escrow-result strong { font-size: 12px; }
+body[data-page="home"] .result-badge { font-size: 10px; }
+body[data-page="home"] .micro-note { font-size: 11px; line-height: 1.55; }
+body[data-page="home"] .routing-legend { font-size: 10px; }
+body[data-page="home"] .routing-bar span { font-size: 10px; }
+body[data-page="home"] .routing-chart > small { font-size: 11px; }
+body[data-page="home"] .case-tabs button { font-size: 11px; }
+body[data-page="home"] .case-summary strong { font-size: 14px; }
+body[data-page="home"] .matrix-labels { font-size: 10px; }
+body[data-page="home"] .triage-route strong { font-size: 12px; }
+body[data-page="home"] .route-pill { font-size: 10px; }
+body[data-page="home"] .capability-grid li { font-size: 11px; }
+
+body:is([data-page="home"], [data-page="agent-access"]) .terminal-head {
+  display: flex;
+  justify-content: flex-start;
+}
+
+body:is([data-page="home"], [data-page="agent-access"]) .terminal-line {
+  grid-template-columns: 1fr;
+  min-height: 52px;
+  padding-inline: 18px;
+}
+
+body:is([data-page="home"], [data-page="agent-access"]) .terminal-line code {
+  font-size: 11px;
+}
+
+body:is([data-page="home"], [data-page="agent-access"]) .terminal-output strong {
+  margin-top: 0;
+  font-size: 12px;
+}
+
+body[data-page="home"] .proof-card p { font-size: 14px; }
+body[data-page="home"] .proof-card > strong { font-size: 10px; }
+body[data-page="home"] .proof-more { justify-content: flex-end; }
+body[data-page="home"] .contact-destination a { margin-top: 0; font-size: 16px; }
+body[data-page="products"] .contact-copy h2 { margin-top: 0; }
+
+body:is([data-page="home"], [data-page="proof"], [data-page="agent-access"]) .contact-form label > span {
+  font-size: 12px;
+}
+
+body:is([data-page="home"], [data-page="proof"], [data-page="agent-access"]) .form-note,
+body:is([data-page="home"], [data-page="proof"], [data-page="agent-access"]) .site-footer p,
+body:is([data-page="home"], [data-page="proof"], [data-page="agent-access"]) .footer-links {
+  font-size: 12px;
+}
+
+body[data-page="proof"] .page-hero-side p { font-size: 16px; line-height: 1.65; }
+body[data-page="proof"] .evidence-row-copy > p { font-size: 16px; }
+body[data-page="proof"] .evidence-points span { font-size: 13px; }
+body[data-page="agent-access"] .stack-card h3 { margin-top: 18px; }
+body[data-page="agent-access"] .stack-card p { font-size: 15px; line-height: 1.65; }
+body[data-page="agent-access"] .stack-card li { font-size: 11px; }
+
+@media (max-width: 760px) {
+  .trusted-strip-inner {
+    gap: 24px;
+    padding-block: 30px;
+  }
+
+  .trusted-logos {
+    gap: 24px;
+  }
+
+  .trusted-logo {
+    max-height: 56px;
+    object-position: center;
+  }
+
+  .trusted-logo-row { gap: 12px; }
+  .trusted-logo-row-primary .trusted-logo-eu { width: 33%; }
+  .trusted-logo-row-primary .trusted-logo-thomson { width: 39%; }
+  .trusted-logo-row-primary .trusted-logo-bpifrance { width: 23%; }
+  .trusted-logo-row-secondary { gap: 20px; }
+  .trusted-logo-row-secondary .trusted-logo-oxford { width: min(47%, 178px); }
+  .trusted-logo-row-secondary .trusted-logo-stanford { width: min(47%, 178px); }
+
+  .verified-data-inner {
+    gap: 30px;
+    padding-block: 58px;
+  }
+
+  .verified-data-inner h2 {
+    font-size: 28px;
+  }
+
+  .verified-data-logos {
+    gap: 26px 34px;
+  }
+
+  .verified-data-logos img { height: 23px; }
+  .verified-data-logos .verified-data-logo-smaller { height: 20px; }
+  .verified-data-logos .verified-data-logo-bigger { height: 29px; }
+
+  body[data-page="home"] .lifecycle-nav a {
+    font-size: 11px;
+  }
+
+  body:is([data-page="home"], [data-page="agent-access"]) .terminal-line {
+    grid-template-columns: 1fr;
+  }
+}
