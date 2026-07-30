@@ -43,37 +43,86 @@ if (reduceMotion || !("IntersectionObserver" in window)) {
   revealItems.forEach((item) => revealObserver.observe(item));
 }
 
-const lifecycleLinks = [...document.querySelectorAll(".lifecycle-nav a")];
+const lifecycleNav = document.querySelector("[data-lifecycle-nav]");
+const lifecyclePanels = document.querySelector("[data-lifecycle-panels]");
+const lifecycleTabs = [...document.querySelectorAll("[data-lifecycle-nav] a")];
 const lifecycleSections = [...document.querySelectorAll("[data-lifecycle-section]")];
 
-if (lifecycleLinks.length && lifecycleSections.length && "IntersectionObserver" in window) {
-  const lifecycleObserver = new IntersectionObserver(
-    (entries) => {
-      const active = entries
-        .filter((entry) => entry.isIntersecting)
-        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-      if (!active) return;
-      lifecycleLinks.forEach((link) => {
-        link.classList.toggle("is-active", link.getAttribute("href") === `#${active.target.id}`);
-      });
-    },
-    { rootMargin: "-30% 0px -48%", threshold: [0.15, 0.35, 0.6] },
-  );
-  lifecycleSections.forEach((section) => lifecycleObserver.observe(section));
-}
+if (lifecycleTabs.length && lifecycleSections.length) {
+  // Only collapse to one-panel-at-a-time once the script runs, so the chapters
+  // stay readable as a plain stack without JS.
+  lifecyclePanels?.classList.add("is-tabbed");
 
-const activateLifecycleHash = () => {
-  if (!["#verify", "#transact", "#resolve", "#connect"].includes(location.hash)) return;
-  const target = document.querySelector(location.hash);
-  if (!target?.matches("[data-lifecycle-section]")) return;
-  target.querySelectorAll(".reveal").forEach((item) => item.classList.add("is-visible"));
-  lifecycleLinks.forEach((link) => {
-    link.classList.toggle("is-active", link.getAttribute("href") === location.hash);
+  const selectLifecycle = (id, { focus = false } = {}) => {
+    const panel = lifecycleSections.find((section) => section.id === id);
+    if (!panel) return false;
+
+    lifecycleTabs.forEach((tab) => {
+      const selected = tab.getAttribute("aria-controls") === id;
+      tab.classList.toggle("is-active", selected);
+      tab.setAttribute("aria-selected", String(selected));
+      tab.tabIndex = selected ? 0 : -1;
+      if (selected && focus) tab.focus();
+    });
+
+    lifecycleSections.forEach((section) => {
+      section.hidden = section !== panel;
+    });
+
+    // The reveal observer never fires for panels that were hidden on load.
+    panel.querySelectorAll(".reveal").forEach((item) => item.classList.add("is-visible"));
+    return true;
+  };
+
+  lifecycleNav?.addEventListener("click", (event) => {
+    const tab = event.target.closest("a[aria-controls]");
+    if (!tab) return;
+    event.preventDefault();
+    const id = tab.getAttribute("aria-controls");
+    if (selectLifecycle(id)) history.replaceState(null, "", `#${id}`);
   });
-};
 
-activateLifecycleHash();
-window.addEventListener("hashchange", activateLifecycleHash);
+  lifecycleNav?.addEventListener("keydown", (event) => {
+    const step = { ArrowRight: 1, ArrowLeft: -1, Home: "first", End: "last" }[event.key];
+    if (!step) return;
+    event.preventDefault();
+    const current = lifecycleTabs.findIndex((tab) => tab.classList.contains("is-active"));
+    const next =
+      step === "first"
+        ? 0
+        : step === "last"
+          ? lifecycleTabs.length - 1
+          : (current + step + lifecycleTabs.length) % lifecycleTabs.length;
+    selectLifecycle(lifecycleTabs[next].getAttribute("aria-controls"), { focus: true });
+  });
+
+  // The browser jumps to the anchor against the full-height stack, so collapsing
+  // to a single panel would otherwise leave the reader scrolled past the content.
+  const realignToNav = () => {
+    if (!lifecyclePanels) return;
+    // Measure the panels, not the nav: the nav is sticky, so its rect reports the
+    // stuck position rather than where it sits in the document.
+    const navHeight = lifecycleNav.getBoundingClientRect().height;
+    const top = lifecyclePanels.getBoundingClientRect().top + window.scrollY - navHeight - 118;
+    // "auto" would defer to the page's `scroll-behavior: smooth` and animate.
+    window.scrollTo({ top, behavior: "instant" });
+  };
+
+  const openFromHash = ({ realign = false } = {}) => {
+    const id = location.hash.slice(1);
+    if (!lifecycleSections.some((section) => section.id === id)) return;
+    selectLifecycle(id);
+    if (!realign) return;
+    realignToNav();
+    // Late-loading images (hero art, video poster) shift the page after this runs.
+    window.addEventListener("load", realignToNav, { once: true });
+  };
+
+  // Deep links from other pages land on a stage; everything else opens on Verify.
+  selectLifecycle(lifecycleSections[0].id);
+  openFromHash({ realign: true });
+  window.addEventListener("hashchange", () => openFromHash());
+}
 
 const wait = (milliseconds) => new Promise((resolve) => window.setTimeout(resolve, milliseconds));
 

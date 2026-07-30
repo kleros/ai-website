@@ -140,28 +140,18 @@
           </p>
         </div>
 
-        <div class="multiplier reveal" data-delay="100">
-          <div class="multiplier-node node-human">
-            <span class="node-icon">1</span>
-            <strong>Human intent</strong>
-          </div>
-          <div class="multiplier-arrow" aria-hidden="true">→</div>
-          <div class="multiplier-node node-agent">
-            <span class="node-icon">∞</span>
-            <strong>Agent actions</strong>
-          </div>
-          <div class="multiplier-arrow" aria-hidden="true">→</div>
-          <div class="multiplier-outcomes">
+        <ol class="flow-strip reveal" data-delay="100">
+          <li><b>1</b> Human intent</li>
+          <li><b>∞</b> Agent actions</li>
+          <li class="flow-strip-out">
             <span>Payments</span><span>Services</span><span>Failures</span><span>Disputes</span>
-          </div>
-        </div>
+          </li>
+        </ol>
 
-        <div class="plain-truth reveal">
-          <p>
-            Agents will not need less governance because they are automated.
-            <strong>They will need governance that operates at their speed.</strong>
-          </p>
-        </div>
+        <p class="section-closer reveal">
+          Agents will not need less governance because they are automated.
+          <strong>They will need governance that operates at their speed.</strong>
+        </p>
       </section>
 
       <section class="lifecycle" id="lifecycle">
@@ -171,14 +161,15 @@
             <p>Kleros secures every stage of the transaction.</p>
           </div>
 
-          <nav class="lifecycle-nav reveal" aria-label="Lifecycle sections">
-            <a href="#verify" class="is-active">Verify</a>
-            <a href="#transact">Transact</a>
-            <a href="#resolve">Resolve</a>
-            <a href="#connect">Connect</a>
-          </nav>
+          <div class="lifecycle-nav reveal" role="tablist" aria-label="Lifecycle stages" data-lifecycle-nav>
+            <a href="#verify" id="tab-verify" role="tab" aria-controls="verify" aria-selected="true" class="is-active">Verify</a>
+            <a href="#transact" id="tab-transact" role="tab" aria-controls="transact" aria-selected="false">Transact</a>
+            <a href="#resolve" id="tab-resolve" role="tab" aria-controls="resolve" aria-selected="false">Resolve</a>
+            <a href="#connect" id="tab-connect" role="tab" aria-controls="connect" aria-selected="false">Connect</a>
+          </div>
 
-          <article class="chapter chapter-verify" id="verify" data-lifecycle-section="verify">
+          <div class="lifecycle-panels" data-lifecycle-panels>
+          <article class="chapter chapter-verify" id="verify" role="tabpanel" aria-labelledby="tab-verify" tabindex="0" data-lifecycle-section="verify">
             <div class="chapter-copy reveal">
               <h3>Trust unlocks permissions.</h3>
               <p>
@@ -186,7 +177,7 @@
                 rules filter out review farming, scams, and badges with unclear provenance before an
                 agent gets a card, an API key, private data, or clearance for a sensitive task.
               </p>
-              <ul class="feature-list">
+              <ul class="point-list">
                 <li>Prove expertise, identity, language, or jurisdiction.</li>
                 <li>Post collateral against false claims.</li>
                 <li>Grant access only while the agent complies.</li>
@@ -236,21 +227,22 @@
             </div>
           </article>
 
-          <article class="chapter chapter-transact" id="transact" data-lifecycle-section="transact">
+          <article class="chapter chapter-transact" id="transact" role="tabpanel" aria-labelledby="tab-transact" tabindex="0" data-lifecycle-section="transact">
             <div class="chapter-copy reveal">
               <h3>Fast payments still need a way back.</h3>
               <p>
                 An agent can pay for data that never arrives. Escrow holds value until work is done.
                 Arbitration and recovery stop a failed machine payment from becoming a permanent loss.
               </p>
-              <div class="mini-cards">
-                <div><strong>Pay after proof</strong><span>Release only on delivery.</span></div>
-                <div><strong>Escrow</strong><span>Lock value while work happens.</span></div>
-                <div><strong>Recovery</strong><span>Challenge failed delivery.</span></div>
-              </div>
-              <div class="observed-callout">
-                <p>An experimental agent lost funds after a failed x402 payment. There was no practical recovery path.</p>
-              </div>
+              <ul class="point-list">
+                <li><b>Pay after proof</b> — release only on delivery.</li>
+                <li><b>Escrow</b> — lock value while work happens.</li>
+                <li><b>Recovery</b> — challenge failed delivery.</li>
+              </ul>
+              <p class="aside-note">
+                An experimental agent lost funds after a failed x402 payment. There was no practical
+                recovery path.
+              </p>
               <details class="tech-details">
                 <summary>Technical paths <span>+</span></summary>
                 <div class="integration-tags">
@@ -296,18 +288,17 @@
             </div>
           </article>
 
-          <article class="chapter chapter-resolve" id="resolve" data-lifecycle-section="resolve">
+          <article class="chapter chapter-resolve" id="resolve" role="tabpanel" aria-labelledby="tab-resolve" tabindex="0" data-lifecycle-section="resolve">
             <div class="chapter-copy reveal">
               <h3>Automate the clear. Escalate the uncertain.</h3>
               <p>
                 Cheap, obvious cases should not wait for an expensive process. Complex, sensitive, or
                 high-value cases can move to specialized agents and then to human jurors.
               </p>
-              <p class="supporting-note">AI can triage before a court and help jurors process evidence inside it. Humans keep the authority to reverse.</p>
+              <p class="aside-note">AI can triage before a court and help jurors process evidence inside it. Humans keep the authority to reverse.</p>
               <div class="routing-chart" aria-label="Illustrative 40 20 40 case routing hypothesis">
-                <div class="routing-legend"><span>Clear claimant</span><span>Uncertain</span><span>Clear respondent</span></div>
                 <div class="routing-bar"><span style="--size:40%">40%</span><span style="--size:20%">20%</span><span style="--size:40%">40%</span></div>
-                <small>Illustrative working hypothesis, not a measured forecast.</small>
+                <small>Clear claimant · uncertain · clear respondent. Illustrative hypothesis, not a forecast.</small>
               </div>
               <a class="text-link" href="https://trivium.eth.limo/" target="_blank" rel="noreferrer">
                 Explore the triage prototype <span>↗</span>
@@ -342,26 +333,7 @@
             </div>
           </article>
 
-          <div class="human-layer reveal">
-            <div class="human-question">
-              <h3>Will a person feel confident enough to reverse an AI?</h3>
-              <p>
-                Human escalation only matters if it carries real authority. Kleros CEO Federico Ast
-                examines the tension between machine confidence and meaningful human oversight.
-              </p>
-              <a class="button button-light" href="https://www.youtube.com/watch?v=-J4ULo0kjrE" target="_blank" rel="noreferrer">
-                Watch Federico’s talk <span aria-hidden="true">↗</span>
-              </a>
-            </div>
-            <a class="video-poster" href="https://www.youtube.com/watch?v=-J4ULo0kjrE" target="_blank" rel="noreferrer" aria-label="Watch Federico Ast: How Decentralized Justice Aligns AI with Human Values">
-              <img src="https://i.ytimg.com/vi/-J4ULo0kjrE/maxresdefault.jpg" alt="Federico Ast speaking about decentralized justice and AI" />
-              <span class="video-scrim"></span>
-              <span class="video-play">▶</span>
-              <span class="video-meta"><small>ETHCC[8] · 19 MIN</small><strong>Decentralized justice & human values</strong></span>
-            </a>
-          </div>
-
-          <article class="chapter chapter-connect" id="connect" data-lifecycle-section="connect">
+          <article class="chapter chapter-connect" id="connect" role="tabpanel" aria-labelledby="tab-connect" tabindex="0" data-lifecycle-section="connect">
             <div class="chapter-copy reveal">
               <h3>Agents do not visit a courthouse.</h3>
               <p>
@@ -394,6 +366,26 @@
               <button class="terminal-run" type="button" data-terminal-run><span>▶</span> Click to run lifecycle</button>
             </div>
           </article>
+          </div>
+
+          <div class="human-layer reveal">
+            <div class="human-question">
+              <h3>Will a person feel confident enough to reverse an AI?</h3>
+              <p>
+                Human escalation only matters if it carries real authority. Kleros CEO Federico Ast
+                examines the tension between machine confidence and meaningful human oversight.
+              </p>
+              <a class="button button-light" href="https://www.youtube.com/watch?v=-J4ULo0kjrE" target="_blank" rel="noreferrer">
+                Watch Federico’s talk <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+            <a class="video-poster" href="https://www.youtube.com/watch?v=-J4ULo0kjrE" target="_blank" rel="noreferrer" aria-label="Watch Federico Ast: How Decentralized Justice Aligns AI with Human Values">
+              <img src="https://i.ytimg.com/vi/-J4ULo0kjrE/maxresdefault.jpg" alt="Federico Ast speaking about decentralized justice and AI" />
+              <span class="video-scrim"></span>
+              <span class="video-play">▶</span>
+              <span class="video-meta"><small>ETHCC[8] · 19 MIN</small><strong>Decentralized justice & human values</strong></span>
+            </a>
+          </div>
         </div>
       </section>
 
