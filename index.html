@@ -140,13 +140,15 @@
           </p>
         </div>
 
-        <ol class="flow-strip reveal" data-delay="100">
-          <li><b>1</b> Human intent</li>
-          <li><b>∞</b> Agent actions</li>
-          <li class="flow-strip-out">
+        <div class="flow-strip reveal" data-delay="100">
+          <div class="flow-node flow-node-intent"><b>1</b> Human intent</div>
+          <span class="flow-arrow" aria-hidden="true">→</span>
+          <div class="flow-node flow-node-agent"><b>∞</b> Agent actions</div>
+          <span class="flow-arrow" aria-hidden="true">→</span>
+          <div class="flow-node flow-node-out">
             <span>Payments</span><span>Services</span><span>Failures</span><span>Disputes</span>
-          </li>
-        </ol>
+          </div>
+        </div>
 
         <p class="section-closer reveal">
           Agents will not need less governance because they are automated.
@@ -362,13 +364,13 @@
                 <title id="sc-connect-t">An agent sends a dispute straight to a digital court and receives the ruling back, with no website or human in between</title>
                 <rect class="sc-node-sq sc-node-agent" x="12" y="66" width="56" height="56" rx="14" />
                 <circle class="sc-eye" cx="32" cy="94" r="3.5" /><circle class="sc-eye" cx="48" cy="94" r="3.5" />
-                <text class="sc-label sc-label-under" x="40" y="142">AGENT</text>
+                <text class="sc-label sc-label-under" x="40" y="152">AGENT</text>
 
-                <text class="sc-code" x="80" y="62">"I paid. Nothing arrived."</text>
+                <text class="sc-code" x="170" y="62">"I paid. Nothing arrived."</text>
                 <path class="sc-call" d="M78 74 H262" marker-end="url(#sc-arrow-cyan)" />
 
                 <path class="sc-call sc-call-back" d="M262 116 H78" marker-end="url(#sc-arrow-mint)" />
-                <text class="sc-code sc-code-back" x="80" y="136">"Refunded. Case closed."</text>
+                <text class="sc-code sc-code-back" x="170" y="136">"Refunded. Case closed."</text>
 
                 <polygon class="sc-kleros" points="304,58 336,76 336,112 304,130 272,112 272,76" />
                 <path class="sc-court" d="M292 104 V88 M304 104 V88 M316 104 V88 M286 84 H322 M286 108 H322" />

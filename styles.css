@@ -690,20 +690,31 @@ svg {
 .problem { position: relative; text-align: center; }
 .problem .section-intro { margin-inline: auto; }
 .problem .flow-strip { justify-content: center; }
+@media (max-width: 760px) {
+  .problem .flow-strip {
+    flex-direction: column;
+    align-items: center;
+    max-width: 280px;
+    margin-inline: auto;
+  }
+  .problem .flow-node,
+  .problem .flow-node-out { justify-content: center; }
+  .problem .flow-arrow { transform: rotate(90deg); }
+}
 .problem .section-closer { margin-inline: auto; }
 
 /* Compact replacement for the old .multiplier diagram: one row, no nested cards. */
+/* 1 human intent -> ∞ agent actions -> many outcomes. A row on desktop,
+   a centred vertical stack with downward arrows on mobile. */
 .flow-strip {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
   align-items: center;
   margin: 34px 0 0;
-  padding: 0;
-  list-style: none;
 }
 
-.flow-strip li {
+.flow-node {
   display: flex;
   align-items: center;
   gap: 9px;
@@ -715,29 +726,30 @@ svg {
   font-size: 13px;
 }
 
-.flow-strip li b {
+.flow-node b {
   color: var(--purple-bright);
   font-family: var(--mono);
   font-size: 13px;
   font-weight: 400;
 }
 
-.flow-strip li:nth-child(2) b { color: var(--cyan); }
+.flow-node-agent b { color: var(--cyan); }
 
-.flow-strip li + li::before {
-  margin-right: 2px;
+.flow-arrow {
+  flex: 0 0 auto;
   color: #544d60;
-  content: "→";
+  font-size: 15px;
 }
 
-.flow-strip-out {
+.flow-node-out {
   flex-wrap: wrap;
   gap: 7px;
   border-color: transparent;
   background: none;
+  padding: 0;
 }
 
-.flow-strip-out span {
+.flow-node-out span {
   padding: 6px 10px;
   border-radius: 999px;
   background: rgba(134, 91, 255, 0.11);
@@ -747,7 +759,7 @@ svg {
   text-transform: uppercase;
 }
 
-.flow-strip-out span:nth-child(n + 3) { background: rgba(255, 120, 154, 0.09); }
+.flow-node-out span:nth-child(n + 3) { background: rgba(255, 120, 154, 0.09); }
 
 .section-closer {
   max-width: 780px;
@@ -1071,7 +1083,7 @@ svg {
 /* Connect: the two-way tool call */
 .sc-call { stroke: var(--cyan); stroke-width: 1.4; fill: none; }
 .sc-call-back { stroke: var(--mint); }
-.sc-code { fill: #a9a2b6; font-size: 10px; letter-spacing: 0.02em; }
+.sc-code { fill: #a9a2b6; font-size: 10px; letter-spacing: 0.02em; text-anchor: middle; }
 .sc-code-back { fill: #8b8497; }
 
 /* Capability names read as plain tags now (was the boxed .capability-grid). */
