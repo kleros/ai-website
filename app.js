@@ -416,9 +416,9 @@ contactForm?.addEventListener("submit", async (event) => {
     if (!response.ok) throw new Error(result.error || "Message could not be sent.");
 
     contactForm.reset();
-    setContactStatus("Message sent. Fortunato will receive it directly.", "success");
+    setContactStatus("Message sent. The Kleros team will be in touch.", "success");
   } catch (error) {
-    setContactStatus(error.message || "Message could not be sent. Email fortunato@kleros.io directly.", "error");
+    setContactStatus(error.message || "Message could not be sent. Email ai@kleros.io directly.", "error");
   } finally {
     contactSubmit.disabled = false;
     contactSubmitLabel.textContent = contactSubmitDefaultLabel;

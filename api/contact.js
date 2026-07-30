@@ -1,4 +1,4 @@
-const CONTACT_EMAIL = "fortunato@kleros.io";
+const CONTACT_EMAIL = process.env.CONTACT_TO_EMAIL || "ai@kleros.io";
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const clean = (value, maxLength) => String(value || "").trim().slice(0, maxLength);
@@ -44,7 +44,7 @@ module.exports = async function contactHandler(request, response) {
   const fromEmail = process.env.CONTACT_FROM_EMAIL;
   if (!apiKey || !fromEmail) {
     return response.status(503).json({
-      error: "Email delivery is being configured. Please email fortunato@kleros.io directly.",
+      error: "Email delivery is being configured. Please email ai@kleros.io directly.",
     });
   }
 
@@ -80,7 +80,7 @@ module.exports = async function contactHandler(request, response) {
         ].join("\n"),
         html: `
           <div style="font-family:Arial,sans-serif;max-width:640px;margin:auto;color:#191325">
-            <p style="font-size:12px;letter-spacing:.08em;color:#6f40ed">KLEROS × AI WEBSITE</p>
+            <p style="font-size:12px;letter-spacing:.08em;color:#6f40ed">KLEROS AI WEBSITE</p>
             <h1 style="font-size:28px;margin:12px 0 24px">New agentic economy inquiry</h1>
             <table style="width:100%;border-collapse:collapse;font-size:14px">
               <tr><td style="padding:10px;border-bottom:1px solid #eee;color:#777">Name</td><td style="padding:10px;border-bottom:1px solid #eee">${safe.name}</td></tr>
@@ -95,13 +95,13 @@ module.exports = async function contactHandler(request, response) {
     });
   } catch (error) {
     console.error("Resend contact form request failed", error);
-    return response.status(502).json({ error: "Message could not be sent. Please email fortunato@kleros.io directly." });
+    return response.status(502).json({ error: "Message could not be sent. Please email ai@kleros.io directly." });
   }
 
   const resendResult = await resendResponse.json().catch(() => ({}));
   if (!resendResponse.ok) {
     console.error("Resend contact form error", resendResponse.status, resendResult);
-    return response.status(502).json({ error: "Message could not be sent. Please email fortunato@kleros.io directly." });
+    return response.status(502).json({ error: "Message could not be sent. Please email ai@kleros.io directly." });
   }
 
   return response.status(200).json({ ok: true });

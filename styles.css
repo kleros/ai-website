@@ -167,11 +167,6 @@ svg {
 
 .brand-logo { width: 116px; height: auto; }
 
-.brand-divider {
-  margin-inline: 2px -4px;
-  color: var(--muted-2);
-}
-
 .brand-ai {
   color: var(--purple-bright);
 }
@@ -1327,9 +1322,6 @@ svg {
 }
 .contact-copy h2 span { color: var(--cyan); }
 .contact-copy > p { margin: 25px 0 0; color: #aaa3b7; font-size: 15px; line-height: 1.75; }
-.contact-destination { margin-top: 42px; padding-top: 21px; border-top: 1px solid var(--line); }
-.contact-destination small { display: block; color: #6f687b; font-family: var(--mono); font-size: 8px; letter-spacing: 0.06em; }
-.contact-destination a { display: inline-block; margin-top: 7px; color: var(--purple-bright); font-size: 14px; font-weight: 600; }
 .contact-form {
   padding: 28px;
   border: 1px solid var(--line);
@@ -3760,7 +3752,6 @@ body:is([data-page="home"], [data-page="agent-access"]) .terminal-output strong 
 body[data-page="home"] .proof-card p { font-size: 14px; }
 body[data-page="home"] .proof-card > strong { font-size: 10px; }
 body[data-page="home"] .proof-more { justify-content: flex-end; }
-body[data-page="home"] .contact-destination a { margin-top: 0; font-size: 16px; }
 body[data-page="products"] .contact-copy h2 { margin-top: 0; }
 
 body:is([data-page="home"], [data-page="proof"], [data-page="agent-access"]) .contact-form label > span {
