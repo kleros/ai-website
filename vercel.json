@@ -1,6 +1,13 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/proof",
+      "destination": "/our-solutions",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
