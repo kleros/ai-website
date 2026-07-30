@@ -198,7 +198,6 @@ svg {
 .hero {
   position: relative;
   display: grid;
-  overflow: clip;
   grid-template-columns: minmax(0, 1.02fr) minmax(420px, 0.98fr);
   gap: 60px;
   align-items: center;
@@ -688,7 +687,10 @@ svg {
   line-height: 1.7;
 }
 
-.problem { position: relative; }
+.problem { position: relative; text-align: center; }
+.problem .section-intro { margin-inline: auto; }
+.problem .flow-strip { justify-content: center; }
+.problem .section-closer { margin-inline: auto; }
 
 /* Compact replacement for the old .multiplier diagram: one row, no nested cards. */
 .flow-strip {
@@ -1000,11 +1002,14 @@ svg {
 }
 
 /* Shared scheme vocabulary ------------------------------------------------ */
+/* One type scale across all four diagrams so they read as one set:
+   captions 8.5px/.1em, values 10px/.02em, outcomes 11px/.06em — always mono. */
+.scheme svg text { font-family: var(--mono); }
+
 .sc-label {
   fill: #726b7e;
-  font-family: var(--mono);
-  font-size: 8px;
-  letter-spacing: 0.12em;
+  font-size: 8.5px;
+  letter-spacing: 0.1em;
 }
 
 .sc-label-mid,
@@ -1013,8 +1018,8 @@ svg {
 
 .sc-branch-label {
   fill: #8b8497;
-  font-family: var(--mono);
-  font-size: 8px;
+  font-size: 8.5px;
+  letter-spacing: 0.1em;
   text-anchor: middle;
 }
 
@@ -1042,14 +1047,14 @@ svg {
 .sc-crowd circle { fill: #3d3749; }
 .sc-gate { fill: rgba(134, 91, 255, 0.07); stroke: rgba(189, 169, 255, 0.45); stroke-width: 1; }
 .sc-rule path { stroke: var(--cyan); stroke-width: 1.6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-.sc-rule text { fill: #a9a2b6; font-family: var(--mono); font-size: 8.5px; }
+.sc-rule text { fill: #a9a2b6; font-size: 10px; letter-spacing: 0.02em; }
 .sc-pass { stroke: var(--mint); stroke-width: 1.6; fill: none; }
 .sc-blocked path { stroke: #4a4358; stroke-width: 1.4; fill: none; stroke-linecap: round; }
 .sc-chosen { fill: rgba(121, 242, 192, 0.16); stroke: var(--mint); stroke-width: 1.5; }
 
 /* Transact: the vault and the two ways out */
 .sc-vault { fill: rgba(134, 91, 255, 0.12); stroke: rgba(189, 169, 255, 0.5); stroke-width: 1; }
-.sc-vault-sum { fill: var(--ink); font-family: var(--mono); font-size: 12px; text-anchor: middle; }
+.sc-vault-sum { fill: var(--ink); font-size: 11px; letter-spacing: 0.06em; text-anchor: middle; }
 .sc-branch-dim { stroke: #4a4358; stroke-width: 1.2; fill: none; stroke-dasharray: 4 4; }
 .sc-branch-back { stroke: var(--orange); stroke-width: 1.8; fill: none; stroke-linejoin: round; }
 
@@ -1059,13 +1064,13 @@ svg {
 .sc-fork-weak { stroke: #4a4358; stroke-width: 1.2; fill: none; stroke-dasharray: 4 4; }
 .sc-out-strong { fill: rgba(121, 242, 192, 0.1); stroke: rgba(121, 242, 192, 0.45); stroke-width: 1; }
 .sc-out-weak { fill: rgba(255, 255, 255, 0.03); stroke: var(--line); stroke-width: 1; }
-.sc-out-text { fill: #8b8497; font-family: var(--mono); font-size: 9px; letter-spacing: 0.08em; text-anchor: middle; }
+.sc-out-text { fill: #8b8497; font-size: 11px; letter-spacing: 0.06em; text-anchor: middle; }
 .sc-out-text-strong { fill: var(--mint); }
 
 /* Connect: the two-way tool call */
 .sc-call { stroke: var(--cyan); stroke-width: 1.4; fill: none; }
 .sc-call-back { stroke: var(--mint); }
-.sc-code { fill: #a9a2b6; font-family: var(--mono); font-size: 9px; }
+.sc-code { fill: #a9a2b6; font-size: 10px; letter-spacing: 0.02em; }
 .sc-code-back { fill: #8b8497; }
 
 /* Capability names read as plain tags now (was the boxed .capability-grid). */
@@ -1073,7 +1078,7 @@ svg {
   display: flex;
   flex-wrap: wrap;
   gap: 7px;
-  margin: 16px 0 0;
+  margin: 16px 0 26px;
   padding: 0;
   list-style: none;
 }
@@ -1106,7 +1111,7 @@ svg {
   display: flex;
   flex-wrap: wrap;
   gap: 7px;
-  margin: 16px 0 0;
+  margin: 16px 0 26px;
   padding: 0;
   list-style: none;
 }
@@ -1400,7 +1405,7 @@ svg {
 }
 
 @media (max-width: 760px) {
-  :root { --shell: calc(100vw - 28px); }
+  :root { --shell: calc(100vw - 48px); }
   .section-pad { padding-block: 58px; }
   .site-header { grid-template-columns: 1fr auto; width: calc(100vw - 20px); height: 60px; margin-top: 10px; padding: 0 14px; }
   .brand { font-size: 11px; }
