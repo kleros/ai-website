@@ -161,16 +161,18 @@
             <p>Kleros secures every stage of the transaction.</p>
           </div>
 
-          <div class="lifecycle-nav reveal" role="tablist" aria-label="Lifecycle stages" data-lifecycle-nav>
-            <a href="#verify" id="tab-verify" role="tab" aria-controls="verify" aria-selected="true" class="is-active">Verify</a>
-            <a href="#transact" id="tab-transact" role="tab" aria-controls="transact" aria-selected="false">Transact</a>
-            <a href="#resolve" id="tab-resolve" role="tab" aria-controls="resolve" aria-selected="false">Resolve</a>
-            <a href="#connect" id="tab-connect" role="tab" aria-controls="connect" aria-selected="false">Connect</a>
-          </div>
+          <svg class="sc-defs" aria-hidden="true" focusable="false">
+            <defs>
+              <marker id="sc-arrow-mute" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#777087" /></marker>
+              <marker id="sc-arrow-mint" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#79f2c0" /></marker>
+              <marker id="sc-arrow-orange" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#ff9f6e" /></marker>
+              <marker id="sc-arrow-cyan" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#72e5ff" /></marker>
+            </defs>
+          </svg>
 
-          <div class="lifecycle-panels" data-lifecycle-panels>
-          <article class="chapter chapter-verify" id="verify" role="tabpanel" aria-labelledby="tab-verify" tabindex="0" data-lifecycle-section="verify">
+          <article class="chapter chapter-verify" id="verify" data-lifecycle-section="verify">
             <div class="chapter-copy reveal">
+              <p class="stage-mark"><span>Stage 01 / 04 · Verify</span><span class="stage-mark-bar" aria-hidden="true"><i class="is-on"></i><i></i><i></i><i></i></span></p>
               <h3>Trust unlocks permissions.</h3>
               <p>
                 First, find the right agent for the job. Then decide what it may do. Openly verifiable
@@ -187,48 +189,45 @@
               </a>
             </div>
 
-            <div class="interactive-card trust-builder reveal" data-delay="100">
-              <div class="card-topline">
-                <span class="evidence evidence-public">PUBLIC TESTNET</span>
-              </div>
-              <p class="card-prompt">Who may purchase healthcare data?</p>
-              <div class="policy-options" data-policy-options>
-                <button class="policy-chip is-selected" type="button" data-policy="Expertise">
-                  <span>✓</span> Healthcare expertise
-                </button>
-                <button class="policy-chip is-selected" type="button" data-policy="Jurisdiction">
-                  <span>✓</span> EU jurisdiction
-                </button>
-                <button class="policy-chip" type="button" data-policy="Language">
-                  <span>+</span> English
-                </button>
-                <button class="policy-chip is-selected" type="button" data-policy="Collateral">
-                  <span>✓</span> Collateral posted
-                </button>
-                <button class="policy-chip" type="button" data-policy="Record">
-                  <span>+</span> Clean record
-                </button>
-              </div>
-              <div class="policy-line"></div>
-              <div class="agent-result">
-                <div class="agent-avatar"><span></span><span></span></div>
-                <div>
-                  <strong>MED-RESEARCH / 08</strong>
-                  <div class="agent-tags" data-agent-tags>
-                    <span>Expertise</span><span>Jurisdiction</span><span>Collateral</span>
-                  </div>
-                </div>
-                <div class="match-score"><strong data-match-score>96</strong><small>FIT</small></div>
-              </div>
-              <div class="permission-row">
-                <span>Purchase privilege</span>
-                <strong data-permission-status>GRANTED</strong>
-              </div>
-            </div>
+            <figure class="scheme reveal" data-delay="100">
+              <svg viewBox="0 0 360 190" role="img" aria-labelledby="scheme-verify-title">
+                <title id="scheme-verify-title">Many candidate agents enter a rules gate; only the agent that proves every rule passes through</title>
+                <g class="sc-crowd">
+                  <circle cx="22" cy="46" r="6" /><circle cx="48" cy="30" r="6" /><circle cx="20" cy="86" r="6" />
+                  <circle cx="52" cy="70" r="6" /><circle cx="26" cy="126" r="6" /><circle cx="54" cy="110" r="6" />
+                  <circle cx="22" cy="162" r="6" /><circle cx="50" cy="148" r="6" />
+                </g>
+                <text class="sc-label" x="20" y="16">MILLIONS OF AGENTS</text>
+
+                <g class="sc-flow">
+                  <path d="M62 46 H118" /><path d="M66 70 H118" /><path d="M68 110 H118" /><path d="M64 148 H118" />
+                </g>
+
+                <rect class="sc-gate" x="124" y="24" width="86" height="142" rx="14" />
+                <text class="sc-label sc-label-mid" x="167" y="46">RULES</text>
+                <g class="sc-rule">
+                  <path d="M140 70 l7 7 l14 -15" /><text x="170" y="75">expertise</text>
+                  <path d="M140 100 l7 7 l14 -15" /><text x="170" y="105">jurisdiction</text>
+                  <path d="M140 130 l7 7 l14 -15" /><text x="170" y="135">collateral</text>
+                </g>
+
+                <path class="sc-pass" d="M210 95 H286" marker-end="url(#sc-arrow-mint)" />
+                <g class="sc-blocked">
+                  <path d="M210 55 h18" /><path d="M222 49 l10 12 M232 49 l-10 12" />
+                  <path d="M210 140 h18" /><path d="M222 134 l10 12 M232 134 l-10 12" />
+                </g>
+
+                <circle class="sc-chosen" cx="312" cy="95" r="16" />
+                <text class="sc-label sc-label-out" x="312" y="132">GRANTED</text>
+
+              </svg>
+              <figcaption>Rules decide who may act — the same gate the copy describes, running once.</figcaption>
+            </figure>
           </article>
 
-          <article class="chapter chapter-transact" id="transact" role="tabpanel" aria-labelledby="tab-transact" tabindex="0" data-lifecycle-section="transact">
+          <article class="chapter chapter-transact" id="transact" data-lifecycle-section="transact">
             <div class="chapter-copy reveal">
+              <p class="stage-mark"><span>Stage 02 / 04 · Transact</span><span class="stage-mark-bar" aria-hidden="true"><i class="is-on"></i><i class="is-on"></i><i></i><i></i></span></p>
               <h3>Fast payments still need a way back.</h3>
               <p>
                 An agent can pay for data that never arrives. Escrow holds value until work is done.
@@ -252,44 +251,34 @@
               </details>
             </div>
 
-            <div class="interactive-card escrow-demo reveal" data-delay="100" data-escrow-demo>
-              <div class="card-topline">
-                <span class="evidence evidence-tested">INTERACTIVE</span>
-              </div>
-              <div class="escrow-stage">
-                <div class="party party-buyer">
-                  <div class="party-icon">A</div>
-                  <strong>Buyer agent</strong>
-                </div>
-                <div class="funds-path">
-                  <div class="path-line"><span data-fund-dot></span></div>
-                  <div class="escrow-vault">
-                    <span class="vault-lock">◇</span>
-                    <strong>2.40 USDC</strong>
-                    <small data-vault-state>LOCKED</small>
-                  </div>
-                </div>
-                <div class="party party-seller">
-                  <div class="party-icon">B</div>
-                  <strong>Data agent</strong>
-                </div>
-              </div>
-              <div class="demo-question">What happened?</div>
-              <div class="segmented-control" aria-label="Choose payment outcome">
-                <button type="button" data-escrow-outcome="success">Delivered</button>
-                <button class="is-active" type="button" data-escrow-outcome="failure">Delivery failed</button>
-              </div>
-              <div class="escrow-result is-failure" data-escrow-result>
-                <span class="result-icon">↩</span>
-                <div><strong>Recovery path opened</strong></div>
-                <span class="result-badge">DISPUTABLE</span>
-              </div>
-              <p class="micro-note">The flow is illustrative. Exact mechanisms depend on the integration.</p>
-            </div>
+            <figure class="scheme reveal" data-delay="100">
+              <svg viewBox="0 0 360 190" role="img" aria-labelledby="scheme-transact-title">
+                <title id="scheme-transact-title">Payment is held in escrow between buyer and seller; it is released on delivery, or returns to the buyer when delivery fails</title>
+                <circle class="sc-node" cx="34" cy="72" r="22" />
+                <text class="sc-label sc-label-under" x="34" y="40">BUYER</text>
+                <circle class="sc-node" cx="326" cy="72" r="22" />
+                <text class="sc-label sc-label-under" x="326" y="40">SELLER</text>
+
+                <path class="sc-flow-line" d="M58 72 H128" marker-end="url(#sc-arrow-mute)" />
+
+                <rect class="sc-vault" x="132" y="42" width="96" height="60" rx="12" />
+                <text class="sc-vault-sum" x="180" y="70">2.40 USDC</text>
+                <text class="sc-label sc-label-mid" x="180" y="88">HELD</text>
+
+                <path class="sc-branch-dim" d="M232 62 H298" marker-end="url(#sc-arrow-mute)" />
+                <text class="sc-branch-label" x="265" y="52">on delivery</text>
+
+                <path class="sc-branch-back" d="M180 106 V150 H34 V102" marker-end="url(#sc-arrow-orange)" />
+                <text class="sc-branch-label sc-branch-label-back" x="107" y="172">on failure — the way back</text>
+
+              </svg>
+              <figcaption>Without the return path, a failed machine payment is simply gone.</figcaption>
+            </figure>
           </article>
 
-          <article class="chapter chapter-resolve" id="resolve" role="tabpanel" aria-labelledby="tab-resolve" tabindex="0" data-lifecycle-section="resolve">
+          <article class="chapter chapter-resolve" id="resolve" data-lifecycle-section="resolve">
             <div class="chapter-copy reveal">
+              <p class="stage-mark"><span>Stage 03 / 04 · Resolve</span><span class="stage-mark-bar" aria-hidden="true"><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i></i></span></p>
               <h3>Automate the clear. Escalate the uncertain.</h3>
               <p>
                 Cheap, obvious cases should not wait for an expensive process. Complex, sensitive, or
@@ -305,68 +294,36 @@
               </a>
             </div>
 
-            <div class="interactive-card triage-lab reveal" data-delay="100" data-triage-lab>
-              <div class="card-topline">
-                <span class="evidence evidence-prototype">PROTOTYPE MODEL</span>
-              </div>
-              <div class="case-tabs" role="tablist" aria-label="Choose a sample dispute">
-                <button class="is-active" type="button" role="tab" aria-selected="true" data-case="clear">Clear case</button>
-                <button type="button" role="tab" aria-selected="false" data-case="uncertain">Uncertain case</button>
-                <button type="button" role="tab" aria-selected="false" data-case="respondent">Respondent case</button>
-              </div>
-              <div class="case-summary">
-                <div>
-                  <strong data-case-title>Paid dataset never arrived</strong>
-                </div>
-                <div class="verdict-score"><strong data-case-score>86</strong><small>/ 100</small></div>
-              </div>
-              <div class="matrix" aria-label="Nine independent AI assessments" data-matrix></div>
-              <div class="matrix-labels"><span>STRICT</span><span>CONSUMER</span><span>PRECEDENT</span></div>
-              <div class="triage-route">
-                <div class="route-meter"><span data-route-meter></span></div>
-                <div>
-                  <strong data-route-label>Strong convergence → auto-resolve</strong>
-                </div>
-                <span class="route-pill" data-route-pill>AUTOMATED</span>
-              </div>
-              <p class="micro-note">A visual explanation of the approach—not a live case decision.</p>
-            </div>
-          </article>
+            <figure class="scheme reveal" data-delay="100">
+              <svg viewBox="0 0 360 190" role="img" aria-labelledby="scheme-resolve-title">
+                <title id="scheme-resolve-title">A disputed case is read independently nine times; when the reads agree it resolves automatically, when they diverge it escalates to human jurors</title>
+                <rect class="sc-node-sq" x="12" y="76" width="40" height="40" rx="10" />
+                <text class="sc-label sc-label-under" x="32" y="132">CASE</text>
+                <path class="sc-flow-line" d="M56 96 H92" marker-end="url(#sc-arrow-mute)" />
 
-          <article class="chapter chapter-connect" id="connect" role="tabpanel" aria-labelledby="tab-connect" tabindex="0" data-lifecycle-section="connect">
-            <div class="chapter-copy reveal">
-              <h3>Agents do not visit a courthouse.</h3>
-              <p>
-                They call a tool. Kleros speaks their language: skills, structured interfaces,
-                agent-friendly commands.
-              </p>
-              <ul class="capability-grid">
-                <li>Browse cases</li><li>Read evidence</li><li>Create escrow</li><li>Open disputes</li>
-                <li>Check verification</li><li>Pay fees</li><li>Join as juror</li><li>Receive rulings</li>
-              </ul>
-              <a class="text-link" href="https://skills.kleros.io/" target="_blank" rel="noreferrer">
-                Explore Kleros Skills <span>↗</span>
-              </a>
-            </div>
+                <g class="sc-reads">
+                  <rect x="98" y="60" width="16" height="16" rx="4" /><rect x="120" y="60" width="16" height="16" rx="4" /><rect x="142" y="60" width="16" height="16" rx="4" />
+                  <rect x="98" y="82" width="16" height="16" rx="4" /><rect x="120" y="82" width="16" height="16" rx="4" /><rect x="142" y="82" width="16" height="16" rx="4" />
+                  <rect x="98" y="104" width="16" height="16" rx="4" /><rect x="120" y="104" width="16" height="16" rx="4" /><rect x="142" y="104" width="16" height="16" rx="4" />
+                </g>
+                <text class="sc-label" x="98" y="48">9 INDEPENDENT READS</text>
 
-            <div class="terminal-card reveal" data-delay="100" data-terminal>
-              <div class="terminal-head">
-                <div><span></span><span></span><span></span></div>
-              </div>
-              <div class="terminal-body" aria-live="polite">
-                <div class="terminal-line is-visible"><code><b>check</b> agent_08 against healthcare-policy</code></div>
-                <div class="terminal-line"><code><b>lock</b> 2.40 USDC until delivery</code></div>
-                <div class="terminal-line"><code><b>detect</b> output_missing after deadline</code></div>
-                <div class="terminal-line"><code><b>open</b> dispute with attached evidence</code></div>
-                <div class="terminal-line"><code><b>receive</b> ruling and recover funds</code></div>
-                <div class="terminal-output">
-                  <strong data-terminal-outcome>Agent verified. Ready to transact.</strong>
-                </div>
-              </div>
-              <button class="terminal-run" type="button" data-terminal-run><span>▶</span> Click to run lifecycle</button>
-            </div>
+                <path class="sc-fork-strong" d="M164 90 C196 90 196 52 226 52" marker-end="url(#sc-arrow-mint)" />
+                <path class="sc-fork-weak" d="M164 102 C196 102 196 146 226 146" marker-end="url(#sc-arrow-mute)" />
+
+                <rect class="sc-out-strong" x="230" y="34" width="120" height="36" rx="10" />
+                <text class="sc-out-text sc-out-text-strong" x="290" y="56">AUTO-RESOLVE</text>
+
+                <rect class="sc-out-weak" x="230" y="128" width="120" height="36" rx="10" />
+                <text class="sc-out-text" x="290" y="150">HUMAN JURORS</text>
+
+                <text class="sc-branch-label" x="212" y="70">agree</text>
+                <text class="sc-branch-label" x="212" y="132">diverge</text>
+
+              </svg>
+              <figcaption>Cheap cases settle themselves. Hard ones buy a human.</figcaption>
+            </figure>
           </article>
-          </div>
 
           <div class="human-layer reveal">
             <div class="human-question">
@@ -386,6 +343,50 @@
               <span class="video-meta"><small>ETHCC[8] · 19 MIN</small><strong>Decentralized justice & human values</strong></span>
             </a>
           </div>
+
+          <article class="chapter chapter-connect" id="connect" data-lifecycle-section="connect">
+            <div class="chapter-copy reveal">
+              <p class="stage-mark"><span>Stage 04 / 04 · Connect</span><span class="stage-mark-bar" aria-hidden="true"><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i></span></p>
+              <h3>Agents do not visit a courthouse.</h3>
+              <p>
+                They call a tool. Kleros speaks their language: skills, structured interfaces,
+                agent-friendly commands.
+              </p>
+              <ul class="tag-row">
+                <li>Browse cases</li><li>Read evidence</li><li>Create escrow</li><li>Open disputes</li>
+                <li>Check verification</li><li>Pay fees</li><li>Join as juror</li><li>Receive rulings</li>
+              </ul>
+              <a class="text-link" href="https://skills.kleros.io/" target="_blank" rel="noreferrer">
+                Explore Kleros Skills <span>↗</span>
+              </a>
+            </div>
+
+            <figure class="scheme reveal" data-delay="100">
+              <svg viewBox="0 0 360 190" role="img" aria-labelledby="scheme-connect-title">
+                <title id="scheme-connect-title">An agent calls Kleros directly as a tool, sending commands and receiving results, with no interface and no human in between</title>
+                <rect class="sc-node-sq sc-node-agent" x="14" y="66" width="56" height="56" rx="14" />
+                <circle class="sc-eye" cx="34" cy="94" r="3.5" /><circle class="sc-eye" cx="50" cy="94" r="3.5" />
+                <text class="sc-label sc-label-under" x="42" y="140">AGENT</text>
+
+                <path class="sc-call" d="M78 78 H262" marker-end="url(#sc-arrow-cyan)" />
+                <text class="sc-code" x="86" y="68">check · lock · open</text>
+
+                <path class="sc-call sc-call-back" d="M262 112 H78" marker-end="url(#sc-arrow-mint)" />
+                <text class="sc-code sc-code-back" x="86" y="132">verified · held · ruling</text>
+
+                <polygon class="sc-kleros" points="308,52 340,71 340,109 308,128 276,109 276,71" />
+                <text class="sc-label sc-label-under" x="308" y="152">KLEROS</text>
+
+                <g class="sc-nohuman">
+                  <circle cx="132" cy="160" r="9" />
+                  <path d="M125 153 l14 14" />
+                </g>
+                <text class="sc-branch-label sc-branch-label-start" x="150" y="164">no interface, no human</text>
+
+              </svg>
+              <figcaption>Every stage above happened through this one channel.</figcaption>
+            </figure>
+          </article>
         </div>
       </section>
 
@@ -488,6 +489,13 @@
         </div>
       </section>
     </main>
+
+    <nav class="stage-rail" aria-label="Lifecycle stages" data-stage-rail>
+      <a href="#verify"><span class="stage-dot"></span><span class="stage-name">Verify</span></a>
+      <a href="#transact"><span class="stage-dot"></span><span class="stage-name">Transact</span></a>
+      <a href="#resolve"><span class="stage-dot"></span><span class="stage-name">Resolve</span></a>
+      <a href="#connect"><span class="stage-dot"></span><span class="stage-name">Connect</span></a>
+    </nav>
 
     <footer class="site-footer shell">
       <a class="brand footer-brand" href="/" aria-label="Kleros AI home">

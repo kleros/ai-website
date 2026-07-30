@@ -43,85 +43,41 @@ if (reduceMotion || !("IntersectionObserver" in window)) {
   revealItems.forEach((item) => revealObserver.observe(item));
 }
 
-const lifecycleNav = document.querySelector("[data-lifecycle-nav]");
-const lifecyclePanels = document.querySelector("[data-lifecycle-panels]");
-const lifecycleTabs = [...document.querySelectorAll("[data-lifecycle-nav] a")];
+const stageRail = document.querySelector("[data-stage-rail]");
+const stageLinks = [...document.querySelectorAll("[data-stage-rail] a")];
 const lifecycleSections = [...document.querySelectorAll("[data-lifecycle-section]")];
+const lifecycleSection = document.querySelector(".lifecycle");
 
-if (lifecycleTabs.length && lifecycleSections.length) {
-  // Only collapse to one-panel-at-a-time once the script runs, so the chapters
-  // stay readable as a plain stack without JS.
-  lifecyclePanels?.classList.add("is-tabbed");
-
-  const selectLifecycle = (id, { focus = false } = {}) => {
-    const panel = lifecycleSections.find((section) => section.id === id);
-    if (!panel) return false;
-
-    lifecycleTabs.forEach((tab) => {
-      const selected = tab.getAttribute("aria-controls") === id;
-      tab.classList.toggle("is-active", selected);
-      tab.setAttribute("aria-selected", String(selected));
-      tab.tabIndex = selected ? 0 : -1;
-      if (selected && focus) tab.focus();
+if (stageRail && stageLinks.length && lifecycleSections.length && lifecycleSection) {
+  const markActive = (id) => {
+    stageLinks.forEach((link) => {
+      const active = link.getAttribute("href") === `#${id}`;
+      link.classList.toggle("is-active", active);
+      if (active) link.setAttribute("aria-current", "true");
+      else link.removeAttribute("aria-current");
     });
+  };
 
+  const syncRail = () => {
+    const band = lifecycleSection.getBoundingClientRect();
+    // The rail only means anything inside the lifecycle; elsewhere it fades out.
+    const inside = band.top < window.innerHeight * 0.7 && band.bottom > window.innerHeight * 0.3;
+    stageRail.classList.toggle("is-visible", inside);
+    if (!inside) return;
+
+    // The stage whose top has most recently passed the reading line wins.
+    const readingLine = window.scrollY + window.innerHeight * 0.42;
+    let active = lifecycleSections[0];
     lifecycleSections.forEach((section) => {
-      section.hidden = section !== panel;
+      if (section.getBoundingClientRect().top + window.scrollY <= readingLine) active = section;
     });
-
-    // The reveal observer never fires for panels that were hidden on load.
-    panel.querySelectorAll(".reveal").forEach((item) => item.classList.add("is-visible"));
-    return true;
+    markActive(active.id);
   };
 
-  lifecycleNav?.addEventListener("click", (event) => {
-    const tab = event.target.closest("a[aria-controls]");
-    if (!tab) return;
-    event.preventDefault();
-    const id = tab.getAttribute("aria-controls");
-    if (selectLifecycle(id)) history.replaceState(null, "", `#${id}`);
-  });
-
-  lifecycleNav?.addEventListener("keydown", (event) => {
-    const step = { ArrowRight: 1, ArrowLeft: -1, Home: "first", End: "last" }[event.key];
-    if (!step) return;
-    event.preventDefault();
-    const current = lifecycleTabs.findIndex((tab) => tab.classList.contains("is-active"));
-    const next =
-      step === "first"
-        ? 0
-        : step === "last"
-          ? lifecycleTabs.length - 1
-          : (current + step + lifecycleTabs.length) % lifecycleTabs.length;
-    selectLifecycle(lifecycleTabs[next].getAttribute("aria-controls"), { focus: true });
-  });
-
-  // The browser jumps to the anchor against the full-height stack, so collapsing
-  // to a single panel would otherwise leave the reader scrolled past the content.
-  const realignToNav = () => {
-    if (!lifecyclePanels) return;
-    // Measure the panels, not the nav: the nav is sticky, so its rect reports the
-    // stuck position rather than where it sits in the document.
-    const navHeight = lifecycleNav.getBoundingClientRect().height;
-    const top = lifecyclePanels.getBoundingClientRect().top + window.scrollY - navHeight - 118;
-    // "auto" would defer to the page's `scroll-behavior: smooth` and animate.
-    window.scrollTo({ top, behavior: "instant" });
-  };
-
-  const openFromHash = ({ realign = false } = {}) => {
-    const id = location.hash.slice(1);
-    if (!lifecycleSections.some((section) => section.id === id)) return;
-    selectLifecycle(id);
-    if (!realign) return;
-    realignToNav();
-    // Late-loading images (hero art, video poster) shift the page after this runs.
-    window.addEventListener("load", realignToNav, { once: true });
-  };
-
-  // Deep links from other pages land on a stage; everything else opens on Verify.
-  selectLifecycle(lifecycleSections[0].id);
-  openFromHash({ realign: true });
-  window.addEventListener("hashchange", () => openFromHash());
+  markActive(lifecycleSections[0].id);
+  syncRail();
+  window.addEventListener("scroll", syncRail, { passive: true });
+  window.addEventListener("resize", syncRail);
 }
 
 const wait = (milliseconds) => new Promise((resolve) => window.setTimeout(resolve, milliseconds));
@@ -156,149 +112,6 @@ runScenarioButton?.addEventListener("click", async () => {
   runScenarioButton.disabled = false;
 });
 
-const policyButtons = [...document.querySelectorAll("[data-policy]")];
-const agentTags = document.querySelector("[data-agent-tags]");
-const matchScore = document.querySelector("[data-match-score]");
-const permissionStatus = document.querySelector("[data-permission-status]");
-
-const updatePolicy = () => {
-  if (!agentTags || !matchScore || !permissionStatus) return;
-  const selected = policyButtons.filter((button) => button.classList.contains("is-selected"));
-  agentTags.replaceChildren(
-    ...selected.map((button) => {
-      const tag = document.createElement("span");
-      tag.textContent = button.dataset.policy;
-      return tag;
-    }),
-  );
-  const score = Math.min(99, 42 + selected.length * 18);
-  matchScore.textContent = String(score);
-  const granted = selected.length >= 3;
-  permissionStatus.textContent = granted ? "GRANTED" : "NEEDS REVIEW";
-  permissionStatus.style.color = granted ? "var(--mint)" : "var(--orange)";
-};
-
-policyButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    button.classList.toggle("is-selected");
-    const selected = button.classList.contains("is-selected");
-    button.querySelector("span").textContent = selected ? "✓" : "+";
-    updatePolicy();
-  });
-});
-
-const escrowDemo = document.querySelector("[data-escrow-demo]");
-const escrowButtons = [...document.querySelectorAll("[data-escrow-outcome]")];
-const escrowResult = document.querySelector("[data-escrow-result]");
-const vaultState = document.querySelector("[data-vault-state]");
-
-const setEscrowOutcome = (outcome) => {
-  if (!escrowDemo || !escrowResult || !vaultState) return;
-  const success = outcome === "success";
-  escrowDemo.classList.toggle("is-success", success);
-  escrowDemo.classList.toggle("is-failure", !success);
-  escrowButtons.forEach((button) => button.classList.toggle("is-active", button.dataset.escrowOutcome === outcome));
-  escrowResult.classList.toggle("is-success", success);
-  escrowResult.classList.toggle("is-failure", !success);
-  escrowResult.querySelector(".result-icon").textContent = success ? "→" : "↩";
-  escrowResult.querySelector("strong").textContent = success ? "Payment released to seller" : "Recovery path opened";
-  escrowResult.querySelector(".result-badge").textContent = success ? "SETTLED" : "DISPUTABLE";
-  vaultState.textContent = success ? "RELEASED" : "RETURN ROUTE";
-};
-
-escrowButtons.forEach((button) => button.addEventListener("click", () => setEscrowOutcome(button.dataset.escrowOutcome)));
-if (escrowDemo) setEscrowOutcome("failure");
-
-const triageLab = document.querySelector("[data-triage-lab]");
-const matrix = document.querySelector("[data-matrix]");
-const caseButtons = [...document.querySelectorAll("[data-case]")];
-
-const cases = {
-  clear: {
-    title: "Paid dataset never arrived",
-    values: [88, 82, 91, 86, 89, 84, 92, 80, 85],
-    score: 86,
-    route: "Strong convergence → auto-resolve",
-    pill: "AUTOMATED",
-    color: "var(--mint)",
-  },
-  uncertain: {
-    title: "Report delivered, but scope is disputed",
-    values: [72, 44, 59, 33, 68, 49, 61, 38, 55],
-    score: 53,
-    route: "Material disagreement → human court",
-    pill: "ESCALATE",
-    color: "var(--purple-bright)",
-  },
-  respondent: {
-    title: "Buyer changed terms after delivery",
-    values: [14, 21, 17, 26, 11, 19, 23, 16, 13],
-    score: 18,
-    route: "Strong convergence → auto-resolve",
-    pill: "AUTOMATED",
-    color: "var(--cyan)",
-  },
-};
-
-const renderCase = (key) => {
-  if (!triageLab || !matrix) return;
-  const item = cases[key];
-  matrix.replaceChildren(
-    ...item.values.map((value) => {
-      const cell = document.createElement("div");
-      cell.className = `matrix-cell ${value <= 30 ? "is-low" : value < 75 ? "is-uncertain" : ""}`;
-      cell.style.setProperty("--fill", `${Math.max(12, value)}%`);
-      const score = document.createElement("strong");
-      score.textContent = String(value);
-      cell.append(score);
-      return cell;
-    }),
-  );
-
-  triageLab.querySelector("[data-case-title]").textContent = item.title;
-  triageLab.querySelector("[data-case-score]").textContent = String(item.score);
-  triageLab.querySelector("[data-route-label]").textContent = item.route;
-  triageLab.querySelector("[data-route-pill]").textContent = item.pill;
-  triageLab.querySelector("[data-route-pill]").style.color = item.color;
-  const routeMeter = triageLab.querySelector(".route-meter");
-  routeMeter.style.background = `conic-gradient(${item.color} ${item.score}%, rgba(255,255,255,.08) 0)`;
-  triageLab.querySelector("[data-route-meter]").textContent = `${item.score}%`;
-  triageLab.querySelector("[data-route-meter]").style.color = item.color;
-  triageLab.querySelector(".verdict-score").style.color = item.color;
-  caseButtons.forEach((button) => {
-    const active = button.dataset.case === key;
-    button.classList.toggle("is-active", active);
-    button.setAttribute("aria-selected", String(active));
-  });
-};
-
-caseButtons.forEach((button) => button.addEventListener("click", () => renderCase(button.dataset.case)));
-if (triageLab) renderCase("clear");
-
-const terminalRun = document.querySelector("[data-terminal-run]");
-const terminalLines = [...document.querySelectorAll(".terminal-line")];
-const terminalOutcome = document.querySelector("[data-terminal-outcome]");
-
-const runTerminal = async () => {
-  if (!terminalRun || !terminalOutcome) return;
-  terminalRun.disabled = true;
-  terminalLines.forEach((line) => line.classList.remove("is-visible"));
-  const outcomes = [
-    "Agent verified. Ready to transact.",
-    "Funds locked. Delivery can begin.",
-    "Failure detected. Evidence captured.",
-    "Dispute opened. Correct court selected.",
-    "Ruling received. Funds recovered.",
-  ];
-  for (let index = 0; index < terminalLines.length; index += 1) {
-    terminalLines[index].classList.add("is-visible");
-    terminalOutcome.textContent = outcomes[index];
-    if (!reduceMotion) await wait(560);
-  }
-  terminalRun.disabled = false;
-};
-
-terminalRun?.addEventListener("click", runTerminal);
 
 document.querySelectorAll("[data-checkout-cli]").forEach((terminal) => {
   const replay = () => {
