@@ -190,38 +190,37 @@
             </div>
 
             <figure class="scheme reveal" data-delay="100">
-              <svg viewBox="0 0 360 190" role="img" aria-labelledby="scheme-verify-title">
-                <title id="scheme-verify-title">Many candidate agents enter a rules gate; only the agent that proves every rule passes through</title>
+              <svg viewBox="0 0 360 190" role="img" aria-labelledby="sc-verify-t">
+                <title id="sc-verify-t">Many candidate agents are checked against the same published rules; the one that proves all of them is granted access, the rest are turned away</title>
+                <text class="sc-label" x="8" y="14">MILLIONS OF AGENTS</text>
                 <g class="sc-crowd">
-                  <circle cx="22" cy="46" r="6" /><circle cx="48" cy="30" r="6" /><circle cx="20" cy="86" r="6" />
-                  <circle cx="52" cy="70" r="6" /><circle cx="26" cy="126" r="6" /><circle cx="54" cy="110" r="6" />
-                  <circle cx="22" cy="162" r="6" /><circle cx="50" cy="148" r="6" />
+                  <circle cx="16" cy="48" r="6" /><circle cx="40" cy="64" r="6" />
+                  <circle cx="16" cy="80" r="6" /><circle cx="40" cy="96" r="6" />
+                  <circle cx="16" cy="112" r="6" /><circle cx="40" cy="128" r="6" />
+                  <circle cx="16" cy="144" r="6" />
                 </g>
-                <text class="sc-label" x="20" y="16">MILLIONS OF AGENTS</text>
-
                 <g class="sc-flow">
-                  <path d="M62 46 H118" /><path d="M66 70 H118" /><path d="M68 110 H118" /><path d="M64 148 H118" />
+                  <path d="M48 64 H96" /><path d="M48 96 H96" /><path d="M48 128 H96" />
                 </g>
 
-                <rect class="sc-gate" x="124" y="24" width="86" height="142" rx="14" />
-                <text class="sc-label sc-label-mid" x="167" y="46">RULES</text>
+                <rect class="sc-gate" x="100" y="30" width="132" height="140" rx="14" />
+                <text class="sc-label sc-label-mid" x="166" y="52">RULES</text>
                 <g class="sc-rule">
-                  <path d="M140 70 l7 7 l14 -15" /><text x="170" y="75">expertise</text>
-                  <path d="M140 100 l7 7 l14 -15" /><text x="170" y="105">jurisdiction</text>
-                  <path d="M140 130 l7 7 l14 -15" /><text x="170" y="135">collateral</text>
+                  <path d="M116 84 l6 6 l12 -13" /><text x="142" y="88">expertise</text>
+                  <path d="M116 112 l6 6 l12 -13" /><text x="142" y="116">jurisdiction</text>
+                  <path d="M116 140 l6 6 l12 -13" /><text x="142" y="144">collateral</text>
                 </g>
 
-                <path class="sc-pass" d="M210 95 H286" marker-end="url(#sc-arrow-mint)" />
+                <path class="sc-pass" d="M232 100 H286" marker-end="url(#sc-arrow-mint)" />
+                <circle class="sc-chosen" cx="316" cy="100" r="17" />
+                <text class="sc-label sc-label-out" x="316" y="140">GRANTED</text>
+
                 <g class="sc-blocked">
-                  <path d="M210 55 h18" /><path d="M222 49 l10 12 M232 49 l-10 12" />
-                  <path d="M210 140 h18" /><path d="M222 134 l10 12 M232 134 l-10 12" />
+                  <path d="M232 54 h12" /><path d="M251 49 l10 10 M261 49 l-10 10" />
+                  <path d="M232 146 h12" /><path d="M251 141 l10 10 M261 141 l-10 10" />
                 </g>
-
-                <circle class="sc-chosen" cx="312" cy="95" r="16" />
-                <text class="sc-label sc-label-out" x="312" y="132">GRANTED</text>
-
               </svg>
-              <figcaption>Rules decide who may act — the same gate the copy describes, running once.</figcaption>
+              <figcaption>Published rules decide who may act, before anyone hands over a card or a key.</figcaption>
             </figure>
           </article>
 
@@ -295,33 +294,31 @@
             </div>
 
             <figure class="scheme reveal" data-delay="100">
-              <svg viewBox="0 0 360 190" role="img" aria-labelledby="scheme-resolve-title">
-                <title id="scheme-resolve-title">A disputed case is read independently nine times; when the reads agree it resolves automatically, when they diverge it escalates to human jurors</title>
-                <rect class="sc-node-sq" x="12" y="76" width="40" height="40" rx="10" />
-                <text class="sc-label sc-label-under" x="32" y="132">CASE</text>
-                <path class="sc-flow-line" d="M56 96 H92" marker-end="url(#sc-arrow-mute)" />
+              <svg viewBox="0 0 360 190" role="img" aria-labelledby="sc-resolve-t">
+                <title id="sc-resolve-t">One disputed case is read independently nine times; if the reads agree it resolves automatically, if they diverge it escalates to human jurors</title>
+                <rect class="sc-node-sq" x="8" y="80" width="40" height="40" rx="10" />
+                <text class="sc-label sc-label-under" x="28" y="138">CASE</text>
+                <path class="sc-flow-line" d="M52 100 H84" marker-end="url(#sc-arrow-mute)" />
 
+                <text class="sc-label sc-label-mid" x="120" y="60">9 INDEPENDENT READS</text>
                 <g class="sc-reads">
-                  <rect x="98" y="60" width="16" height="16" rx="4" /><rect x="120" y="60" width="16" height="16" rx="4" /><rect x="142" y="60" width="16" height="16" rx="4" />
-                  <rect x="98" y="82" width="16" height="16" rx="4" /><rect x="120" y="82" width="16" height="16" rx="4" /><rect x="142" y="82" width="16" height="16" rx="4" />
-                  <rect x="98" y="104" width="16" height="16" rx="4" /><rect x="120" y="104" width="16" height="16" rx="4" /><rect x="142" y="104" width="16" height="16" rx="4" />
+                  <rect x="90" y="74" width="16" height="16" rx="4" /><rect x="112" y="74" width="16" height="16" rx="4" /><rect x="134" y="74" width="16" height="16" rx="4" />
+                  <rect x="90" y="96" width="16" height="16" rx="4" /><rect x="112" y="96" width="16" height="16" rx="4" /><rect x="134" y="96" width="16" height="16" rx="4" />
+                  <rect x="90" y="118" width="16" height="16" rx="4" /><rect x="112" y="118" width="16" height="16" rx="4" /><rect x="134" y="118" width="16" height="16" rx="4" />
                 </g>
-                <text class="sc-label" x="98" y="48">9 INDEPENDENT READS</text>
 
-                <path class="sc-fork-strong" d="M164 90 C196 90 196 52 226 52" marker-end="url(#sc-arrow-mint)" />
-                <path class="sc-fork-weak" d="M164 102 C196 102 196 146 226 146" marker-end="url(#sc-arrow-mute)" />
+                <path class="sc-fork-strong" d="M156 96 C184 96 188 52 212 52" marker-end="url(#sc-arrow-mint)" />
+                <path class="sc-fork-weak" d="M156 108 C184 108 188 148 212 148" marker-end="url(#sc-arrow-mute)" />
 
-                <rect class="sc-out-strong" x="230" y="34" width="120" height="36" rx="10" />
-                <text class="sc-out-text sc-out-text-strong" x="290" y="56">AUTO-RESOLVE</text>
+                <text class="sc-branch-label" x="286" y="28">IF THEY AGREE</text>
+                <rect class="sc-out-strong" x="220" y="36" width="132" height="32" rx="9" />
+                <text class="sc-out-text sc-out-text-strong" x="286" y="56">AUTO-RESOLVE</text>
 
-                <rect class="sc-out-weak" x="230" y="128" width="120" height="36" rx="10" />
-                <text class="sc-out-text" x="290" y="150">HUMAN JURORS</text>
-
-                <text class="sc-branch-label" x="212" y="70">agree</text>
-                <text class="sc-branch-label" x="212" y="132">diverge</text>
-
+                <text class="sc-branch-label" x="286" y="124">IF THEY DIVERGE</text>
+                <rect class="sc-out-weak" x="220" y="132" width="132" height="32" rx="9" />
+                <text class="sc-out-text" x="286" y="152">HUMAN JURORS</text>
               </svg>
-              <figcaption>Cheap cases settle themselves. Hard ones buy a human.</figcaption>
+              <figcaption>Cheap, obvious cases settle themselves. Hard ones buy a human.</figcaption>
             </figure>
           </article>
 
@@ -362,29 +359,23 @@
             </div>
 
             <figure class="scheme reveal" data-delay="100">
-              <svg viewBox="0 0 360 190" role="img" aria-labelledby="scheme-connect-title">
-                <title id="scheme-connect-title">An agent calls Kleros directly as a tool, sending commands and receiving results, with no interface and no human in between</title>
-                <rect class="sc-node-sq sc-node-agent" x="14" y="66" width="56" height="56" rx="14" />
-                <circle class="sc-eye" cx="34" cy="94" r="3.5" /><circle class="sc-eye" cx="50" cy="94" r="3.5" />
-                <text class="sc-label sc-label-under" x="42" y="140">AGENT</text>
+              <svg viewBox="0 0 360 190" role="img" aria-labelledby="sc-connect-t">
+                <title id="sc-connect-t">An agent sends a dispute straight to a digital court and receives the ruling back, with no website or human in between</title>
+                <rect class="sc-node-sq sc-node-agent" x="12" y="66" width="56" height="56" rx="14" />
+                <circle class="sc-eye" cx="32" cy="94" r="3.5" /><circle class="sc-eye" cx="48" cy="94" r="3.5" />
+                <text class="sc-label sc-label-under" x="40" y="142">AGENT</text>
 
-                <path class="sc-call" d="M78 78 H262" marker-end="url(#sc-arrow-cyan)" />
-                <text class="sc-code" x="86" y="68">check · lock · open</text>
+                <text class="sc-code" x="80" y="62">"I paid. Nothing arrived."</text>
+                <path class="sc-call" d="M78 74 H262" marker-end="url(#sc-arrow-cyan)" />
 
-                <path class="sc-call sc-call-back" d="M262 112 H78" marker-end="url(#sc-arrow-mint)" />
-                <text class="sc-code sc-code-back" x="86" y="132">verified · held · ruling</text>
+                <path class="sc-call sc-call-back" d="M262 116 H78" marker-end="url(#sc-arrow-mint)" />
+                <text class="sc-code sc-code-back" x="80" y="136">"Refunded. Case closed."</text>
 
-                <polygon class="sc-kleros" points="308,52 340,71 340,109 308,128 276,109 276,71" />
-                <text class="sc-label sc-label-under" x="308" y="152">KLEROS</text>
-
-                <g class="sc-nohuman">
-                  <circle cx="132" cy="160" r="9" />
-                  <path d="M125 153 l14 14" />
-                </g>
-                <text class="sc-branch-label sc-branch-label-start" x="150" y="164">no interface, no human</text>
-
+                <polygon class="sc-kleros" points="304,58 336,76 336,112 304,130 272,112 272,76" />
+                <path class="sc-court" d="M292 104 V88 M304 104 V88 M316 104 V88 M286 84 H322 M286 108 H322" />
+                <text class="sc-label sc-label-under" x="304" y="152">DIGITAL COURT</text>
               </svg>
-              <figcaption>Every stage above happened through this one channel.</figcaption>
+              <figcaption>The agent asks. The court answers. No website, no forms, nobody waiting on a human.</figcaption>
             </figure>
           </article>
         </div>

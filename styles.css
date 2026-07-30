@@ -765,63 +765,50 @@ svg {
     #0d091b;
 }
 
-/* Floating stage rail: a labelled track, always readable, that shows where you
-   are in the lifecycle and jumps between stages. Only shown inside the section. */
+/* Floating stage tracker: a centred bar under the header. It names where you
+   are in the lifecycle and jumps between stages; hidden outside the section. */
 .stage-rail {
   position: fixed;
-  top: 50%;
-  right: 20px;
+  top: 104px;
+  left: 50%;
   z-index: 40;
   display: grid;
+  grid-auto-flow: column;
   gap: 2px;
-  padding: 12px 10px;
+  padding: 5px;
   border: 1px solid var(--line-strong);
-  border-radius: 14px;
-  background: rgba(16, 11, 33, 0.86);
+  border-radius: 12px;
+  background: rgba(16, 11, 33, 0.88);
   backdrop-filter: blur(16px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
   opacity: 0;
-  transform: translateY(-50%) translateX(16px);
+  transform: translateX(-50%) translateY(-12px);
   visibility: hidden;
-  transition: opacity 380ms ease, transform 380ms ease, visibility 380ms;
+  transition: opacity 340ms ease, transform 340ms ease, visibility 340ms;
 }
 
 .stage-rail.is-visible {
   opacity: 1;
-  transform: translateY(-50%);
+  transform: translateX(-50%);
   visibility: visible;
 }
 
 .stage-rail a {
-  display: grid;
-  grid-template-columns: 1fr 8px;
-  gap: 12px;
+  display: flex;
+  gap: 9px;
   align-items: center;
-  padding: 7px 8px;
+  padding: 8px 14px;
   border-radius: 8px;
   transition: background 180ms ease;
 }
 
-.stage-rail a:hover { background: rgba(255, 255, 255, 0.05); }
-.stage-rail a.is-active { background: rgba(134, 91, 255, 0.16); }
-
-.stage-name {
-  color: #7d7689;
-  font-family: var(--mono);
-  font-size: 9px;
-  letter-spacing: 0.1em;
-  text-align: right;
-  text-transform: uppercase;
-  transition: color 180ms ease;
-}
-
-.stage-rail a:hover .stage-name { color: #c7c0d0; }
-.stage-rail a.is-active .stage-name { color: var(--ink); }
+.stage-rail a:hover { background: rgba(255, 255, 255, 0.06); }
+.stage-rail a.is-active { background: rgba(134, 91, 255, 0.18); }
 
 .stage-dot {
-  width: 7px;
-  height: 7px;
-  justify-self: center;
+  width: 6px;
+  height: 6px;
+  flex: 0 0 auto;
   border-radius: 50%;
   background: #4a4358;
   transition: 240ms ease;
@@ -829,8 +816,21 @@ svg {
 
 .stage-rail a.is-active .stage-dot {
   background: var(--purple-bright);
-  box-shadow: 0 0 0 4px rgba(134, 91, 255, 0.18);
+  box-shadow: 0 0 0 3px rgba(134, 91, 255, 0.2);
 }
+
+.stage-name {
+  color: #7d7689;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color 180ms ease;
+}
+
+.stage-rail a:hover .stage-name { color: #c7c0d0; }
+.stage-rail a.is-active .stage-name { color: var(--ink); }
 
 /* Second, in-flow marker: every chapter says which stage it is. */
 .stage-mark {
@@ -1019,7 +1019,6 @@ svg {
 }
 
 .sc-branch-label-back { fill: var(--orange); }
-.sc-branch-label-start { text-anchor: start; }
 
 /* Nodes */
 .sc-node,
@@ -1032,6 +1031,7 @@ svg {
 .sc-node-agent { stroke: rgba(114, 229, 255, 0.45); fill: rgba(114, 229, 255, 0.07); }
 .sc-eye { fill: var(--cyan); }
 .sc-kleros { fill: rgba(134, 91, 255, 0.12); stroke: var(--purple-bright); stroke-width: 1; }
+.sc-court { stroke: var(--purple-bright); stroke-width: 1.2; fill: none; stroke-linecap: round; }
 
 /* Connections */
 .sc-flow,
@@ -1067,8 +1067,6 @@ svg {
 .sc-call-back { stroke: var(--mint); }
 .sc-code { fill: #a9a2b6; font-family: var(--mono); font-size: 9px; }
 .sc-code-back { fill: #8b8497; }
-.sc-nohuman circle { fill: none; stroke: #4a4358; stroke-width: 1.2; }
-.sc-nohuman path { stroke: #4a4358; stroke-width: 1.2; }
 
 /* Capability names read as plain tags now (was the boxed .capability-grid). */
 .tag-row {
@@ -1391,9 +1389,9 @@ svg {
   }
   .stage-rail.is-visible { transform: none; }
   .stage-rail a {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: 5px;
-    justify-items: center;
+    justify-content: center;
     padding: 7px 4px;
   }
   .stage-name { font-size: 8.5px; letter-spacing: 0.08em; text-align: center; }
