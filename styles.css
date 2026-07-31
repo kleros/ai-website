@@ -3513,7 +3513,8 @@ svg {
 
 .trusted-logo-row {
   display: flex;
-  gap: clamp(34px, 5vw, 76px);
+  flex-wrap: wrap;
+  gap: 28px clamp(30px, 4vw, 48px);
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -3521,17 +3522,14 @@ svg {
 
 .trusted-logo {
   display: block;
-  height: auto;
+  width: auto;
+  height: 48px;
   max-width: 100%;
   object-fit: contain;
 }
 
-.trusted-logo-eu { width: 299px; }
-.trusted-logo-thomson { width: 372px; }
-.trusted-logo-bpifrance { width: 164px; }
-.trusted-logo-oxford { width: 213px; }
 .trusted-logo-stanford {
-  width: 226px;
+  box-sizing: border-box;
   padding: 7px 10px;
   border-radius: 6px;
   background: #fff;
@@ -3687,17 +3685,17 @@ body[data-page="agent-access"] .stack-card li { font-size: 11px; }
   }
 
   .trusted-logo {
-    max-height: 56px;
+    width: auto;
+    height: 40px;
+    max-width: 100%;
     object-position: center;
   }
 
-  .trusted-logo-row { gap: 12px; }
-  .trusted-logo-row-primary .trusted-logo-eu { width: 33%; }
-  .trusted-logo-row-primary .trusted-logo-thomson { width: 39%; }
-  .trusted-logo-row-primary .trusted-logo-bpifrance { width: 23%; }
-  .trusted-logo-row-secondary { gap: 20px; }
-  .trusted-logo-row-secondary .trusted-logo-oxford { width: min(47%, 178px); }
-  .trusted-logo-row-secondary .trusted-logo-stanford { width: min(47%, 178px); }
+  .trusted-logo-row {
+    flex-wrap: wrap;
+    gap: 22px 18px;
+  }
+  .trusted-logo-row-secondary { gap: 22px 20px; }
 
   .verified-data-inner {
     gap: 30px;

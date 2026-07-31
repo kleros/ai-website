@@ -235,13 +235,12 @@
                 Arbitration and recovery stop a failed machine payment from becoming a permanent loss.
               </p>
               <ul class="point-list">
-                <li><b>Pay after proof</b> — release only on delivery.</li>
-                <li><b>Escrow</b> — lock value while work happens.</li>
-                <li><b>Recovery</b> — challenge failed delivery.</li>
+                <li><b>Pay after proof</b> — release funds to vendor only on delivery.</li>
+                <li><b>Pay before proof</b> — if failed, vendor will compensate customer.</li>
+           
               </ul>
               <p class="aside-note">
-                An experimental agent lost funds after a failed x402 payment. There was no practical
-                recovery path.
+                An experimental agent lost 0.9 USD after a failed x402 payment. Would it be sustainable to involve humans every time to asses who's fault?
               </p>
               <details class="tech-details">
                 <summary>Technical paths <span>+</span></summary>
@@ -278,7 +277,7 @@
 
           <article class="chapter chapter-resolve" id="resolve" data-lifecycle-section="resolve">
             <div class="chapter-copy reveal">
-              <p class="stage-mark"><span>Stage 03 / 04 · Resolve</span><span class="stage-mark-bar" aria-hidden="true"><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i></i></span></p>
+              <p class="stage-mark"><span>Stage 03 / 04 · Optimize</span><span class="stage-mark-bar" aria-hidden="true"><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i></i></span></p>
               <h3>Automate the clear. Escalate the uncertain.</h3>
               <p>
                 Cheap, obvious cases should not wait for an expensive process. Complex, sensitive, or
@@ -344,7 +343,7 @@
 
           <article class="chapter chapter-connect" id="connect" data-lifecycle-section="connect">
             <div class="chapter-copy reveal">
-              <p class="stage-mark"><span>Stage 04 / 04 · Connect</span><span class="stage-mark-bar" aria-hidden="true"><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i></span></p>
+              <p class="stage-mark"><span>Stage 04 / 04 · Resolve</span><span class="stage-mark-bar" aria-hidden="true"><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i></span></p>
               <h3>Agents do not visit a courthouse.</h3>
               <p>
                 They call a tool. Kleros speaks their language: skills, structured interfaces,
@@ -476,7 +475,7 @@
               </button>
               <p class="form-status" data-contact-status aria-live="polite"></p>
             </div>
-            <p class="form-note">No mailing list. No automated sales sequence. Just a direct conversation.</p>
+            <p class="form-note"></p>
           </form>
         </div>
       </section>
@@ -485,8 +484,8 @@
     <nav class="stage-rail" aria-label="Lifecycle stages" data-stage-rail>
       <a href="#verify"><span class="stage-dot"></span><span class="stage-name">Verify</span></a>
       <a href="#transact"><span class="stage-dot"></span><span class="stage-name">Transact</span></a>
-      <a href="#resolve"><span class="stage-dot"></span><span class="stage-name">Resolve</span></a>
-      <a href="#connect"><span class="stage-dot"></span><span class="stage-name">Connect</span></a>
+      <a href="#resolve"><span class="stage-dot"></span><span class="stage-name">Optimize</span></a>
+      <a href="#connect"><span class="stage-dot"></span><span class="stage-name">Resolve</span></a>
     </nav>
 
     <footer class="site-footer shell">
