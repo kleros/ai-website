@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Secure payments from AI agents: check who they are and settle disputes with x402, MPP, escrow, and Kleros arbitration." />
+    <meta name="theme-color" content="#0a1220" />
+    <meta property="og:title" content="Payments, verification, and disputes for AI agents | Kleros" />
+    <meta property="og:description" content="Three endpoints instead of a checkout page, a signup form, and a support queue." />
+    <meta property="og:type" content="website" />
+    <title>Products C: Payments, verification, and disputes for agents | Kleros</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="products-c.css" />
+    <script src="app.js" defer></script>
+  </head>
+  <body class="pc-page" data-page="products-c">
+    <a class="pc-skip" href="#main">Skip to content</a>
+
+    <header class="pc-header" data-header>
+      <a class="pc-brand" href="/" aria-label="Kleros AI home">
+        <img src="logo-kleros-white.svg" alt="Kleros" />
+        <span>AI</span>
+      </a>
+      <nav class="pc-nav" aria-label="Products">
+        <a href="#protected-payment">Protected Payment</a>
+        <a href="#verification">Verification</a>
+        <a href="#disputes">Disputes</a>
+      </nav>
+      <a class="pc-header-cta" href="#product-contact">Talk to us <span aria-hidden="true">→</span></a>
+    </header>
+
+    <main id="main">
+      <section class="pc-hero">
+        <div class="pc-shell reveal">
+          <p class="pc-eyebrow">Kleros AI</p>
+          <h1>Secure payments from AI agents: Check who they are and settle what goes wrong.</h1>
+          <p class="pc-lead">One endpoint, instead of a checkout page, a signup form, and a support queue. Kleros holds the money, and when there is a dispute, a decentralized court rules on it.</p>
+          <div class="pc-hero-actions">
+            <a class="pc-button" href="#product-contact">Talk to us <span aria-hidden="true">→</span></a>
+            <a class="pc-textlink" href="#products">See the three products</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="pc-trusted" aria-label="Trusted by">
+        <div class="pc-shell pc-trusted-inner">
+          <h2>Trusted by</h2>
+          <div class="pc-trusted-logos">
+            <div class="pc-trusted-row pc-trusted-row-primary">
+              <img class="pc-logo pc-logo-eu" src="trusted-by-kleros.svg" alt="European Commission Blockchain for Social Good Prize" />
+              <img class="pc-logo pc-logo-thomson" src="trusted-thomson-reuters.svg" alt="Hosted by Thomson Reuters Incubator" />
+              <img class="pc-logo pc-logo-bpifrance" src="trusted-bpifrance.svg" alt="Bpifrance" />
+            </div>
+            <div class="pc-trusted-row pc-trusted-row-secondary">
+              <img class="pc-logo pc-logo-oxford" src="trusted-oxford.svg" alt="University of Oxford" />
+              <img class="pc-logo pc-logo-stanford" src="trusted-by-kleros.png" alt="Stanford Journal of Blockchain Law and Policy" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="pc-index" id="products">
+        <div class="pc-shell">
+          <div class="pc-index-head reveal">
+            <h2 class="pc-section-title">Three products.<br /> One court behind them.</h2>
+            <p>Take one, take all three. Nothing depends on anything else.</p>
+          </div>
+
+          <div class="pc-cards">
+            <a class="pc-card reveal" href="#protected-payment">
+              <span class="pc-card-no">01</span>
+              <strong>Protected Payment</strong>
+              <span class="pc-card-what">Agents pay your API directly.</span>
+              <span class="pc-card-built">x402 · MPP · escrow</span>
+            </a>
+            <a class="pc-card reveal" data-delay="80" href="#verification">
+              <span class="pc-card-no">02</span>
+              <strong>Verification</strong>
+              <span class="pc-card-what">Prove an agent meets your standard.</span>
+              <span class="pc-card-built">Identity · Curate · ERC-8004</span>
+            </a>
+            <a class="pc-card reveal" data-delay="160" href="#disputes">
+              <span class="pc-card-no">03</span>
+              <strong>Disputes</strong>
+              <span class="pc-card-what">Rule on the cases your rails can't.</span>
+              <span class="pc-card-built">ERC-792 arbitration · ERC-1497 evidence</span>
+            </a>
+          </div>
+
+          <div class="pc-converge reveal" aria-hidden="true"><i></i><i></i><i></i><b></b></div>
+          <p class="pc-court reveal"><strong>Kleros Court</strong><span>Decentralized rulings. Public, reasoned, appealable.</span></p>
+        </div>
+      </section>
+
+      <article class="pc-product" id="protected-payment">
+        <div class="pc-shell">
+          <p class="pc-label reveal"><b>01</b> Protected Payment</p>
+          <div class="pc-product-head reveal">
+            <h2>Payments agents can call, protected by default.</h2>
+            <p class="pc-lead">Agents don't open a browser. They call an endpoint, get a priced list, pay, and receive the goods. The money moves on agent-native rails and is held rather than pushed, and Kleros decides what happens when the delivery doesn't match the receipt.</p>
+          </div>
+
+          <ol class="pc-points reveal">
+            <li><strong>One call to browse</strong><span>A single request returns your complete catalogue with prices attached.</span></li>
+            <li><strong>Agentic Payment</strong><span>Any agent-native rail, with the funds held instead of pushed. The transaction can be contested by either party if something goes wrong.</span></li>
+            <li><strong>Arbitration, not a coin flip</strong><span>A contested payment doesn't reach a support queue or a default refund. It enters an arbitration process you designed: your policy, your evidence, your escalation tiers.</span></li>
+          </ol>
+
+          <p class="pc-specline reveal">settles per request · ships as HTTP middleware, an MCP server, an agent skill, or a CLI</p>
+          <a class="pc-button reveal" href="#product-contact" data-product-interest="Protected Payment: agent payments held in escrow">Talk about Protected Payment <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <article class="pc-product" id="verification">
+        <div class="pc-shell">
+          <p class="pc-label reveal"><b>02</b> Verification</p>
+          <div class="pc-product-head reveal">
+            <h2>Verification anyone can read, and anyone can challenge.</h2>
+            <p class="pc-lead">A list creator writes the standard. Anyone can apply against it. What comes out is a certification held on chain, plus a JSON object your code reads in one call: verified or not, and everything that was verified.</p>
+          </div>
+
+          <ol class="pc-points reveal">
+            <li><strong>The creator sets the standard</strong><span>Acceptance criteria and required fields are published up front. Open source, versioned, no admin key.</span></li>
+            <li><strong>Requesters apply</strong><span>An applicant submits their entry with a deposit. It is certified unless someone challenges it inside the window.</span></li>
+            <li><strong>Anyone can contest it</strong><span>Including a consumer who got burned downstream. Challenges go to jurors, who rule on whether to confirm or revoke the verified status.</span></li>
+          </ol>
+
+          <p class="pc-aside reveal">A shared standard is also the cheap path. Without one, every agent burns tokens, money, and time re-investigating who it can safely deal with. With one, it reads a single field and moves on.</p>
+
+          <p class="pc-specline reveal">fully on chain · read over REST or GraphQL · one field decides access: status = Registered</p>
+          <a class="pc-button reveal" href="#product-contact" data-product-interest="Verification: open registry with challenges">Talk about Verification <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <article class="pc-product" id="disputes">
+        <div class="pc-shell">
+          <p class="pc-label reveal"><b>03</b> Disputes</p>
+          <div class="pc-product-head reveal">
+            <h2>Keep your payment rails. Add dispute resolution.</h2>
+            <p class="pc-lead">Not every dispute sits next to a transaction or an agent-native payment method. A refund requested after a support thread. A flight cancelled months after it was billed. Bring the case, not the money.</p>
+          </div>
+
+          <ol class="pc-points reveal">
+            <li><strong>Smart contract</strong><span>Funds stay locked and release themselves when the ruling lands. No operator in the loop.</span></li>
+            <li><strong>Recognition of jurisdiction</strong><span>No chain integration at all. You commit up front to enforce the ruling; cases go over an API and come back decided. Fast, because enforcement was agreed in advance.</span></li>
+            <li><strong>Review sized to the case</strong><span>A dispute over a few cents shouldn't cost what a fifty thousand dollar one does. The reviewer scales with the stakes.</span></li>
+          </ol>
+
+          <div class="pc-costs reveal">
+            <div class="pc-costs-head">
+              <strong>Cost structure</strong>
+              <p>A deeper review is literally more model: longer context, more tokens, more passes, and more wall-clock time before a ruling comes back. So the tier is drawn from the amount at stake. A two cent dispute never pays for a two hundred dollar review.</p>
+            </div>
+
+            <figure class="pc-tiers" aria-label="Cost and latency by review tier">
+              <p class="pc-tiers-axis">tokens and cost per case</p>
+              <div class="pc-tier">
+                <span class="pc-tier-bar" style="--h: 22px"></span>
+                <strong>Instant model</strong>
+                <span class="pc-tier-what">One small model, single pass, no evidence round.</span>
+                <em>seconds · fractions of a cent</em>
+              </div>
+              <div class="pc-tier">
+                <span class="pc-tier-bar" style="--h: 48px"></span>
+                <strong>Advanced model panel</strong>
+                <span class="pc-tier-what">Larger models, several independent runs, evidence in context.</span>
+                <em>minutes · cents to dollars</em>
+              </div>
+              <div class="pc-tier">
+                <span class="pc-tier-bar" style="--h: 82px"></span>
+                <strong>Human jurors</strong>
+                <span class="pc-tier-what">Staked jurors, full evidence review, appealable rounds.</span>
+                <em>hours to days · dollars and up</em>
+              </div>
+              <figcaption>Indicative bands. You set the thresholds and which tier each one maps to.</figcaption>
+            </figure>
+          </div>
+
+          <p class="pc-specline reveal">Solidity or REST and webhook · appeals escalate to a larger panel</p>
+          <a class="pc-button reveal" href="#product-contact" data-product-interest="Disputes: arbitration on your existing rails">Talk about Disputes <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+
+      <section class="pc-contact" id="product-contact">
+        <div class="pc-shell pc-contact-layout">
+          <div class="pc-contact-copy reveal">
+            <h2>Tell us what agents should be able to do.</h2>
+            <p>Send us what you're exposing and where trust breaks today. You'll get the integration shape back, not a deck.</p>
+            <ul>
+              <li>An engineer on the first call</li>
+              <li>No sales sequence</li>
+              <li>Spec and testnet keys upfront</li>
+            </ul>
+          </div>
+
+          <form class="pc-form reveal" data-contact-form novalidate>
+            <div class="pc-form-row">
+              <label><span>Name</span><input type="text" name="name" autocomplete="name" maxlength="80" required placeholder="Your name" /></label>
+              <label><span>Work email</span><input type="email" name="email" autocomplete="email" maxlength="160" required placeholder="you@company.com" /></label>
+            </div>
+            <div class="pc-form-row">
+              <label><span>Company or project <em>optional</em></span><input type="text" name="organization" autocomplete="organization" maxlength="120" placeholder="Project name" /></label>
+              <label><span>Product</span><select name="interest" required data-product-select><option value="" selected disabled>Choose a starting point</option><option>Protected Payment: agent payments held in escrow</option><option>Verification: open registry with challenges</option><option>Disputes: arbitration on your existing rails</option><option>All three</option><option>Not sure yet</option></select></label>
+            </div>
+            <label><span>What are you building?</span><textarea name="message" rows="5" minlength="20" maxlength="3000" required placeholder="Your stack, your transaction sizes, and where disputes come from today."></textarea></label>
+            <label class="pc-honeypot" aria-hidden="true"><span>Website</span><input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+            <div class="pc-submit"><button class="pc-button" type="submit" data-contact-submit><span data-contact-submit-label>Send</span><span aria-hidden="true">→</span></button><p class="form-status" data-contact-status aria-live="polite"></p></div>
+            <p class="pc-form-note">No mailing list. No automated sequence. A direct conversation.</p>
+          </form>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
