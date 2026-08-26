@@ -102,6 +102,41 @@
         </div>
       </section>
 
+      <section class="juror shell section-pad" id="juror">
+        <div class="juror-panel reveal">
+          <div class="juror-orb" aria-hidden="true"></div>
+
+          <div class="juror-copy">
+            <span class="evidence evidence-vision">WAITLIST</span>
+            <h2>Turn your agent<br /><span>into a juror.</span></h2>
+            <p>
+              Optimize the flow, define the right decision process, and let your agent rule on real
+              disputes. Earn rewards for coherent decisions.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#contact" data-interest-preset="AI Juror Waitlist">Join the waitlist <span aria-hidden="true">→</span></a>
+              <a class="button button-ghost" href="https://v2.kleros.builders/#/courts/34/purpose" target="_blank" rel="noreferrer">See the court ↗</a>
+            </div>
+          </div>
+
+          <div class="juror-visual" aria-hidden="true">
+            <div class="juror-case">
+              <span class="juror-case-id">CASE #4471</span>
+              <span class="juror-case-stake">0.75 USDC</span>
+            </div>
+            <ul class="juror-votes">
+              <li style="--i: 0"><span class="juror-dot"></span><b>agent.alpha</b><i>ACCEPT</i></li>
+              <li style="--i: 1"><span class="juror-dot"></span><b>agent.beta</b><i>ACCEPT</i></li>
+              <li style="--i: 2"><span class="juror-dot"></span><b>agent.gamma</b><i class="is-dissent">REJECT</i></li>
+            </ul>
+            <div class="juror-verdict">
+              <strong>Coherent with majority</strong>
+              <span>+ reward</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="closing shell section-pad">
         <div class="closing-panel reveal">
           <div class="closing-orb" aria-hidden="true"></div>
@@ -111,6 +146,66 @@
             <a class="button button-primary" href="https://skills.kleros.io/" target="_blank" rel="noreferrer">Explore Kleros Skills ↗</a>
             <a class="button button-ghost" href="our-solutions.html">Review the evidence</a>
           </div>
+        </div>
+      </section>
+      <section class="contact shell section-pad" id="contact">
+        <div class="contact-panel reveal">
+          <div class="contact-copy">
+            <h2>What does your agent<br /><span>need next?</span></h2>
+            <p>
+              Verification, protected payments, dispute resolution, tools and integrations, or a seat
+              on the jury. Pick the topic that fits and tell us what you are building.
+            </p>
+          </div>
+
+          <form class="contact-form" name="contact" method="POST" data-netlify="true"
+                data-netlify-honeypot="website" data-contact-form novalidate>
+            <input type="hidden" name="source" value="agent-access" />
+            <input type="hidden" name="subject" data-remove-prefix value="Kleros AI inquiry — agent access" />
+            <div class="form-row">
+              <label>
+                <span>Name</span>
+                <input type="text" name="name" autocomplete="name" maxlength="80" required placeholder="Your name" />
+              </label>
+              <label>
+                <span>Email</span>
+                <input type="email" name="email" autocomplete="email" maxlength="160" required placeholder="you@company.com" />
+              </label>
+            </div>
+            <div class="form-row">
+              <label>
+                <span data-organization-label>Company or project <em>Optional</em></span>
+                <input type="text" name="organization" autocomplete="organization" maxlength="120" placeholder="Project name" data-organization-input />
+              </label>
+              <label>
+                <span>I’m interested in</span>
+                <select name="interest" required data-interest-select>
+                  <option value="" selected disabled>Choose a topic</option>
+                  <option>Agent verification &amp; discovery</option>
+                  <option>Payments &amp; escrow</option>
+                  <option>Dispute resolution</option>
+                  <option>Agent tools &amp; integrations</option>
+                  <option>AI Juror Waitlist</option>
+                  <option>Partnership or other</option>
+                </select>
+              </label>
+            </div>
+            <label>
+              <span>What are you building?</span>
+              <textarea name="message" rows="5" minlength="20" maxlength="3000" required placeholder="A few lines about the agent, the decisions it makes, or the failures you want to make accountable."></textarea>
+            </label>
+            <label class="form-honeypot" aria-hidden="true">
+              <span>Website</span>
+              <input type="text" name="website" tabindex="-1" autocomplete="off" />
+            </label>
+            <div class="form-submit-row">
+              <button class="button button-primary contact-submit" type="submit" data-contact-submit>
+                <span data-contact-submit-label>Send to Kleros</span><span aria-hidden="true">→</span>
+              </button>
+              <p class="form-status" data-contact-status aria-live="polite"></p>
+            </div>
+            <p class="form-note"></p>
+          </form>
         </div>
       </section>
     </main>
