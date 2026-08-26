@@ -262,7 +262,10 @@
             </div>
           </div>
 
-          <form class="contact-form" data-contact-form novalidate>
+          <form class="contact-form" name="contact" method="POST" data-netlify="true"
+                data-netlify-honeypot="website" data-contact-form novalidate>
+            <input type="hidden" name="source" value="products-a" />
+            <input type="hidden" name="subject" data-remove-prefix value="Kleros AI inquiry — products A" />
             <div class="form-row">
               <label>
                 <span>Name</span>

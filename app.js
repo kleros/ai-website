@@ -267,20 +267,22 @@ contactForm?.addEventListener("submit", async (event) => {
   setContactStatus("Sending securely…");
 
   try {
-    const payload = Object.fromEntries(new FormData(contactForm).entries());
-    const response = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
-    const result = await response.json().catch(() => ({}));
+    const formData = new FormData(contactForm);
+    formData.set("form-name", contactForm.getAttribute("name") || "contact");
 
-    if (!response.ok) throw new Error(result.error || "Message could not be sent.");
+    const response = await fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
+    });
+
+    if (!response.ok) throw new Error("Message could not be sent.");
 
     contactForm.reset();
     setContactStatus("Message sent. The Kleros team will be in touch.", "success");
   } catch (error) {
-    setContactStatus(error.message || "Message could not be sent. Email ai@kleros.io directly.", "error");
+    console.error("Contact form submission failed", error);
+    setContactStatus("Message could not be sent. Email ai@kleros.io directly.", "error");
   } finally {
     contactSubmit.disabled = false;
     contactSubmitLabel.textContent = contactSubmitDefaultLabel;

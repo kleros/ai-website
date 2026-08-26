@@ -196,7 +196,10 @@
             </ul>
           </div>
 
-          <form class="pc-form reveal" data-contact-form novalidate>
+          <form class="pc-form reveal" name="contact" method="POST" data-netlify="true"
+                data-netlify-honeypot="website" data-contact-form novalidate>
+            <input type="hidden" name="source" value="products-c" />
+            <input type="hidden" name="subject" data-remove-prefix value="Kleros AI inquiry — products C" />
             <div class="pc-form-row">
               <label><span>Name</span><input type="text" name="name" autocomplete="name" maxlength="80" required placeholder="Your name" /></label>
               <label><span>Work email</span><input type="email" name="email" autocomplete="email" maxlength="160" required placeholder="you@company.com" /></label>
