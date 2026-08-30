@@ -13,3 +13,32 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# --- Agent Skills discovery (RFC v0.2.0) -------------------------------------
+# The conventional well-known path serves the same bytes as the canonical URL,
+# so the single digest in index.json validates at either location.
+[[redirects]]
+  from = "/.well-known/agent-skills/agentkit-onboarding/SKILL.md"
+  to = "/agentkit-onboarding/skill.md"
+  status = 200
+
+[[headers]]
+  for = "/.well-known/agent-skills/index.json"
+  [headers.values]
+    Content-Type = "application/json; charset=utf-8"
+    Access-Control-Allow-Origin = "*"
+    Cache-Control = "public, max-age=300"
+
+[[headers]]
+  for = "/agentkit-onboarding/skill.md"
+  [headers.values]
+    Content-Type = "text/markdown; charset=utf-8"
+    Access-Control-Allow-Origin = "*"
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/.well-known/agent-skills/agentkit-onboarding/SKILL.md"
+  [headers.values]
+    Content-Type = "text/markdown; charset=utf-8"
+    Access-Control-Allow-Origin = "*"
+    Cache-Control = "public, max-age=3600"

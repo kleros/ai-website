@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "agentkit-onboarding",
+      "type": "skill-md",
+      "description": "Install Kleros AgentKit (@kleros/agentkit), the CLI/MCP toolkit for the Kleros dispute resolution protocol, and its companion skill. Use when setting up or onboarding onto Kleros AgentKit. Covers installation only — usage guidance comes from the companion skill this installs. Not Coinbase AgentKit.",
+      "url": "https://ai.kleros.io/agentkit-onboarding/skill.md",
+      "digest": "sha256:8a1042c5c923c78244de33a80df9b64f770c018bdf63999c29379ef4eb44ce57"
+    }
+  ]
+}
