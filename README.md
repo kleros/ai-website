@@ -41,3 +41,15 @@ Form detection is **off by default** — without step 1 no submissions are recor
 2. **Project configuration → Notifications → Emails and webhooks → Form submission notifications → Add notification → Email**, and set the recipient address.
 
 The notification's `Reply-to` is set automatically from the form's `email` field, so replying to a notification reaches the submitter. If the inbox attracts spam, enable the reCAPTCHA 2 challenge under Netlify's form spam-filter settings.
+
+## Agent skills
+
+An [Agent Skills discovery index](https://github.com/cloudflare/agent-skills-discovery-rfc) (RFC v0.2.0), so agents can find Kleros' skills unprompted.
+
+- `.well-known/agent-skills/index.json` — the index. One entry today.
+- `agentkit-onboarding/skill.md` — installing `@kleros/agentkit`. `netlify.toml` also serves it at the conventional `/.well-known/agent-skills/agentkit-onboarding/SKILL.md`, so one digest covers both URLs.
+- `scripts/update-digests.js` — after editing any skill, run it and commit the rewritten index.
+
+Clients reject a skill whose bytes don't match its `digest`, and route on its `description`. The script syncs both from the file; a `name` mismatch it only warns about.
+
+Keep `skill.md` to the install path — usage guidance belongs to the companion skill `kleros skills add` installs, which ships with the package and stays current. Claims about AgentKit are governed by `LANDING_PAGE_HANDOFF.md` §3.6–3.7.
