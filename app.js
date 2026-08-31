@@ -230,6 +230,33 @@ document.querySelectorAll("[data-product-interest]").forEach((link) => {
   });
 });
 
+const interestSelect = document.querySelector("[data-interest-select]");
+const organizationLabel = document.querySelector("[data-organization-label]");
+const organizationInput = document.querySelector("[data-organization-input]");
+const JUROR_WAITLIST = "AI Juror Waitlist";
+
+const syncOrganizationField = () => {
+  if (!interestSelect || !organizationLabel || !organizationInput) return;
+  const waitlist = interestSelect.value === JUROR_WAITLIST;
+  organizationLabel.innerHTML = waitlist
+    ? "Telegram or X handle <em>Optional</em>"
+    : "Company or project <em>Optional</em>";
+  organizationInput.placeholder = waitlist ? "@yourhandle" : "Project name";
+  organizationInput.autocomplete = waitlist ? "off" : "organization";
+};
+
+interestSelect?.addEventListener("change", syncOrganizationField);
+syncOrganizationField();
+
+document.querySelectorAll("[data-interest-preset]").forEach((link) => {
+  link.addEventListener("click", () => {
+    if (!interestSelect) return;
+    interestSelect.value = link.dataset.interestPreset;
+    interestSelect.classList.remove("is-invalid");
+    syncOrganizationField();
+  });
+});
+
 const contactForm = document.querySelector("[data-contact-form]");
 const contactSubmit = document.querySelector("[data-contact-submit]");
 const contactSubmitLabel = document.querySelector("[data-contact-submit-label]");

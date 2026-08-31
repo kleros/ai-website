@@ -186,7 +186,7 @@
                 <li>Post collateral against false claims.</li>
                 <li>Grant access only while the agent complies.</li>
               </ul>
-              <a class="text-link" href="https://kscore.vercel.app/verified" target="_blank" rel="noreferrer">
+              <a class="text-link" href="https://agent-reputation.kleros.io/verified" target="_blank" rel="noreferrer">
                 Open the verified-agent registry <span>↗</span>
               </a>
             </div>
@@ -344,7 +344,7 @@
           <article class="chapter chapter-connect" id="connect" data-lifecycle-section="connect">
             <div class="chapter-copy reveal">
               <p class="stage-mark"><span>Stage 04 / 04 · Resolve</span><span class="stage-mark-bar" aria-hidden="true"><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i><i class="is-on"></i></span></p>
-              <h3>Agents do not visit a courthouse.</h3>
+              <h3>Agents are not designed to walk into a courthouse.</h3>
               <p>
                 They call a tool. Kleros speaks their language: skills, structured interfaces,
                 agent-friendly commands.
@@ -384,16 +384,16 @@
       <section class="proof-strip section-pad" id="proof">
         <div class="shell">
           <div class="section-intro section-intro-wide reveal">
-            <h2>See the pieces already moving.</h2>
-            <p>Live interfaces, public prototypes, research, and working court infrastructure.</p>
+            <h2>See them in action and interact now.</h2>
+            <p>Live interfaces, public prototypes, research, and a working agentic court.</p>
           </div>
           <div class="proof-grid">
-            <a class="proof-card reveal" href="https://kscore.vercel.app/verified" target="_blank" rel="noreferrer">
+            <a class="proof-card reveal" href="https://agent-reputation.kleros.io/verified" target="_blank" rel="noreferrer">
               <div class="proof-card-top"><span class="evidence evidence-public">PUBLIC TESTNET</span><span>↗</span></div>
               <div class="proof-icon proof-icon-verify">✓</div>
               <h3>Verified agents</h3>
               <p>Discover, collateralize, and evaluate ERC-8004 agents through open registries.</p>
-              <strong>KSCORE</strong>
+              <strong>AGENT REPUTATION</strong>
             </a>
             <a class="proof-card reveal" data-delay="50" href="https://trivium.eth.limo/" target="_blank" rel="noreferrer">
               <div class="proof-card-top"><span class="evidence evidence-prototype">PUBLIC PROTOTYPE</span><span>↗</span></div>
@@ -402,12 +402,12 @@
               <p>Nine independent analyses expose agreement, disagreement, and ambiguity.</p>
               <strong>TRIAGE PROTOTYPE</strong>
             </a>
-            <a class="proof-card reveal" data-delay="100" href="https://v2.kleros.builders/#/courts/31/purpose" target="_blank" rel="noreferrer">
+            <a class="proof-card reveal" data-delay="100" href="https://v2.kleros.builders/#/courts/34/purpose" target="_blank" rel="noreferrer">
               <div class="proof-card-top"><span class="evidence evidence-live">LIVE COURT</span><span>↗</span></div>
               <div class="proof-icon proof-icon-court">◇</div>
               <h3>Fast automated court</h3>
               <p>A court designed for micro-tasks, short timeframes, and rapid agent jurors.</p>
-              <strong>COURT #31</strong>
+              <strong>COURT #34</strong>
             </a>
             <a class="proof-card reveal" data-delay="150" href="https://skills.kleros.io/" target="_blank" rel="noreferrer">
               <div class="proof-card-top"><span class="evidence evidence-live">LIVE TOOLS</span><span>↗</span></div>
@@ -443,23 +443,24 @@
                 <input type="text" name="name" autocomplete="name" maxlength="80" required placeholder="Your name" />
               </label>
               <label>
-                <span>Work email</span>
+                <span>Email</span>
                 <input type="email" name="email" autocomplete="email" maxlength="160" required placeholder="you@company.com" />
               </label>
             </div>
             <div class="form-row">
               <label>
-                <span>Company or project <em>Optional</em></span>
-                <input type="text" name="organization" autocomplete="organization" maxlength="120" placeholder="Project name" />
+                <span data-organization-label>Company or project <em>Optional</em></span>
+                <input type="text" name="organization" autocomplete="organization" maxlength="120" placeholder="Project name" data-organization-input />
               </label>
               <label>
                 <span>I’m interested in</span>
-                <select name="interest" required>
+                <select name="interest" required data-interest-select>
                   <option value="" selected disabled>Choose a topic</option>
                   <option>Agent verification &amp; discovery</option>
                   <option>Payments &amp; escrow</option>
                   <option>Dispute resolution</option>
                   <option>Agent tools &amp; integrations</option>
+                  <option>AI Juror Waitlist</option>
                   <option>Partnership or other</option>
                 </select>
               </label>
