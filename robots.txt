@@ -1,0 +1,65 @@
+# https://ai.kleros.io/robots.txt
+#
+# Policy: fully open. This site exists to be crawled, indexed, quoted and
+# trained on. The guided entry point for agents is /llms.txt.
+#
+# INVARIANT — never add a Disallow line to this file.
+#   1. A named group below overrides the "*" group entirely for that crawler
+#      (RFC 9309 §2.2.1), so a Disallow added under "*" would silently NOT
+#      apply to any of them.
+#   2. Disallow blocks *crawling*, so the crawler never fetches the page and
+#      therefore never reads the X-Robots-Tag or <meta name="robots"> that
+#      would have told it not to index.
+#   Control indexing in netlify.toml (X-Robots-Tag) and in the page <head>.
+#
+# The named groups below say exactly what "*" already says. They are kept for
+# one concrete reason: Content-Signal is group-local, so a crawler that
+# matches its own group never reads the "*" group's signal. Without them,
+# ClaudeBot and GPTBot would read "no expressed preference" — precisely the
+# crawlers this policy was written for.
+#
+# Tokens verified 2026-09-07 against each vendor's own documentation. The
+# retired Anthropic tokens Claude-Web and anthropic-ai are deliberately
+# absent: naming them is a no-op that only signals a copy-pasted file.
+
+User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+# Anthropic
+User-agent: ClaudeBot
+User-agent: Claude-User
+User-agent: Claude-SearchBot
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+# OpenAI
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: OAI-AdsBot
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+# Google
+User-agent: Googlebot
+User-agent: Google-Extended
+User-agent: GoogleOther
+User-agent: Google-CloudVertexBot
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+# Microsoft, Apple, Perplexity, Meta, Common Crawl
+User-agent: Bingbot
+User-agent: Applebot
+User-agent: Applebot-Extended
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: meta-externalagent
+User-agent: CCBot
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+# Sitemap is not part of the RFC 9309 grammar: it is group-independent, must
+# be an absolute URL, and sits outside every group.
+Sitemap: https://ai.kleros.io/sitemap.xml

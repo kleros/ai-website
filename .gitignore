@@ -1,0 +1,15 @@
+# The Netlify publish directory is the repository root, so committing a file
+# publishes it at https://ai.kleros.io/<path>. These are internal working
+# documents — unpublished launch blockers, private-repo status, risk
+# assessments and design handoffs — and must not be served.
+#
+# README.md and CLAUDE.md are deliberately NOT listed: README.md is tracked and
+# public on purpose, and CLAUDE.md is a separate open decision.
+
+LANDING_PAGE_HANDOFF.md
+TASKS.md
+DESIGN_HANDOFF_*.md
+DESIGN_REVISION_*.md
+agent-readiness.md
+
+.DS_Store

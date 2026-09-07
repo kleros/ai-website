@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Hand-maintained. Three live pages, canonical extensionless form only.
+
+  EXCLUDED ON PURPOSE: the three unlinked A/B product variants carry
+  <meta name="robots" content="noindex,follow">. Listing them here would
+  contradict that tag and earn a Search Console warning.
+
+  changefreq and priority are omitted: Google ignores both.
+
+  lastmod policy: the date of the last commit that changed that page's
+  CONTENT. Do NOT bump it for a CSS tweak, a metadata change, or a deploy.
+  Google uses lastmod only while it judges the value trustworthy, and
+  blanket-bumping all three on every deploy is how a site teaches Google to
+  ignore the field entirely.
+
+  To see when each page last changed, run scripts/check-sitemap-lastmod.sh
+  and decide, per page, whether the change was substantive.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://ai.kleros.io/</loc>
+    <lastmod>2026-08-26</lastmod>
+  </url>
+  <url>
+    <loc>https://ai.kleros.io/our-solutions</loc>
+    <lastmod>2026-08-26</lastmod>
+  </url>
+  <url>
+    <loc>https://ai.kleros.io/builders</loc>
+    <lastmod>2026-08-26</lastmod>
+  </url>
+</urlset>

@@ -13,10 +13,61 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    # RFC 8288. Two registered relations; there is no registered rel for agent
+    # skills, MCP, AI or LLM, and RFC 8288 forbids unregistered bare tokens (a
+    # custom relation must be a full URI, which nothing would parse).
+    #   service-desc (RFC 8631) — machine-consumable service description.
+    #   describedby  (RFC 6892) — a resource providing information about this one.
+    # NOT rel="alternate" for llms.txt: that would assert llms.txt is another
+    # representation *of this page*, which is false — it is a site-wide index.
+    # Reserve alternate;type=text/markdown for a real per-page .md twin.
+    # NOT rel="sitemap": not in the IANA registry. Sitemap discovery is via
+    # robots.txt only.
+    # Honest expectation: nothing in the wild reads these for discovery today.
+    Link = '''</.well-known/agent-skills/index.json>; rel="service-desc"; type="application/json", </llms.txt>; rel="describedby"; type="text/markdown"'''
+
+# --- Discovery files ---------------------------------------------------------
+# robots.txt (text/plain) and sitemap.xml (application/xml) need no rule —
+# Netlify's defaults are already correct. llms.txt would default to text/plain;
+# skills.kleros.io serves its own as text/markdown, so match the sibling.
+[[headers]]
+  for = "/llms.txt"
+  [headers.values]
+    Content-Type = "text/markdown; charset=utf-8"
+    Access-Control-Allow-Origin = "*"
+    Cache-Control = "public, max-age=300"
+
+# The publish dir is the repo root, so these are public URLs. They are
+# reference material, not pages. noindex rather than a robots.txt Disallow: a
+# disallowed URL is never fetched, so this header would never be read, and the
+# URL could still surface in search from an external link.
+[[headers]]
+  for = "/README.md"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/scripts/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+
+# The card is content-addressed by filename — a revision ships as
+# og-card-2.png rather than overwriting — so it can be cached hard.
+[[headers]]
+  for = "/og-card.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
 
 # --- Agent Skills discovery (RFC v0.2.0) -------------------------------------
 # The conventional well-known path serves the same bytes as the canonical URL,
 # so the single digest in index.json validates at either location.
+#
+# One block per skill, by design. Generalise to
+#   from = "/.well-known/agent-skills/:skill/SKILL.md"  ->  to = "/:skill/skill.md"
+# (plus the matching [[headers]] rule) when a THIRD skill lands — a placeholder
+# rule cannot be verified against a skill that does not exist yet, and adding a
+# second skill already means editing index.json and re-running
+# scripts/update-digests.js in the same sitting.
 [[redirects]]
   from = "/.well-known/agent-skills/agentkit-onboarding/SKILL.md"
   to = "/agentkit-onboarding/skill.md"

@@ -11,6 +11,22 @@ A static minisite explaining the Kleros trust stack for AI agents. No framework,
 - `our-solutions.html` — live tools, prototypes, courts, and research (`/proof` redirects here)
 - `builders.html` — Agent Access: how agents use Kleros through practical access layers
 
+The canonical URL of every page is the **extensionless** form (`/our-solutions`, not `/our-solutions.html`); `netlify.toml` 301s the `.html` form to it. Internal links must use the extensionless form too.
+
+The three `products-*` pages are unlinked A/B variants. They carry `noindex,follow` and are deliberately excluded from `sitemap.xml`.
+
+**When you change the copy on a live page, update its `<lastmod>` in `sitemap.xml`** — nothing does it for you. Run `./scripts/check-sitemap-lastmod.sh` to see which pages have drifted. Only bump for substantive content changes: a stale date is harmless, but bumping all three on every deploy teaches Google to ignore the field.
+
+## Discovery files
+
+Three hand-maintained files at the root, for crawlers and agents:
+
+- `robots.txt` — fully open, including AI training (`Content-Signal: search=yes, ai-input=yes, ai-train=yes`). **Never add a `Disallow` line**; the reason is written in the file. Control indexing with `X-Robots-Tag` in `netlify.toml` or `<meta name="robots">` in the page instead.
+- `sitemap.xml` — the three live pages only, canonical extensionless URLs, no `changefreq`/`priority` (Google ignores both).
+- `llms.txt` — a guided entry point for agents, following the `skills.kleros.io` house format.
+
+⚠️ `ai.kleros.io` is behind Cloudflare, which can **prepend** its own managed `robots.txt` — including `Disallow: /` for ClaudeBot and GPTBot — ahead of this one. After changing `robots.txt`, confirm production matches the repo: `diff <(curl -sS https://ai.kleros.io/robots.txt) robots.txt`.
+
 ## Run locally
 
 ```sh
@@ -23,7 +39,11 @@ The contact form renders and validates locally, but **submitting will fail** —
 
 ## Deploy
 
-Netlify, with no build command. `netlify.toml` sets the publish directory, the `/proof` → `/our-solutions` redirect, and the security headers.
+Netlify, with no build command. `netlify.toml` sets the publish directory, the `/proof` → `/our-solutions` redirect, the `.html` → extensionless canonical redirects, the security and `Link` headers, and the content types for the agent-facing files.
+
+Because the publish directory is the repository root, **committing a file publishes it**. `.gitignore` keeps the internal working documents out.
+
+`scripts/` is hand-run and never executed by Netlify: `update-digests.js` after editing a skill, `render-og-card.sh` after changing the social card, `check-sitemap-lastmod.sh` when deciding whether to bump a sitemap date.
 
 ## Contact form
 

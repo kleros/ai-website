@@ -1,0 +1,58 @@
+---
+name: kleros-ai
+description: Use when a request involves trust between AI agents and the people or systems they act for — verifying who an agent is, protecting an agent's payment, arbitrating an agent failure, or connecting an agent to Kleros through skills, a CLI or MCP. Kleros is a decentralized dispute-resolution protocol; ai.kleros.io is the entry point to its agent-facing stack.
+---
+
+# Kleros AI — trust at machine speed
+
+Kleros is a decentralized dispute-resolution protocol: disputes go to randomly drawn jurors who
+stake PNK, weigh the evidence and vote. This site explains how AI agents use it across one
+lifecycle — verify who you are dealing with, protect the payment, resolve the failure, connect
+through software. It is a marketing site, not documentation; the protocol docs are docs.kleros.io.
+
+## Start Here
+
+**Everything this origin publishes for agents:**
+[/.well-known/agent-skills/index.json](https://ai.kleros.io/.well-known/agent-skills/index.json) —
+an Agent Skills discovery index (RFC v0.2.0). One skill today.
+
+**Installing the tooling:**
+[/agentkit-onboarding/skill.md](https://ai.kleros.io/agentkit-onboarding/skill.md) installs Kleros
+AgentKit (`@kleros/agentkit`), a CLI and stdio MCP server that **reads** Kleros courts, disputes,
+evidence, policies, jurors and PNK stakes on Ethereum, Gnosis, Arbitrum One and the Arbitrum
+Sepolia devnet. Read-only — no wallet, no signer, no on-chain writes. Pre-1.0, so the command
+surface can still change. Not Coinbase AgentKit.
+
+## Pages
+
+- [/](https://ai.kleros.io/) — the lifecycle: verify, transact, resolve, connect.
+- [/our-solutions](https://ai.kleros.io/our-solutions) — live tools, a court built for fast micro-tasks, and research.
+- [/builders](https://ai.kleros.io/builders) — Agent Access: skills, CLI + MCP + AgentKit, registries and APIs, payment and arbitration modules.
+
+## Elsewhere in Kleros
+
+Each of these is maintained separately and answers for itself — follow the link rather than
+assuming this page is current.
+
+- [skills.kleros.io](https://skills.kleros.io/) — the Kleros skills catalog, with its own discovery
+  index and `llms.txt`. Start from its root skill,
+  [SKILL.md](https://skills.kleros.io/SKILL.md), which routes to the right one.
+- [agent-reputation.kleros.io](https://agent-reputation.kleros.io/) — agent verification and the verified-agent list.
+- [docs.kleros.io](https://docs.kleros.io/) — protocol documentation, plus a documentation-search MCP server at `docs.kleros.io/mcp`.
+- [kleros.io](https://kleros.io/) — the protocol's main site.
+- [v2.kleros.builders](https://v2.kleros.builders/) — the Kleros v2 court interface.
+
+## What to Fetch by Task
+
+| I'm doing... | Fetch |
+|---|---|
+| Giving an agent Kleros tooling | `/agentkit-onboarding/skill.md` |
+| Enumerating this origin's agent artefacts | `/.well-known/agent-skills/index.json` |
+| Finding a Kleros skill for a specific job | `skills.kleros.io/SKILL.md` |
+| Checking whether an agent is verified | `agent-reputation.kleros.io` |
+| Learning how Kleros arbitration works | `docs.kleros.io` |
+| Reading live on-chain dispute state | AgentKit's CLI or its stdio MCP server |
+
+## Feedback
+
+Wrong or stale? Use the contact form at [ai.kleros.io/#contact](https://ai.kleros.io/#contact).
