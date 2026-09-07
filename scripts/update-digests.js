@@ -18,6 +18,8 @@ const { resolve } = require("path");
 
 const ROOT = resolve(__dirname, "..");
 const INDEX_PATH = resolve(ROOT, ".well-known/agent-skills/index.json");
+const SITE = "https://ai.kleros.io";
+const SITE_ORIGIN = new URL(SITE).origin;
 
 // Reads `name` and `description` out of a SKILL.md YAML frontmatter block.
 //
@@ -96,7 +98,21 @@ const index = JSON.parse(readFileSync(INDEX_PATH, "utf8"));
 let changed = 0;
 
 for (const skill of index.skills) {
-  const urlPath = new URL(skill.url, "https://ai.kleros.io").pathname;
+  const url = new URL(skill.url, SITE);
+
+  // Only this site's own files can be hashed from this repo. Without this
+  // guard the host is silently discarded and the pathname is resolved against
+  // ROOT, so an entry pointing at another origin reads whatever local file
+  // happens to sit at that path — and on a case-insensitive filesystem
+  // `.../agentkit-onboarding/SKILL.md` matches our own `skill.md`. That would
+  // write both a wrong digest and a wrong description under a routine-looking
+  // UPD line. Report and move on instead.
+  if (url.origin !== SITE_ORIGIN) {
+    console.log(`  SKIP  ${skill.name} — ${url.origin} is not this site; digest not verified`);
+    continue;
+  }
+
+  const urlPath = url.pathname;
   const filePath = resolve(ROOT, urlPath.replace(/^\//, ""));
 
   let content;
