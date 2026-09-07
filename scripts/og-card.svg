@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!--
+    Kleros AI social card — source of truth for og-card.png at the repo root.
+
+    Hand-run, NOT a build step (same exception as scripts/update-digests.js).
+    Regenerate with scripts/render-og-card.sh, which sandboxes the two Google
+    fonts so nothing has to be installed system-wide.
+
+    Colours and type mirror :root and .text-gradient in styles.css:
+      night #090614   ink #f7f5ff   muted #a49eb8   muted-2 #777087
+      purple #865bff  violet #5a22dc
+      text-gradient   linear-gradient(105deg, #fff 2%, #a68aff 48%, #65dfff 98%)
+    Keep them in sync by hand. (Token names are written without their leading
+    CSS double hyphen because XML comments may not contain one.)
+
+    The emblem path is favicon.svg's, reused unmodified.
+  -->
+  <defs>
+    <linearGradient id="headline" x1="0" y1="0" x2="1" y2="0.26">
+      <stop offset="0.02" stop-color="#ffffff"/>
+      <stop offset="0.48" stop-color="#a68aff"/>
+      <stop offset="0.98" stop-color="#65dfff"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.82" cy="0.08" r="0.62">
+      <stop offset="0" stop-color="#5a22dc" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#5a22dc" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="#090614"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+
+  <!-- emblem, from favicon.svg -->
+  <g transform="translate(80 58) scale(0.86)" fill="#f7f5ff">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M42.6705 1.49354L15.7143 0.290039L0 19.9178L11.111 46.2282L38.2159 47.9398L53.6205 25.7715L42.6705 1.49354ZM15.9677 22.8233L35.5115 14.2859L32.6721 35.7602L15.9677 22.8233ZM17.6325 3.26712L33.2477 9.9924L14.3566 17.4282L17.6325 3.26712ZM12.3283 26.8772L29.2888 39.0155L12.7414 43.3351L12.3283 26.8772ZM39.341 13.9706L50.9078 25.6875L36.2702 36.5603L39.341 13.9706ZM18.9531 45.3993L33.2587 41.6249L35.7869 46.483L18.9531 45.3993ZM36.1174 40.3911L48.6481 31.0605L38.6111 45.2629L36.1174 40.3911ZM40.2718 9.8905L42.727 4.88647L49.3339 19.0971L40.2718 9.8905ZM23.7574 1.84743L39.6549 2.49187L36.8789 7.58677L23.7574 1.84743ZM2.27618 18.8892L13.412 4.8011L9.72714 20.47L2.27618 18.8892ZM1.78735 21.6281L9.27686 23.2116L9.5743 40.0592L1.78735 21.6281Z"/>
+  </g>
+
+  <text x="158" y="96" fill="#f7f5ff" font-family="DM Mono" font-size="26"
+        letter-spacing="5.2">KLEROS AI</text>
+
+  <text x="78" y="312" font-family="Manrope" font-weight="500" font-size="94"
+        letter-spacing="-5" word-spacing="14" fill="#f7f5ff">Trust at</text>
+  <text x="78" y="410" font-family="Manrope" font-weight="500" font-size="94"
+        letter-spacing="-5" word-spacing="14" fill="url(#headline)">Machine Speed.</text>
+
+  <text x="80" y="492" font-family="DM Mono" font-size="24" fill="#a49eb8"
+        letter-spacing="0.2">Verification · Protected payments · Dispute resolution</text>
+
+  <rect x="80" y="536" width="64" height="2" fill="#865bff"/>
+  <text x="80" y="582" font-family="DM Mono" font-size="22" fill="#777087"
+        letter-spacing="1.8">ai.kleros.io</text>
+</svg>
