@@ -7,6 +7,60 @@
   status = 301
   force = true
 
+# --- Canonical URL collapse --------------------------------------------------
+# Netlify serves both /page and /page.html with a 200 and no redirect either
+# way, so every page had at least two live URLs. The extensionless form is
+# canonical: it is the Netlify idiom, and it is already what /proof targets —
+# canonicalising on .html instead would have turned that into a two-hop chain.
+#
+# force = true is REQUIRED. Netlify skips any redirect whose `from` matches an
+# existing static file, and every one of these does.
+#
+# No loop: the rule matches the REQUEST path. When the browser then asks for
+# /our-solutions, Netlify resolves our-solutions.html through asset lookup
+# without re-entering the redirect engine, and no rule has that `from`.
+# Verify on a deploy preview anyway — a 301 on an extensionless form means a
+# loop, and the fix is to delete that one rule (the canonical tags already
+# solve the duplicate-content problem on their own).
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/our-solutions.html"
+  to = "/our-solutions"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/builders.html"
+  to = "/builders"
+  status = 301
+  force = true
+
+# The A/B variants are unlinked and noindex, but each declares an extensionless
+# canonical, so the .html form redirects to it for consistency. Their addresses
+# are otherwise unchanged — they are still reached by pasted direct URL.
+[[redirects]]
+  from = "/products.html"
+  to = "/products"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/products-b.html"
+  to = "/products-b"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/products-c.html"
+  to = "/products-c"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]
